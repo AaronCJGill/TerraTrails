@@ -2253,6 +2253,14 @@ MonoBehaviour:
     randomPosition: 1
     spawnPoint: {x: 0, y: 0}
     waitTime: 0
+  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
+    randomPosition: 1
+    spawnPoint: {x: 0, y: 0}
+    waitTime: 0
+  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
+    randomPosition: 1
+    spawnPoint: {x: 0, y: 0}
+    waitTime: 0
   GameSpawnList:
   - enemyPrefab: {fileID: 2956250014916208435, guid: 924aba5fa98d01d4fbf652f972fd62c7, type: 3}
     randomPosition: 0
