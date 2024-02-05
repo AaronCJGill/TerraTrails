@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1530414826695970902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8499689223386911721}
+  - component: {fileID: 4751632042218581666}
+  - component: {fileID: 1862599075770196276}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8499689223386911721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530414826695970902}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0846422, y: 4.3541646, z: -0.03803253}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4751632042218581666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530414826695970902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6286c56ba01555b4e85853f67361fc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimed: 1
+  timerAmount: 15
+--- !u!114 &1862599075770196276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530414826695970902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4abab2d9e4b837438e991aa984a7911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartSpawnList: []
+  GameSpawnList:
+  - enemyPrefab: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    randomPosition: 1
+    spawnPoint: {x: 0, y: 0}
+    waitTime: 5
+  - enemyPrefab: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    randomPosition: 0
+    spawnPoint: {x: 0, y: 0}
+    waitTime: 5
+  - enemyPrefab: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    randomPosition: 0
+    spawnPoint: {x: 0, y: 0}
+    waitTime: 5
+  UseGameSpawnList: 1
+  SpawnRoutineRestarts: 1
+  SpawnedEnemies: []

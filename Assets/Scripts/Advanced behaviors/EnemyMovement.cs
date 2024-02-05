@@ -5,6 +5,23 @@ using UnityEngine.Events;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public enum MovementType
+    {
+        teleport,
+        charging,
+        hover,
+
+    }
+    public MovementType movement;
+
+    public void movePosition()
+    {
+
+    }
+
+
+
+    /*
     public enum movementType
     {
         bounce,//bounces off walls
@@ -14,16 +31,21 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     [Tooltip("The type of movement this enemy uses")]
     private movementType movementMode;
-    
-    private Rigidbody2D rb;
 
-    Vector3 movementDir;
+    private EnemyAttackBehavior attackBehavior;
+    
+    //list of actions that this enemy will cycle through
+    //an action series may be (move, attack, wait, repeat)
+
+    private Rigidbody2D rb;
+    private Vector2 movementDir;
     [SerializeField]
     private float speed;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        attackBehavior = GetComponent<EnemyAttackBehavior>();
     }
 
     // Update is called once per frame
@@ -53,10 +75,13 @@ public class EnemyMovement : MonoBehaviour
             case movementType.teleport:
                 //choose random point to teleport to
                 //disappear for 1 second (display warning of area its going to move to)
-                //
+                
+
+
                 break;
             default:
                 break;
         }
     }
+    */
 }
