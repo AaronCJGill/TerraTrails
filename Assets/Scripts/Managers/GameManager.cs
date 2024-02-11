@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]
     private GameObject GameUIParent;
-    [SerializeField]
-    GameObject[] healthUI = new GameObject[5];
+    //[SerializeField]
+    //GameObject[] healthUI = new GameObject[5];
     [SerializeField]
     private TextMeshProUGUI timerText;
     public static GameManager instance;
@@ -29,7 +29,12 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+
+        if (timerText == null)
+        {
+            timerText = GameObject.Find("GameCanvas").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        }
     }
 
     // Start is called before the first frame update
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void updateHealthUI()
     {
         //Debug.Log(Health.instance.health);
+        /*
         for (int i = 0; i < healthUI.Length; i++)
         {
             //if health is == healthui
@@ -104,7 +110,8 @@ public class GameManager : MonoBehaviour
                 healthUI[i].SetActive(false);
             }
         }
-
+        */
+        HealthUI.instance.updateHealthUI();
 
     }
 

@@ -29,6 +29,7 @@ public class DoorScript : MonoBehaviour
     {
         sprite.SetActive(false);
         bxCol.enabled = false;
+        bxCol.isTrigger = true;
     }
 
     //possibly randomized door locations

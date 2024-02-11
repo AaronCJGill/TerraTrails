@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2962906043994345389}
   - component: {fileID: 1669814205194322157}
   - component: {fileID: 8547008110146564750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BouncingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

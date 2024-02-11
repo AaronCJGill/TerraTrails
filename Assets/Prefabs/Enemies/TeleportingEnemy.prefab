@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 372580515574135469}
   - component: {fileID: 558332360990863118}
   - component: {fileID: 2550409329887824726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TeleportingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

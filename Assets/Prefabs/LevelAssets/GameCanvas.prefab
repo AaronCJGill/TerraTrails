@@ -321,6 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4094953482915219636}
+  - component: {fileID: 5433845041334289524}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -352,6 +353,24 @@ RectTransform:
   m_AnchoredPosition: {x: -382, y: 225}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5433845041334289524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308076407236720048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec76252b83b30247ac5f6d261f08ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthUI:
+  - {fileID: 4002441253143417897}
+  - {fileID: 8466859324392011428}
+  - {fileID: 5732275880741198305}
+  - {fileID: 6665188629987425403}
+  - {fileID: 1391762834906092296}
 --- !u!1 &4002441253143417897
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1742350481612372304}
   - component: {fileID: 3330698981492666451}
   - component: {fileID: 5040316598020033066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spitter Standing Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

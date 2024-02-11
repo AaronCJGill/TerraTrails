@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5240943461951184660}
   - component: {fileID: 5167955590218165961}
   - component: {fileID: 7336191525877131712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Charge Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

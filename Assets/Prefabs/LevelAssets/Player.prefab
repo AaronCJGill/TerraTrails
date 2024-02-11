@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2062668136935178663}
   - component: {fileID: 85137608081457214}
   - component: {fileID: 723134148313905842}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e5c5a39e485aa45bcb23bef7c53bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noDamageTimer: 5
+  noDamageTimer: 2
 --- !u!114 &6693851616351193366
 MonoBehaviour:
   m_ObjectHideFlags: 0

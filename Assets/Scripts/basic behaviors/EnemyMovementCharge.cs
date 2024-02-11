@@ -14,6 +14,8 @@ public class EnemyMovementCharge : MonoBehaviour
     [Range(0, 100)]
     int chargeToPlayer = 75;
 
+    SpriteRenderer sr;
+
     void Start()
     {
         if (doesSpawnRoutine)
@@ -36,6 +38,8 @@ public class EnemyMovementCharge : MonoBehaviour
     IEnumerator move()
     {
         int rnum = Random.Range(0,101);
+        //if is on top of player, just move to random target position away from player
+
         Vector2 targetPos;
         if (rnum <= chargeToPlayer)
             targetPos = PlayerMovement.instance.transform.position;
@@ -47,6 +51,8 @@ public class EnemyMovementCharge : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             yield return null;
         }
+
+
         yield return new WaitForSeconds(waitTime);
         //wait a while
         StartCoroutine(move());

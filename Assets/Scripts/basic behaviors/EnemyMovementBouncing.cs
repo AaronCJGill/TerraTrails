@@ -14,6 +14,7 @@ public class EnemyMovementBouncing : MonoBehaviour
     Rigidbody2D rb;
 
     Vector3 lastPos;
+    float smallestDist = 100;
     private void Start()
     {
         if (doesSpawnRoutine)
@@ -63,39 +64,57 @@ public class EnemyMovementBouncing : MonoBehaviour
         yvel = ydir * speed;
 
         vel = new Vector3(xvel, yvel) ;
+
+        if (Input.GetKey(KeyCode.K))
+            smallestDist = 100;
     }
     private void FixedUpdate()
     {
         //rb.velocity = vel;
+        lastPos = transform.position;
         rb.MovePosition(transform.position + vel * Time.fixedDeltaTime);
+        //Debug.Log   ((transform.position + vel * Time.fixedDeltaTime) + " - " + lastPos + " - "+ Vector2.Distance(lastPos, transform.position));
 
+        if (Vector2.Distance(lastPos, transform.position) < smallestDist)
+        {
+            smallestDist = Vector2.Distance(lastPos, transform.position);
+        }
         //if position.x has not changed but still going to same location
-        
+
+        Debug.Log(smallestDist);
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //simplified equation
-        //if there is a collision, it has a normal.
-        //This normal will be 1 or -1 in a given position 
-        //we find the absolute value and see if it equals 1 and flip its direction
-        //we can adjust this to see if the value is simple negative or positive, to have it bounce off slopes if needed
-        if (Mathf.Abs( collision.contacts[0].normal.x )== 1)
+        if (collision.transform.CompareTag("Player"))
         {
-            //(1,0) is left collision
-            //(-1,0) is right collision
-            xdir *= -1;
+            Health.instance.takeDamage(1);
         }
-        //for some reason the y is strange, it will calculate .999999 instead of 1 internally but display 1 to us.
-        //if (collision.contacts[0].normal.y >= 0.1 || collision.contacts[0].normal.y <= -0.1)
-        
-        if (Mathf.Abs(collision.contacts[0].normal.y) >= 0.1)
+        else
         {
-            ydir *= -1;
-            //ydir *= -1;
+            //simplified equation
+            //if there is a collision, it has a normal.
+            //This normal will be 1 or -1 in a given position 
+            //we find the absolute value and see if it equals 1 and flip its direction
+            //we can adjust this to see if the value is simple negative or positive, to have it bounce off slopes if needed
+            if (Mathf.Abs(collision.contacts[0].normal.x) == 1)
+            {
+                //(1,0) is left collision
+                //(-1,0) is right collision
+                xdir *= -1;
+            }
+            //for some reason the y is strange, it will calculate .999999 instead of 1 internally but display 1 to us.
+            //if (collision.contacts[0].normal.y >= 0.1 || collision.contacts[0].normal.y <= -0.1)
+
+            if (Mathf.Abs(collision.contacts[0].normal.y) >= 0.1)
+            {
+                ydir *= -1;
+                //ydir *= -1;
+            }
+            //Debug.Log(ydir + " " + yvel + " " + (int) collision.contacts[0].normal.y);
+
         }
-        //Debug.Log(ydir + " " + yvel + " " + (int) collision.contacts[0].normal.y);
 
     }
 
