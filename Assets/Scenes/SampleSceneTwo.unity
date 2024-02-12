@@ -971,63 +971,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1624802533
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.9153647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.3174624
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742350481612372304, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
-      propertyPath: m_Name
-      value: Spitter Standing Enemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 051965060307c974fa4807e6df7354fe, type: 3}
 --- !u!1 &1853085421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,6 +1689,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+--- !u!114 &2396997396401038440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4989274021369431146, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+  m_PrefabInstance: {fileID: 2396997396401038439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2396997396401038441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4869427669092111291, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+  m_PrefabInstance: {fileID: 2396997396401038439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2504671238580508883 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1391762834906092296, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
@@ -1881,7 +1840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e5c5a39e485aa45bcb23bef7c53bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noDamageTimer: 5
+  noDamageTimer: 1.25
 --- !u!1 &4469156436231873440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1114962452067935995, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
@@ -2029,6 +1988,14 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 7273362214593489919}
+    - target: {fileID: 7208551982720891125, guid: cec3dd77747bf9348a97b9564ba22996, type: 3}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 2396997396401038441}
+    - target: {fileID: 7208551982720891125, guid: cec3dd77747bf9348a97b9564ba22996, type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 2396997396401038440}
     - target: {fileID: 7208551982720891125, guid: cec3dd77747bf9348a97b9564ba22996, type: 3}
       propertyPath: GameUIParent
       value: 
@@ -2250,4 +2217,3 @@ SceneRoots:
   - {fileID: 2396997396401038439}
   - {fileID: 2263145393615060529}
   - {fileID: 3987927215798532151}
-  - {fileID: 1624802533}

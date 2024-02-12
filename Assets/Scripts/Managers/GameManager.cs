@@ -12,12 +12,15 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]
     private GameObject GameUIParent;
+    [SerializeField]
+    private GameObject GameOverUI;
+    [SerializeField]
+    private TextMeshProUGUI GameOverText;
     //[SerializeField]
     //GameObject[] healthUI = new GameObject[5];
     [SerializeField]
     private TextMeshProUGUI timerText;
     public static GameManager instance;
-    
 
     private void Awake()
     {
@@ -40,7 +43,25 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        checkIfNull();
+    }
+    private void checkIfNull()
+    {
+        if (GameUIParent == null)
+        {
+            GameUIParent = GameObject.Find("GameCanvas");
+            Debug.Log("GameCanvas Found");
+        }
+        if (GameOverUI == null)
+        {
+            GameOverUI= GameUIParent.transform.GetChild(2).gameObject;
+            Debug.Log("GameOverUI Found");
+        }
+        if (GameOverText==null)
+        {
+            GameOverText = GameOverUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            Debug.Log("GameOverText Found");
+        }
     }
 
     // Update is called once per frame
@@ -71,10 +92,17 @@ public class GameManager : MonoBehaviour
         SpawnManager.levelEnd();
         gameOverUI();
     }
-    
+    bool textGenerated = false;
+
     void gameOverUI()
     {
-
+        //call game over text generator to change game over text
+        GameOverUI.SetActive(true);
+        if (textGenerated == false)
+        {
+            GameOverText.text = GameOverTextGenerator.instance.generateString();
+            textGenerated = true;
+        }
     }
 
     void doTimer()
@@ -96,21 +124,6 @@ public class GameManager : MonoBehaviour
     }
     public void updateHealthUI()
     {
-        //Debug.Log(Health.instance.health);
-        /*
-        for (int i = 0; i < healthUI.Length; i++)
-        {
-            //if health is == healthui
-            if (Health.instance.health > i)
-            {
-                healthUI[i].SetActive(true);
-            }
-            else
-            {
-                healthUI[i].SetActive(false);
-            }
-        }
-        */
         HealthUI.instance.updateHealthUI();
 
     }

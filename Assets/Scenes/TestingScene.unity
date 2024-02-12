@@ -432,6 +432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerActive: 0
   GameUIParent: {fileID: 6333382}
+  GameOverUI: {fileID: 983133564}
+  GameOverText: {fileID: 983133565}
   timerText: {fileID: 1490061212}
 --- !u!1 &320594074
 GameObject:
@@ -614,6 +616,10 @@ PrefabInstance:
     - target: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
       propertyPath: m_Name
       value: Spitter Standing Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1792,7 +1798,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882131046}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4abab2d9e4b837438e991aa984a7911, type: 3}
   m_Name: 
@@ -1831,7 +1837,7 @@ MonoBehaviour:
     randomPosition: 0
     spawnPoint: {x: 0, y: 0}
     waitTime: 5
-  UseGameSpawnList: 0
+  UseGameSpawnList: 1
   SpawnRoutineRestarts: 1
   SpawnedEnemies: []
 --- !u!114 &882131049
@@ -1847,7 +1853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTimed: 1
-  timerAmount: 100
+  timerAmount: 30
 --- !u!1 &936516943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,6 +2112,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4869427669092111291, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4989274021369431146, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
       propertyPath: m_fontSize
       value: 64
@@ -2219,6 +2229,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+--- !u!1 &983133564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4869427669092111291, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+  m_PrefabInstance: {fileID: 983133563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &983133565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4989274021369431146, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
+  m_PrefabInstance: {fileID: 983133563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1193576564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2230,6 +2256,10 @@ PrefabInstance:
     - target: {fileID: 2723816143783908048, guid: f596ae57bbef2eb4ea4c5753edc96c2a, type: 3}
       propertyPath: m_Name
       value: SpitterEnemyTeleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723816143783908048, guid: f596ae57bbef2eb4ea4c5753edc96c2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9203605034719084970, guid: f596ae57bbef2eb4ea4c5753edc96c2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2338,6 +2368,10 @@ PrefabInstance:
     - target: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
       propertyPath: m_Name
       value: Spitter Standing Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3286,6 +3320,63 @@ Transform:
   - {fileID: 465982837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3265225142052859283
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6225700256276719807, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_Name
+      value: GameOverTextGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.82237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.55319434
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.497064
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347268209322827625, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 186620f44255c4e40b75fbb9fb0e9e63, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3301,3 +3392,4 @@ SceneRoots:
   - {fileID: 1193576564}
   - {fileID: 1589699119}
   - {fileID: 374399306}
+  - {fileID: 3265225142052859283}
