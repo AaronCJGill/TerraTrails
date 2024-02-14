@@ -5,9 +5,12 @@ using UnityEngine;
 public class ParryCircle : MonoBehaviour
 {
     //grows in size to radius, disappears over that time, and destroys self at end of time
+    [SerializeField]
+    [Tooltip("Final size of the parry mechanic")]
     private float finalR = 2;
     private float startR = 1;
     private float time = 0;
+    [SerializeField][Tooltip("Time this takes to disappear")]
     private float destroyTime = 0.5f;
     private float r = 0.1f;
     SpriteRenderer sr;

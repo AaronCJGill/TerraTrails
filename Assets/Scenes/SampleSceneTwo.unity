@@ -1543,6 +1543,10 @@ PrefabInstance:
       propertyPath: StartSpawnList.Array.data[0].randomPosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4751632042218581666, guid: cb84a39cd4818904b80a3ad0e108da65, type: 3}
+      propertyPath: timerAmount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8499689223386911721, guid: cb84a39cd4818904b80a3ad0e108da65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0846422

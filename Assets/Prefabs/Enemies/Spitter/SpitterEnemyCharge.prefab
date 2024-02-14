@@ -100,6 +100,6 @@ MonoBehaviour:
   speed: 10
   moveWaitTime: 2
   spitWaitTime: 1
-  doesSpawnRoutine: 0
+  doesSpawnRoutine: 1
   chargeToPlayer: 50
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}

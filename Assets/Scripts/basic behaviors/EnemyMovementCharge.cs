@@ -13,8 +13,13 @@ public class EnemyMovementCharge : MonoBehaviour
     [SerializeField][Tooltip("Chance for this to charge to the player position")]
     [Range(0, 100)]
     int chargeToPlayer = 75;
+    [Header("Randomization Settings")]
+    [SerializeField]
+    float chargeRandomization = 0.5f;
 
     SpriteRenderer sr;
+    [SerializeField]
+    float startupWaitTime = 1f;
 
     void Start()
     {
@@ -32,16 +37,17 @@ public class EnemyMovementCharge : MonoBehaviour
     void spawnSequence()
     {
         //animation
-        StartCoroutine(move());
+        StartCoroutine(move(startupWaitTime));
     }
 
-    IEnumerator move()
+    IEnumerator move(float startWaitTime = 0)
     {
+        yield return new WaitForSeconds(startWaitTime);
         int rnum = Random.Range(0,101);
         //if is on top of player, just move to random target position away from player
 
         Vector2 targetPos;
-        if (rnum <= chargeToPlayer)
+        if (rnum <= chargeToPlayer && Vector2.Distance(transform.position, PlayerMovement.instance.transform.position) > 1)
             targetPos = PlayerMovement.instance.transform.position;
         else
             targetPos = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
@@ -53,7 +59,7 @@ public class EnemyMovementCharge : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime + Random.Range(-chargeRandomization, chargeRandomization));
         //wait a while
         StartCoroutine(move());
     }

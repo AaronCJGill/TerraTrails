@@ -48,8 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   waitTime: 2
-  doesSpawnRoutine: 0
+  doesSpawnRoutine: 1
   chargeToPlayer: 100
+  chargeRandomization: 0.5
+  startupWaitTime: 1
 --- !u!212 &5167955590218165961
 SpriteRenderer:
   m_ObjectHideFlags: 0

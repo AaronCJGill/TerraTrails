@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  doesSpawnRoutine: 0
+  doesSpawnRoutine: 1
 --- !u!61 &8547008110146564750
 BoxCollider2D:
   m_ObjectHideFlags: 0

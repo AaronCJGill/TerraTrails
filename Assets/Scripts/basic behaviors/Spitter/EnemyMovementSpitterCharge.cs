@@ -18,6 +18,17 @@ public class EnemyMovementSpitterCharge : MonoBehaviour
     int chargeToPlayer = 75;
     [SerializeField]
     GameObject projectile;
+    
+    [Header("Randomization Settings")]
+    [SerializeField][Tooltip("Amount of variance in both directions for charge to be done")]
+    float chargeRandomization = 0.5f;
+
+    [Tooltip("Amount of time to wait for this to start moving on spawn")]
+    [SerializeField]
+    float startupWaitTime = 1f;
+    [Tooltip("Amount of time to wait for this to start moving on spawn")]
+
+
 
     void Start()
     {
@@ -35,11 +46,12 @@ public class EnemyMovementSpitterCharge : MonoBehaviour
     void spawnSequence()
     {
         //animation
-        StartCoroutine(move());
+        StartCoroutine(move(startupWaitTime));
     }
 
-    IEnumerator move()
+    IEnumerator move(float startWaitTime = 0)
     {
+        yield return new WaitForSeconds(startWaitTime);
         int rnum = Random.Range(0, 101);
         Vector2 targetPos;
         if (rnum <= chargeToPlayer)
@@ -56,7 +68,7 @@ public class EnemyMovementSpitterCharge : MonoBehaviour
         Instantiate(projectile, transform.position, Quaternion.identity);
 
 
-        yield return new WaitForSeconds(moveWaitTime);
+        yield return new WaitForSeconds(moveWaitTime + Random.Range(-chargeRandomization, chargeRandomization));
         //wait a while
         StartCoroutine(move());
     }

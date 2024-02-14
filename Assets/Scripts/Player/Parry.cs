@@ -5,7 +5,7 @@ using UnityEngine;
 public class Parry : MonoBehaviour
 {
     [SerializeField]
-    float reuseTime = 5;
+    float reuseTime = 2;
     float timer = 0;
     [SerializeField]
     float destroyRadius = 3;

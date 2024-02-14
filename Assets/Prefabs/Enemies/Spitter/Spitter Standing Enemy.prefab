@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spitWaitTIme: 2.5
-  doesSpawnRoutine: 0
+  doesSpawnRoutine: 1
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}

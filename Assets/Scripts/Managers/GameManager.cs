@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     public bool timerActive = false;
     private float timer;
     private float maxTime;
-    
+
     [SerializeField]
     private GameObject GameUIParent;
     [SerializeField]
@@ -54,10 +55,10 @@ public class GameManager : MonoBehaviour
         }
         if (GameOverUI == null)
         {
-            GameOverUI= GameUIParent.transform.GetChild(2).gameObject;
+            GameOverUI = GameUIParent.transform.GetChild(2).gameObject;
             Debug.Log("GameOverUI Found");
         }
-        if (GameOverText==null)
+        if (GameOverText == null)
         {
             GameOverText = GameOverUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             Debug.Log("GameOverText Found");
@@ -71,9 +72,7 @@ public class GameManager : MonoBehaviour
         {
             GameOverSequence();
         }
-
         doTimer();
-
     }
 
 
@@ -93,6 +92,20 @@ public class GameManager : MonoBehaviour
         gameOverUI();
     }
     bool textGenerated = false;
+
+    public void DeathScreenExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void deathscreenRetryButton()
+    {
+
+    }
+    public void deathScreenMapButton()
+    {
+
+    }
 
     void gameOverUI()
     {
