@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum levelType
+{
+    arcade,
+    boss
+}
 public class LevelInfo : MonoBehaviour
 {
     [Header("Information about the level")]
@@ -9,6 +15,8 @@ public class LevelInfo : MonoBehaviour
     public bool isTimed = true;
     [Tooltip("Amount of time for this level to be active")]
     public float timerAmount = 15;
+    [Tooltip("minimum amount of time for player to complete level")]
+    public float minTime, devTime;
 
     private void Start()
     {

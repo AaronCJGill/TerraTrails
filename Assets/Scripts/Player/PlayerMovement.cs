@@ -11,9 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
     public static PlayerMovement instance;
 
+    private Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
         if (instance != this && instance != null)
         {
             Destroy(gameObject);
@@ -60,6 +63,22 @@ public class PlayerMovement : MonoBehaviour
         {
             move = Vector2.zero;
         }
+
+
+        //animation details
+        //if player is moving in any direction, 
+        float s = 0;
+        if (move.x != 0 || move.y != 0)
+        {
+            if (Input.GetAxisRaw("Horizontal") != 0)
+                s = Input.GetAxisRaw("Horizontal");
+            else
+                s = Input.GetAxisRaw("Vertical");
+
+            s = Mathf.Abs(s);
+        }
+        print(s);
+        animator.SetFloat("Speed", s);
     }
 
     private void FixedUpdate()

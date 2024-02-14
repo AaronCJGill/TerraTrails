@@ -14,12 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject GameUIParent;
     [SerializeField]
-    private GameObject GameOverUI;
-    [SerializeField]
-    private TextMeshProUGUI GameOverText;
-    //[SerializeField]
-    //GameObject[] healthUI = new GameObject[5];
-    [SerializeField]
     private TextMeshProUGUI timerText;
     public static GameManager instance;
 
@@ -53,16 +47,6 @@ public class GameManager : MonoBehaviour
             GameUIParent = GameObject.Find("GameCanvas");
             Debug.Log("GameCanvas Found");
         }
-        if (GameOverUI == null)
-        {
-            GameOverUI = GameUIParent.transform.GetChild(2).gameObject;
-            Debug.Log("GameOverUI Found");
-        }
-        if (GameOverText == null)
-        {
-            GameOverText = GameOverUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            Debug.Log("GameOverText Found");
-        }
     }
 
     // Update is called once per frame
@@ -70,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         if (Health.isDead)
         {
-            GameOverSequence();
+            GameOverSequence(true);
         }
         doTimer();
     }
@@ -83,40 +67,31 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void GameOverSequence()
+    public void GameOverSequence(bool playerDied = false)
     {
+        if (playerDied)
+            GameEnded.instance.showScreen(playerDied);
         GameOver = true;
         PlayerMovement.instance.canMove = false;
         timerActive = false;
         SpawnManager.levelEnd();
-        gameOverUI();
     }
-    bool textGenerated = false;
 
     public void DeathScreenExitButton()
     {
         SceneManager.LoadScene(0);
     }
 
-    public void deathscreenRetryButton()
+    public void RetryButton()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void deathScreenMapButton()
+    public void mapButton()
     {
-
+        SceneManager.LoadScene(0);
     }
 
-    void gameOverUI()
-    {
-        //call game over text generator to change game over text
-        GameOverUI.SetActive(true);
-        if (textGenerated == false)
-        {
-            GameOverText.text = GameOverTextGenerator.instance.generateString();
-            textGenerated = true;
-        }
-    }
+
 
     void doTimer()
     {
@@ -137,8 +112,14 @@ public class GameManager : MonoBehaviour
     }
     public void updateHealthUI()
     {
-        HealthUI.instance.updateHealthUI();
-
+        if (Health.OneHitKill)
+        {
+            HealthUI.disableHealthUI();
+        }
+        else
+        {
+            HealthUI.instance.updateHealthUI();
+        }
     }
 
     public static void levelStart(float t)
@@ -152,4 +133,6 @@ public class GameManager : MonoBehaviour
         instance.timerActive = false;
         instance.maxTime = 1000000;
     }
+
+
 }

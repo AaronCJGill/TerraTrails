@@ -52,7 +52,7 @@ public class DoorScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //move down one level
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManager.instance.GameOverSequence();
         }
     }
 }

@@ -6,8 +6,16 @@ public class HealthUI : MonoBehaviour
 {
     public static HealthUI instance;
 
+    
     [SerializeField]
     GameObject[] healthUI = new GameObject[5];
+    //[SerializeField]
+    GameObject healthUIParent;
+
+    public static void disableHealthUI()
+    {
+        instance.healthUIParent.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -18,6 +26,7 @@ public class HealthUI : MonoBehaviour
         else if (instance == null)
         {
             instance = this;
+            healthUIParent = gameObject;
         }
     }
 

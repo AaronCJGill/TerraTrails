@@ -18,6 +18,9 @@ public class Health : MonoBehaviour
     float noDamageTimer = 5;
     float currentTimer= 0;
 
+    bool oneHitKill = true;
+    public static bool OneHitKill;
+
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -29,6 +32,13 @@ public class Health : MonoBehaviour
             instance = this;
         }
         sr = GetComponent<SpriteRenderer>();
+        if (oneHitKill)
+            maxHealth = 1;
+        OneHitKill = oneHitKill;
+    }
+    private void Start()
+    {
+        GameManager.instance.updateHealthUI();
     }
     public void resetHealth()
     {
@@ -42,22 +52,35 @@ public class Health : MonoBehaviour
         {
             _health -= dmg;
             healthCheck();
+            
             GameManager.instance.updateHealthUI();
             canBeDamaged = false;
         }
     }
     public void addHealth(int heal)
     {
-        _health += heal;
-        GameManager.instance.updateHealthUI();
+        if (!OneHitKill)
+        {
+            _health += heal;
+            GameManager.instance.updateHealthUI();
+        }
     }
     void healthCheck()
     {
-        _health = Mathf.Clamp(health, 0, maxHealth);
-        if (health ==  0)
+        if (OneHitKill)
         {
+            _health = 0;
             isDead = true;
         }
+        else
+        {
+            _health = Mathf.Clamp(health, 0, maxHealth);
+            if (health == 0)
+            {
+                isDead = true;
+            }
+        }
+
     }
 
     private void Update()
