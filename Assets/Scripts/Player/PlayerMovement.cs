@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         }
         //print(s);
         animator.SetFloat("Speed", s);
+        //Debug.Log(animator.GetFloat("Speed"));
     }
 
     private void FixedUpdate()

@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         if (timerText == null)
         {
             timerText = GameObject.Find("GameCanvas").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            Debug.Log("Found timerText");
         }
     }
 
