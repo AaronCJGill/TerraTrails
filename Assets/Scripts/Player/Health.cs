@@ -31,6 +31,7 @@ public class Health : MonoBehaviour
         {
             instance = this;
         }
+        isDead = false;// stop player from being dead on awake
         sr = GetComponent<SpriteRenderer>();
         if (oneHitKill)
             maxHealth = 1;
@@ -100,6 +101,10 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void GameOverSequence()
+    {
+        canBeDamaged = false;
+    }
     IEnumerator doHealtFlash()
     {
         //off

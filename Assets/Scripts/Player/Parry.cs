@@ -20,36 +20,40 @@ public class Parry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer <= reuseTime)
+        if (!Health.isDead)
         {
-            timer += Time.deltaTime;
-            canParry = false;
-            //Debug.Log("Parrytime " + timer);
-        }
-        else
-        {
-            canParry = true;
-            Debug.Log("canParry");
+            if (timer <= reuseTime)
+            {
+                timer += Time.deltaTime;
+                canParry = false;
+                //Debug.Log("Parrytime " + timer);
+            }
+            else
+            {
+                canParry = true;
+                //Debug.Log("canParry");
 
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && canParry)
-        {
-            canParry = false;
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && canParry)
+            {
+                canParry = false;
 
-            Debug.Log("Parried");
-            //lazy method, find each gameobject projectile in scene and just delete whichever ones are closest
-            GameObject pc = Instantiate(parrycircle, transform.position, Quaternion.identity);
-            pc.GetComponent<ParryCircle>().init(destroyRadius,parryActiveTime);
-            Invoke("parryAction", 0.1f);
+                //Debug.Log("Parried");
+                //lazy method, find each gameobject projectile in scene and just delete whichever ones are closest
+                GameObject pc = Instantiate(parrycircle, transform.position, Quaternion.identity);
+                pc.GetComponent<ParryCircle>().init(destroyRadius, parryActiveTime);
+                Invoke("parryAction", 0.1f);
 
-            timer = 0;
+                timer = 0;
+            }
         }
+
     }
 
     void parryAction()
     {
         Projectile[] projList = FindObjectsOfType<Projectile>();
-        Debug.Log("Parry Action pressed");
+        //Debug.Log("Parry Action pressed");
         /*
         foreach (Projectile proj in projList)
         {

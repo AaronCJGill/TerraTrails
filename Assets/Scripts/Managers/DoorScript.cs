@@ -53,6 +53,7 @@ public class DoorScript : MonoBehaviour
         {
             //move down one level
             GameManager.instance.GameOverSequence();
+            SpawnManager.levelEnd();
         }
     }
 }

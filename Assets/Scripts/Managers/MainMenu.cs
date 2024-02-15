@@ -18,6 +18,13 @@ public class MainMenu : MonoBehaviour
         mainMenuParentObject.SetActive(false);
         creditsParentObject.SetActive(true);
     }
+    public void goToMainMenu()
+    {
+        //holdover - delete when obselete
+        SceneManager.LoadScene(0);
+    }
+
+
 
     public void exitButtons()
     {

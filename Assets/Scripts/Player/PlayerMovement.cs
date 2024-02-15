@@ -10,12 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public bool canMove = true;
     public static PlayerMovement instance;
-
+    GameObject spriteObject;
     private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
         animator = transform.GetChild(0).GetComponent<Animator>();
         if (instance != this && instance != null)
         {
@@ -27,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
+    private void Start()
+    {
+        spriteObject = transform.GetChild(0).gameObject;
+    }
     void Update()
     {
         if (canMove)
@@ -51,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
             //move = move.normalized;
             //Debug.Log(move);
             move.Normalize();
-            //Debug.Log(move);
 
 
             if (Input.GetKeyDown(KeyCode.R))
@@ -77,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
             s = Mathf.Abs(s);
         }
-        print(s);
+        //print(s);
         animator.SetFloat("Speed", s);
     }
 
@@ -89,6 +92,9 @@ public class PlayerMovement : MonoBehaviour
     {
         instance.canMove = false;
 
+
+        //fix this later
+        instance.spriteObject.SetActive(false);
     }
 
 }

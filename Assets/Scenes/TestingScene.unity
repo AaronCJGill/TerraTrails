@@ -206,7 +206,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1345431640620541711, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalPosition.x
@@ -432,9 +432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerActive: 0
   GameUIParent: {fileID: 6333382}
-  GameOverUI: {fileID: 983133564}
-  GameOverText: {fileID: 983133565}
   timerText: {fileID: 1490061212}
+  goalTimeText: {fileID: 0}
 --- !u!1 &320594074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,23 +1803,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartSpawnList:
-  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
+  - enemyPrefab: {fileID: 5661297501993873924, guid: b19a9f4519fbbd74fa1368c157532441, type: 3}
     randomPosition: 1
     spawnPoint: {x: 0, y: 0}
     waitTime: 0
-  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
+  - enemyPrefab: {fileID: 5661297501993873924, guid: b19a9f4519fbbd74fa1368c157532441, type: 3}
     randomPosition: 1
     spawnPoint: {x: 0, y: 0}
     waitTime: 0
-  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
+  - enemyPrefab: {fileID: 5661297501993873924, guid: b19a9f4519fbbd74fa1368c157532441, type: 3}
     randomPosition: 1
     spawnPoint: {x: 0, y: 0}
     waitTime: 0
-  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
-    randomPosition: 1
-    spawnPoint: {x: 0, y: 0}
-    waitTime: 0
-  - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
+  - enemyPrefab: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
     randomPosition: 1
     spawnPoint: {x: 0, y: 0}
     waitTime: 0
@@ -1828,15 +1823,15 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 2956250014916208435, guid: 924aba5fa98d01d4fbf652f972fd62c7, type: 3}
     randomPosition: 0
     spawnPoint: {x: 0, y: 0}
-    waitTime: 0
+    waitTime: 5
   - enemyPrefab: {fileID: 5661297501993873924, guid: b19a9f4519fbbd74fa1368c157532441, type: 3}
     randomPosition: 1
     spawnPoint: {x: 0, y: 0}
-    waitTime: 3
+    waitTime: 5
   - enemyPrefab: {fileID: 1467312358619749582, guid: db1dcfad3cf751d498a95d88736f3fc0, type: 3}
     randomPosition: 0
     spawnPoint: {x: 0, y: 0}
-    waitTime: 5
+    waitTime: 10
   UseGameSpawnList: 1
   SpawnRoutineRestarts: 1
   SpawnedEnemies: []
@@ -1852,8 +1847,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6286c56ba01555b4e85853f67361fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelType: 0
   isTimed: 1
-  timerAmount: 30
+  bossTime: 0
+  minTime: 25
+  devTime: 40
 --- !u!1 &936516943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,7 +2112,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4869427669092111291, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4989274021369431146, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
       propertyPath: m_fontSize
@@ -2229,22 +2227,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
---- !u!1 &983133564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4869427669092111291, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
-  m_PrefabInstance: {fileID: 983133563}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &983133565 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4989274021369431146, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
-  m_PrefabInstance: {fileID: 983133563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1193576564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2613,7 +2595,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828797516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f15a6a866c4f2b4696935a436961cee, type: 3}
   m_Name: 

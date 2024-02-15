@@ -21,9 +21,11 @@ public class SpawnManager : MonoBehaviour
 
     float currentWaitTime = 0;
     float timer = 0;
-    bool canSpawn;
+    bool canSpawn = true;
 
     int currentPos = 0;
+
+    bool listExhausted = false;
 
     public static SpawnManager instance;
     private void Awake()
@@ -36,6 +38,7 @@ public class SpawnManager : MonoBehaviour
         {
             instance = this;
         }
+        Debug.Log("Awoken");
     }
     private void Start()
     {
@@ -57,7 +60,7 @@ public class SpawnManager : MonoBehaviour
             createEnemy(e);
         }
         //set the currentWaitTime to whatever is the first in the list
-        currentWaitTime = 0;
+        currentWaitTime = GameSpawnList[0].waitTime ;
     }
 
     private void Update()
@@ -67,27 +70,37 @@ public class SpawnManager : MonoBehaviour
     //keeps track of when enemies are called
     void spawnRoutine()
     {
-        if (canSpawn)
+        if (canSpawn && UseGameSpawnList)
         {
 
-            if (currentPos >= GameSpawnList.Count)
+            if (currentPos >= GameSpawnList.Count && SpawnRoutineRestarts)
             {
+                //Debug.Log("At end of spawn list - restarting ");
                 currentPos = 0;
             }
-            timer += Time.deltaTime;
+            else if (currentPos >= GameSpawnList.Count && !SpawnRoutineRestarts)
+            {
+                //do nothing but exhaust list
+                //Debug.Log("Exhausted list. pos == " + currentPos);
+                listExhausted = true;
+            }
+
+            if (currentPos < GameSpawnList.Count && !listExhausted)
+            {
+                //Debug.Log(timer);
+                timer += Time.deltaTime;
+            }
+
             //when the timer is greater than the max wait time, set a new max wait time
-            if (timer >= currentWaitTime)
+            if (timer >= currentWaitTime && !listExhausted)
             {
                 //spawn the thing we are currently on
+
                 createEnemy(GameSpawnList[currentPos]);
 
-                //increase position and reset wait time + timer
-                currentPos++;
-                if (currentPos >= GameSpawnList.Count)
-                {
-                    currentPos = 0;
-                }
                 currentWaitTime = GameSpawnList[currentPos].waitTime;
+
+                currentPos++;
                 timer = 0;
             }
         }

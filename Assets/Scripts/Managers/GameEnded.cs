@@ -10,8 +10,15 @@ public class GameEnded : MonoBehaviour
     [SerializeField]
     private GameObject GameOverUI;
     [SerializeField]
+    private TextMeshProUGUI topGameOverText;
+    [SerializeField]
+    private TextMeshProUGUI timeStatsText;
+    [SerializeField]
     private TextMeshProUGUI GameOverText;
     bool textGenerated = false;
+
+    [SerializeField]
+    private GameObject nextLevelButtonGameObect;
 
     private void Awake()
     {
@@ -23,13 +30,18 @@ public class GameEnded : MonoBehaviour
         {
             instance = this;
         }
+        GameOverUI.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             gotomainmenu();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            restartButton();
         }
     }
 
@@ -54,13 +66,47 @@ public class GameEnded : MonoBehaviour
     {
         //TODO: check if level completed first
         GameOverUI.SetActive(true);
-        if (playerDied)
+        if (LevelInfo.instance.LevelType == levelType.arcade)
         {
-            GameOverText.text = GameOverTextGenerator.instance.generateString();
+            if (GameManager.instance.Timer >= LevelInfo.instance.minTime)
+            {
+                //if we die, display phyric victory
+                //we beat min time and its an arcade level
+                topGameOverText.text = "Level passed";
+                if (playerDied)
+                    GameOverText.text = "pyrrhic victory";
+                else
+                    GameOverText.text = "Head on soldier";
+                nextLevelButtonGameObect.SetActive(true);
+            }
+            else
+            {
+                //player died and time is not up
+
+                topGameOverText.text = "You Died";
+
+                nextLevelButtonGameObect.SetActive(false);
+                GameOverText.text = GameOverTextGenerator.instance.generateString();
+            }
         }
-        else
+        else if(LevelInfo.instance.LevelType == levelType.boss)
         {
-            GameOverText.text = "You passed";
+            //boss level, have to either be at door or die
+            if (GameManager.instance.Timer >= LevelInfo.instance.bossTime)
+            {
+                //player hit door
+                topGameOverText.text = "Boss Survived";
+                GameOverText.text = "Head on soldier";
+                nextLevelButtonGameObect.SetActive(true);
+            }
+            else
+            {
+                //player died 
+                topGameOverText.text = "You Died";
+                GameOverText.text = GameOverTextGenerator.instance.generateString();
+            }
         }
+
+
     }
 }
