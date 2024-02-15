@@ -23,8 +23,17 @@ public class MainMenu : MonoBehaviour
         //holdover - delete when obselete
         SceneManager.LoadScene(0);
     }
-
-
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            quitGame();
+        }
+    }
 
     public void exitButtons()
     {
