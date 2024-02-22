@@ -91,10 +91,21 @@ public class GameManager : MonoBehaviour
         if (currentLevelType == levelType.arcade)
         {
             Health.instance.GameOverSequence();
+            //if new record is set, then add new time 
+            if (LevelInfo.instance.thisLevelsStats.maxTimeCounter < Timer)
+            {
+                LevelStatsManager.instance.increaseTotalTime(LevelInfo.instance.thisLevelsStats.maxTimeCounter, Timer);
+            }
             if (playerDied)
+            {
                 GameEnded.instance.showScreen(playerDied);
+                LevelInfo.instance.levelEnd(true);
+            }
             else
+            {
                 GameEnded.instance.showScreen();
+                LevelInfo.instance.levelEnd();
+            }
             GameOver = true;
             PlayerMovement.instance.canMove = false;
             timerActive = false;
@@ -103,9 +114,15 @@ public class GameManager : MonoBehaviour
         else if (currentLevelType == levelType.boss)
         {
             if (playerDied)
+            {
                 GameEnded.instance.showScreen(playerDied);
+                LevelInfo.instance.levelEnd(true);
+            }
             else
+            {
                 GameEnded.instance.showScreen();
+                LevelInfo.instance.levelEnd();
+            }
             GameOver = true;
             PlayerMovement.instance.canMove = false;
             timerActive = false;
