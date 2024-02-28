@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI goalTimeText;
 
+
     public static GameManager instance;
     private levelType currentLevelType;
 
@@ -133,7 +134,7 @@ public class GameManager : MonoBehaviour
 
     public void DeathScreenExitButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MapLevelSelect");
     }
 
     public void RetryButton()

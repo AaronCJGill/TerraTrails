@@ -68,23 +68,31 @@ public class LevelInfo : MonoBehaviour
     {
         //when the level starts, on awake, get the level's stats 
         thisLevelsStats = LevelStatsManager.instance.load(levelName);
+        if (thisLevelsStats.maxTimeCounter == 0 || thisLevelsStats.minTime == 0)
+        {
+            //level has not been played before
+            thisLevelsStats = new levelStats(levelName, 0, 0);
+            thisLevelsStats.devTime = devTime;
+            thisLevelsStats.minTime = minTime;
+        }
         //this either returns a new level or a saves the current level info
     }
+
+
 
     public void levelEnd(bool died = false)
     {
         //save level stats
+        /*
         if (thisLevelsStats.maxTimeCounter < GameManager.instance.Timer)
         {
             thisLevelsStats.maxTimeCounter = GameManager.instance.Timer;
-        }
-        if (died)
-        {
-            LevelStatsManager.instance.increaseTotalDeaths();
-            thisLevelsStats.totalDeathCounter++;
-        }
+        }*/
+        //I think updating time is handled in the save function
 
-        LevelStatsManager.instance.save(thisLevelsStats);
+        thisLevelsStats.maxTimeCounter = GameManager.instance.Timer;
+        LevelStatsManager.instance.save(thisLevelsStats, died);
+
     }
 
 

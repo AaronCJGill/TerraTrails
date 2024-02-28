@@ -48,11 +48,14 @@ public class GameEnded : MonoBehaviour
 
     public void gotomainmenu()
     {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MapLevelSelect");
     }
     public void goToMapButton()
     {
-        SceneManager.LoadScene(0);
+//        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MapLevelSelect");
+
     }
     public void restartButton()
     {
@@ -69,7 +72,7 @@ public class GameEnded : MonoBehaviour
         GameOverUI.SetActive(true);
         if (LevelInfo.instance.LevelType == levelType.arcade)
         {
-            if (GameManager.instance.Timer >= LevelInfo.instance.minTime)
+            if (GameManager.instance.Timer >= LevelInfo.instance.minTime || LevelInfo.instance.thisLevelsStats.maxTimeCounter >= LevelInfo.instance.minTime)
             {
                 //if we die, display phyric victory
                 //we beat min time and its an arcade level
@@ -78,7 +81,12 @@ public class GameEnded : MonoBehaviour
                     GameOverText.text = "pyrrhic victory";
                 else
                     GameOverText.text = "Head on soldier";
-                nextLevelButtonGameObect.SetActive(true);
+                //nextLevelButtonGameObect.SetActive(true);
+
+                //if the level has been passed, show the option for a dev time
+                timeStatsText.text = "Time Needed: " + LevelInfo.instance.minTime
+                    + "\nTime Achieved: " + GameManager.instance.Timer
+                    +"\nGold Time: " + LevelInfo.instance.devTime;
             }
             else
             {
@@ -86,8 +94,10 @@ public class GameEnded : MonoBehaviour
 
                 topGameOverText.text = "You Died";
 
-                nextLevelButtonGameObect.SetActive(false);
+                //nextLevelButtonGameObect.SetActive(false);
                 GameOverText.text = GameOverTextGenerator.instance.generateString();
+                timeStatsText.text = "Time Needed: " + LevelInfo.instance.minTime
+    + "\nTime Achieved: " + GameManager.instance.Timer; 
             }
         }
         else if(LevelInfo.instance.LevelType == levelType.boss)
@@ -98,7 +108,7 @@ public class GameEnded : MonoBehaviour
                 //player hit door
                 topGameOverText.text = "Boss Survived";
                 GameOverText.text = "Head on soldier";
-                nextLevelButtonGameObect.SetActive(true);
+                //nextLevelButtonGameObect.SetActive(true);
             }
             else
             {
