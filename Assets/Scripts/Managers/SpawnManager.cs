@@ -38,7 +38,7 @@ public class SpawnManager : MonoBehaviour
         {
             instance = this;
         }
-        Debug.Log("Awoken");
+        //Debug.Log("Awoken");
     }
     private void Start()
     {

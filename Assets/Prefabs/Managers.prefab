@@ -35,8 +35,77 @@ Transform:
   - {fileID: 1940864448560914093}
   - {fileID: 8302352750061095301}
   - {fileID: 6749706681040207255}
+  - {fileID: 6042398611939985821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1148633883683099176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6042398611939985821}
+  - component: {fileID: 1019342628286481542}
+  - component: {fileID: 4287299526390434087}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6042398611939985821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148633883683099176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1943649886210370954}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019342628286481542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148633883683099176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &4287299526390434087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148633883683099176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1181008841583292167
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,9 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerActive: 0
   GameUIParent: {fileID: 7338482352487787568}
-  GameOverUI: {fileID: 2971544568980838768}
-  GameOverText: {fileID: 3428317838772194977}
   timerText: {fileID: 6179418626232582810}
+  goalTimeText: {fileID: 0}
 --- !u!1 &8345090000106097852
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,8 +291,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6286c56ba01555b4e85853f67361fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelType: 0
   isTimed: 1
-  timerAmount: 15
+  bossTime: 0
+  minTime: 0
+  devTime: 0
+  thisLevelsStats:
+    levelName: 
+    totalDeathCounter: 0
+    maxTimeCounter: 0
+    devTime: 0
+    minTime: 0
+  levelName: 
+  deathCounter: 0
 --- !u!114 &6418377670941268165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,22 +567,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7122237824505246641, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
   m_PrefabInstance: {fileID: 7687260425534671563}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2971544568980838768 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4869427669092111291, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
-  m_PrefabInstance: {fileID: 7687260425534671563}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3428317838772194977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4989274021369431146, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}
-  m_PrefabInstance: {fileID: 7687260425534671563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6179418626232582810 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4570896477407086673, guid: 5275ea34fb396b24d9f13c85edbaf743, type: 3}

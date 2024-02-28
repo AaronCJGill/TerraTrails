@@ -106,7 +106,7 @@ MonoBehaviour:
   spitWaitTime: 1
   totalDisappearTime: 0.5
   restartTime: 1
-  TeleToPlayer: 11
+  TeleToPlayer: 10
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}
   warningSymbol: {fileID: 4987578705084021693, guid: 3cce4049f7c40674ca4aa8ddc613caa8, type: 3}
   doesTeleportWaitTIme: 1
