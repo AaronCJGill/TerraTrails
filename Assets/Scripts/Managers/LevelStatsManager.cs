@@ -101,7 +101,10 @@ public class LevelStatsManager : MonoBehaviour
             {
                 //calculate how much time to add
                 float timeToAdd = ls.maxTimeCounter - ol.maxTimeCounter;
+                Debug.Log("Adding time difference " + timeToAdd + " - - " + totalTimeValue);
+
                 totalTimeValue += timeToAdd;
+                Debug.Log("Adding time difference " + timeToAdd + " - - " + totalTimeValue);
 
                 //use new time - all stats are the same so use new level counters
                 levelStats savedLevel = new levelStats(ls);
@@ -322,6 +325,16 @@ public class LevelStatsManager : MonoBehaviour
     {
         return PlayerPrefs.GetFloat(instance.totalTimeString) > cost;
     }
+    public static void buyLevel(float cost)
+    {
+        if (canBuyLevel(cost))
+        {
+            PlayerPrefs.SetFloat(instance.totalTimeString, totalTimeValue-cost);
+            instance.saveGlobalValues();
+        }
+    }
+
+
 
     private void Update()
     {

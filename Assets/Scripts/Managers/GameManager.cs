@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
             //if new record is set, then add new time 
             if (LevelInfo.instance.thisLevelsStats.maxTimeCounter < Timer)
             {
-                LevelStatsManager.instance.increaseTotalTime(LevelInfo.instance.thisLevelsStats.maxTimeCounter, Timer);
+                //this is where the bug was likely occuring and adding in more time for no reason
+                //LevelStatsManager.instance.increaseTotalTime(LevelInfo.instance.thisLevelsStats.maxTimeCounter, Timer);
             }
             if (playerDied)
             {

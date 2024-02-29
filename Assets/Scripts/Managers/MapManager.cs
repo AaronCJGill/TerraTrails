@@ -39,7 +39,7 @@ public class MapManager : MonoBehaviour
     {
         for (int i = 0; i < allLevelSelectOptions.Length; i++)
         {
-            allLevelSelectOptions[i].checkIfCanUnlock();
+            allLevelSelectOptions[i].checkStartingConditions(gameObject);
         }
     }
 

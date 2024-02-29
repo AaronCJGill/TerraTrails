@@ -10,6 +10,8 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //individual level
     //has ability to activate next level if completed
     [SerializeField]
+    bool allowUnlock;
+    [SerializeField]
     bool levelLocked = true;
     [SerializeField]
     bool levelComplete = false;
@@ -38,6 +40,8 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         get { return _nextLevel; }
     }
+
+
     levelStats _levelstats;
     public levelStats LevelStats
     {
@@ -49,13 +53,26 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void Awake()
     {
-
-
-        
-
     }
     private void Start()
     {
+        checkStartingConditions(gameObject);
+
+        if (isAlwaysUnlocked && LevelStatsManager.checkIfSaveFileExists(levelName))
+        {
+            //always unlock the second level if this level has been completed
+            _levelstats = LevelStatsManager.instance.load(levelName);
+            if (_levelstats.levelFinished())
+            {
+                NextLevel.unlockLevel();
+            }
+        }
+
+    }
+
+    public void checkStartingConditions( GameObject f)
+    {
+        Debug.Log("Starting options + " + transform.name);
         //when starting, check if save exists, if it exists, load the stats here
         if (string.IsNullOrEmpty(levelName))
         {
@@ -105,30 +122,49 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
             else
             {
+
                 //level not played and file does not exist
+                //this is called after the unlockLevel is called. Base everything off of what Unlock Level does
                 //Debug.Log("Not found - " + levelName);
+                if (allowUnlock)
+                {
+                    cantBuylockedPanel.SetActive(false);
+                    canBuyLockPanel.SetActive(true);
+                }
+                else
+                {
+                    cantBuylockedPanel.SetActive(true);
+                    canBuyLockPanel.SetActive(false);
+
+                }
                 levelPlayed = false;
+                //allowUnlock = false;
                 levelMastered = false;
                 levelComplete = false;
                 levelBought = false;
-                
-                cantBuylockedPanel.SetActive(true);
-                canBuyLockPanel.SetActive(false);
+                Debug.Log("CANT BUY ------- " + transform.name);
+
             }
         }
+    }
 
-        if (isAlwaysUnlocked && LevelStatsManager.checkIfSaveFileExists(levelName))
+    public void lockLevel()
+    {
+        if (!isAlwaysUnlocked)
         {
-            //always unlock the second level if this level has been completed
-            _levelstats = LevelStatsManager.instance.load(levelName);
-            if (_levelstats.levelFinished())
-            {
-                NextLevel.unlockLevel();
-            }
+
+            cantBuylockedPanel.SetActive(true);
+            canBuyLockPanel.SetActive(false);
+            allowUnlock = false;
+            levelPlayed = false;
+            //allowUnlock = false;
+            levelMastered = false;
+            levelComplete = false;
+            levelBought = false;
         }
 
     }
-    
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         //Debug.Log("Mouse Entered");
@@ -168,13 +204,16 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void unlockLevel()
     {
         levelLocked = false;
+        allowUnlock = true;
         canBuyLockPanel.SetActive(true);
         cantBuylockedPanel.SetActive(false);
-        
+
         //this is essentially a function that goes through the chain of connected levels
         //originally is only called in the first level
         //goes checks to see if this level has been played already,
         //if they have, then allow them to unlock the next level
+
+        Debug.Log("level select" + transform.name);
 
         if (NextLevel != null)
         {
@@ -186,6 +225,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 cantBuylockedPanel.SetActive(false);
                 if (_levelstats.levelFinished())
                 {
+                    //NextLevel.Invoke("unlockLevel", 5);
                     NextLevel.unlockLevel();
                 }
             }
@@ -193,10 +233,12 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 //if the file does not exist and is unlocked, then change the lock texture
                 //this is specifically for when the player has not bought the level
+                Debug.Log("file does not exist but can buy level");
                 canBuyLockPanel.SetActive(true);
                 cantBuylockedPanel.SetActive(false);
             }
         }
+
 
     }
     public void allowUnlockLevel()
@@ -206,10 +248,12 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void buyLevel()
     {
-        if (LevelStatsManager.canBuyLevel(levelCost) && !levelLocked)
+        if (LevelStatsManager.canBuyLevel(levelCost) && !levelLocked && allowUnlock)
         {
+            LevelStatsManager.buyLevel(levelCost);
             levelBought = true;
             _levelstats = new levelStats(levelName);
+            LevelStatsManager.Save(_levelstats);
             canBuyLockPanel.SetActive(false);
             cantBuylockedPanel.SetActive(false);
         }
@@ -238,7 +282,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         Destroy(instantiatedPopUp.gameObject);
         instantiatedPopUp = null;
     }
-
+    /*
     public void checkIfCanUnlock()
     {
         if (isAlwaysUnlocked)
@@ -286,7 +330,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             else
             {
                 //level not played and file does not exist
-                //Debug.Log("Not found - " + levelName);
+                Debug.Log("Not found - " + levelName + " -------");
                 levelPlayed = false;
                 levelMastered = false;
                 levelComplete = false;
@@ -306,9 +350,9 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 NextLevel.unlockLevel();
             }
         }
-
+    
     }
-
+    */
 
     //current problem, buying the level unlocks the level on the map screen
     //but doesnt affect the save since when the level is bought, the save does not exist

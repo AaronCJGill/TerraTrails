@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70516f3b041632f43a8d3050677504b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowUnlock: 0
   levelLocked: 1
   levelComplete: 0
   levelPlayed: 0
@@ -103,8 +104,8 @@ MonoBehaviour:
   rightPos: {fileID: 7875774230097333799}
   bottomPos: {fileID: 1803508405329374695}
   leftPos: {fileID: 2881203731200889081}
-  cantBuylockedPanel: {fileID: 0}
-  canBuyLockPanel: {fileID: 0}
+  cantBuylockedPanel: {fileID: 653554640672444213}
+  canBuyLockPanel: {fileID: 7471160853818471956}
   isAlwaysUnlocked: 0
   popUpUIPrefab: {fileID: 8959843212148091159, guid: 870432c1a6896af439ec56a48c080b1d, type: 3}
 --- !u!1 &434821713882099563
@@ -159,7 +160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8164203226923075161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -512,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5533058481526713012
 RectTransform:
   m_ObjectHideFlags: 0
