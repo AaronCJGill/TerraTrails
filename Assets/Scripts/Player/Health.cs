@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
     }
     private void Start()
     {
-        //GameManager.instance.updateHealthUI();
+        GameManager.instance.updateHealthUI();
     }
     public void resetHealth()
     {
