@@ -242,9 +242,18 @@ public class LevelStatsManager : MonoBehaviour
     }
 
     //returns the level based on levelname
-    public static void Load(string levelName)
+    public static levelStats Load(string levelName)
     {
-        instance.load(levelName);
+        if (instance == null)
+        {
+            Debug.Log("Returning new level");
+            return new levelStats(levelName);
+        }
+        else
+        {
+            Debug.Log("Instance found");
+            return instance.load(levelName);
+        }
     }
 
     public levelStats load(string levelName)
