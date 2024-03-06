@@ -67,7 +67,21 @@ public class LevelInfo : MonoBehaviour
     public void getLevelStats()
     {
         //when the level starts, on awake, get the level's stats 
-        thisLevelsStats = LevelStatsManager.instance.load(levelName);
+        Debug.Log("This has been set active");
+        if (LevelStatsManager.checkIfSaveFileExists(levelName))
+        {
+            Debug.Log("level loaded");
+            thisLevelsStats = LevelStatsManager.instance.load(levelName);
+        }
+        else
+        {
+            thisLevelsStats = LevelStatsManager.Load(levelName);
+            //thisLevelsStats = new levelStats(levelName, 0, 0);
+            thisLevelsStats.devTime = devTime;
+            thisLevelsStats.minTime = minTime;
+            Debug.Log("New level created");
+        }
+
         if (thisLevelsStats.maxTimeCounter == 0 || thisLevelsStats.minTime == 0)
         {
             //level has not been played before

@@ -56,8 +56,8 @@ public class MapManager : MonoBehaviour
     {
 
 
-        timeText.text = "time: " + LevelStatsManager.totalTimeValue;
-        deathsText.text = "deaths: " + LevelStatsManager.totalDeathCount;
+        timeText.text = "time: " + string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
+        deathsText.text = "" + LevelStatsManager.totalDeathCount;
 
         if (Input.GetKeyDown(KeyCode.G))
         {

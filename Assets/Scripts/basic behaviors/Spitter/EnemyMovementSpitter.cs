@@ -9,8 +9,10 @@ public class EnemyMovementSpitter : MonoBehaviour
     public bool doesSpawnRoutine;
     [SerializeField]
     GameObject projectile;
+    AudioInstance audioinstance;
     void Start()
     {
+        audioinstance = GetComponent<AudioInstance>();
         if (doesSpawnRoutine)
         {
             //animation
@@ -33,8 +35,9 @@ public class EnemyMovementSpitter : MonoBehaviour
         yield return new WaitForSeconds(spitWaitTIme);
         //wait a while
         Instantiate(projectile, transform.position, Quaternion.identity);
+        audioinstance.playSound();
 
-        
+
         StartCoroutine(shoot());
     }
 
