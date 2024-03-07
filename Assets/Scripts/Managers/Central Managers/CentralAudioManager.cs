@@ -73,7 +73,7 @@ public class CentralAudioManager : MonoBehaviour
         //volume manager
         bgmVolume = (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume )/ 100;
         sfxVolume = (OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 100;
-        Debug.Log(OptionsManager.savedSettings.musicVolume + " " + OptionsManager.savedSettings.effectsVolume + " " +sfxVolume + " " + bgmVolume) ;
+        //Debug.Log(OptionsManager.savedSettings.musicVolume + " " + OptionsManager.savedSettings.effectsVolume + " " +sfxVolume + " " + bgmVolume) ;
     }
 
 

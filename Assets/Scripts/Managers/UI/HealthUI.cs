@@ -14,7 +14,10 @@ public class HealthUI : MonoBehaviour
 
     public static void disableHealthUI()
     {
-        instance.healthUIParent.SetActive(false);
+        if (instance.healthUIParent != null)
+        {
+            instance.healthUIParent.SetActive(false);
+        }
     }
 
     private void Awake()

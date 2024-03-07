@@ -26,7 +26,7 @@ public class AudioInstance : MonoBehaviour
             _as = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
         }
         _as.volume = (OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume);
-        Debug.Log(_as.volume + " VOLUME -- supposed to be " +(OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume));
+        //Debug.Log(_as.volume + " VOLUME -- supposed to be " +(OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume));
         soundToPlay = CentralAudioManager.retrieveSound(sound);
         _as.playOnAwake = false;
     }

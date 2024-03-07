@@ -8,20 +8,26 @@ public class SpawnManager : MonoBehaviour
     //spawn enemies that are supposed to spawn on start
     //have list of enemies to spawn for each room
     //spawn enemy from list
-    [SerializeField]
+    [SerializeField][Tooltip("This does not respect spawn time")]
     private List<enemySpawn> StartSpawnList = new List<enemySpawn>();
+    [SerializeField]
+    [Tooltip("The amount of time it takes for the initial spawn wave to appear")]
+    float StartSpawnDelay = 1f;
     [SerializeField]
     private List<enemySpawn> GameSpawnList = new List<enemySpawn>();
     [SerializeField][Tooltip("Should this spawn enemies in the middle of play")]
     bool UseGameSpawnList = true;
     [SerializeField]
     bool SpawnRoutineRestarts = true;
+
+    [SerializeField]
+    private List<enemySpawn> MasteredSpawnList = new List<enemySpawn>();
     [SerializeField]
     private List<GameObject> SpawnedEnemies = new List<GameObject>();
 
     float currentWaitTime = 0;
     float timer = 0;
-    bool canSpawn = true;
+    bool canSpawn = false;
 
     int currentPos = 0;
 
@@ -47,6 +53,7 @@ public class SpawnManager : MonoBehaviour
         if (GameSpawnList.Count == 0)
             Debug.Log("Game Spawn List is empty!");
 
+        //Invoke("startRoutine", StartSpawnDelay);
         startRoutine();
         spawnRoutine();
         
@@ -55,12 +62,14 @@ public class SpawnManager : MonoBehaviour
     //called at the start of the level
     void startRoutine()
     {
+        //TODOthere should be a delay to spawning enemies in
         foreach (enemySpawn e in StartSpawnList)
         {
             createEnemy(e);
         }
         //set the currentWaitTime to whatever is the first in the list
         currentWaitTime = GameSpawnList[0].waitTime ;
+        canSpawn = true;
     }
 
     private void Update()
@@ -121,6 +130,26 @@ public class SpawnManager : MonoBehaviour
         }
         SpawnedEnemies.Add(spawnedEnemy);
     }
+
+    public static Vector3 getRandomSpawnPoint()//if bounds are not set, then gives a random position between 0 and 10
+    {
+        Vector3 spawnPoint;
+        if (LevelBoundary.leftTopBound != null && LevelBoundary.BottomRightBound != null)
+        {
+            float randomXPos = Random.Range(LevelBoundary.leftTopBound.X, LevelBoundary.BottomRightBound.X);
+            float randomYPos = Random.Range(LevelBoundary.leftTopBound.Y, LevelBoundary.BottomRightBound.Y);
+
+            spawnPoint = new Vector3(randomXPos, randomYPos, 0);
+
+        }
+        else
+        {
+            spawnPoint = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+        }
+
+        return spawnPoint;
+    }
+
     public static void levelEnd()
     {
         foreach (GameObject enemy in instance.SpawnedEnemies)

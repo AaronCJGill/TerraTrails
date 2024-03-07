@@ -530,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: SampleSceneFour
+      value: Industrial_Scene4
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
@@ -798,7 +798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: TestingScene
+      value: Industrial_Scene5
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelBought
@@ -1335,7 +1335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: SampleSceneThree
+      value: Industrial_Scene3
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
@@ -1611,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: SampleScene
+      value: Industrial_Scene1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
@@ -2058,7 +2058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: SampleSceneTwo
+      value: Industrial_Scene2
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
