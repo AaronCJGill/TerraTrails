@@ -5809,11 +5809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: devTime
-      value: 60
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: minTime
-      value: 45
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: levelName
@@ -5857,11 +5857,11 @@ PrefabInstance:
       objectReference: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].spawnPoint.x
-      value: -7
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].spawnPoint.y
-      value: -1.5
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[4].spawnPoint.x
@@ -5897,7 +5897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[1].spawnPoint.x
-      value: -22.5
+      value: -22.8
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[1].spawnPoint.y
@@ -5905,11 +5905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[2].spawnPoint.x
-      value: -22.5
+      value: -22.8
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[2].spawnPoint.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[3].spawnPoint.x
@@ -5982,7 +5982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6336509236205755522, guid: b00977bb393ca5a4fa2bedb1e9081d27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.48
+      value: -14.57
       objectReference: {fileID: 0}
     - target: {fileID: 6336509236205755522, guid: b00977bb393ca5a4fa2bedb1e9081d27, type: 3}
       propertyPath: m_LocalPosition.y
