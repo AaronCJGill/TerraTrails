@@ -121,7 +121,8 @@ public class SpawnManager : MonoBehaviour
         if (e.randomPosition)
         {
             //spawning at a random position
-            spawnedEnemy = Instantiate(e.enemyPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+            //spawnedEnemy = Instantiate(e.enemyPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+            spawnedEnemy = Instantiate(e.enemyPrefab, getRandomSpawnPoint(), Quaternion.identity);
         }
         else
         {

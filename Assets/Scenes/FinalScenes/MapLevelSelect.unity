@@ -490,7 +490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 147
+      value: 235
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -758,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 147
+      value: 235
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -799,6 +799,10 @@ PrefabInstance:
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
       value: Industrial_Scene5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: _nextLevel
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelBought
@@ -1295,7 +1299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9
+      value: 96.99999
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1571,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -311
+      value: -223
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1611,7 +1615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: Industrial_Scene1
+      value: Industrial_scene1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
@@ -2018,7 +2022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -142
+      value: -54.000008
       objectReference: {fileID: 0}
     - target: {fileID: 8154444982183477379, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed = 3f;
+    [SerializeField][Tooltip("What percentage can players move the analog stick and not be at full speed ")][Range(0.1f,1f)]
+    private float controllerThreshold = 0.8f;
     private Vector3 move;
     private Rigidbody2D rb;
     public bool canMove = true;
@@ -39,22 +41,36 @@ public class PlayerMovement : MonoBehaviour
 
             move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
 
+            //makes it so that controller movement is more viable, yet keyboard movement is near instant still
+            
+            if (move.x > controllerThreshold)
+                move.x = 1;
+            if (move.x < -controllerThreshold)
+                move.x = -1;
+            //makes it so that controller movement is more viable, yet keyboard movement is near instant still
+            if (move.y > controllerThreshold)
+                move.y = 1;
+            if (move.y < -controllerThreshold)
+                move.y = -1;
+            
             //move left and right at a consistent rate
+            /*
             if (move.x > 0)
                 move.x = 1;
             if (move.x < 0)
                 move.x = -1;
-
+            
             //move up and down at a consistent rate
+
             if (move.y > 0)
                 move.y = 1;
             if (move.y < 0)
                 move.y = -1;
-
+            */
             //stop the player from moving faster than they should when moving diagonally
             //move = move.normalized;
             //Debug.Log(move);
-            move.Normalize();
+            //move.Normalize();
 
 
             if (Input.GetKeyDown(KeyCode.R))
