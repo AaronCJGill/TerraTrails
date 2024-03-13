@@ -5988,11 +5988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: devTime
-      value: 60
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: minTime
-      value: 45
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: levelName
