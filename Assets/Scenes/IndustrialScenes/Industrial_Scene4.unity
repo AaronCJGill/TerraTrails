@@ -5105,8 +5105,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4886588850034625153, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: levelName
-      value: 0
+      value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9be63a278732961478f696a4ce203120, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.size
       value: 4
