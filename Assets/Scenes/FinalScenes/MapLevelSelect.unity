@@ -537,8 +537,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 961340342}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
-      propertyPath: levelBought
+      propertyPath: allowUnlock
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBought
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelLocked
@@ -552,6 +556,10 @@ PrefabInstance:
       propertyPath: canBuyLockPanel
       value: 
       objectReference: {fileID: 2058238191}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: isAlwaysUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
@@ -1811,7 +1819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
-      value: Industrial_scene1
+      value: Industrial_Scene1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel

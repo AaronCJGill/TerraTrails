@@ -234,3 +234,29 @@ public class GameManager : MonoBehaviour
 
 
 }
+
+namespace usefulFunctions
+{
+    public static class positioning{
+        public static Vector3 getRandomSpawnPoint()//if bounds are not set, then gives a random position between 0 and 10
+        {
+            Vector3 spawnPoint;
+            if (LevelBoundary.leftTopBound != null && LevelBoundary.BottomRightBound != null)
+            {
+                float randomXPos = Random.Range(LevelBoundary.leftTopBound.X, LevelBoundary.BottomRightBound.X);
+                float randomYPos = Random.Range(LevelBoundary.leftTopBound.Y, LevelBoundary.BottomRightBound.Y);
+
+                spawnPoint = new Vector3(randomXPos, randomYPos, 0);
+
+            }
+            else
+            {
+                spawnPoint = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+            }
+
+            return spawnPoint;
+        }
+    }
+
+}
+

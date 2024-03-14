@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddb70865c8276ae4a9da1fa93fb973af
+guid: 2f2d7572b5cbba3419c0f91c25f855e7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 6
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: projectileRedSlow_0
+      name: kamikaze_spider_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 886a8abc8fa9494409bd9f81b3cf605e
-      internalID: 178642043
+      spriteID: 2b269d33864240946ad267d3be8f8933
+      internalID: -1616909753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectileRedSlow_1
+      name: kamikaze_spider_Idle_1
       rect:
         serializedVersion: 2
         x: 16
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 786cc6048f2df93449f79f15663e7298
-      internalID: 1107292625
+      spriteID: 220e441a7575bef4993672bd7038edeb
+      internalID: 607275735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectileRedSlow_2
+      name: kamikaze_spider_Idle_2
       rect:
         serializedVersion: 2
         x: 32
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 109f1b8d6ca0bfa4f9290d4f8b33971b
-      internalID: -825962712
+      spriteID: d5fe8ecfd62eb7e4b94979ea525f6c51
+      internalID: -749756938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectileRedSlow_3
+      name: kamikaze_spider_Idle_3
       rect:
         serializedVersion: 2
         x: 48
@@ -213,8 +213,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dceb78c0855acb46afabc0b56268dd9
-      internalID: -99662626
+      spriteID: 15cdf6e1487a22a4dbb6fb3e2d0829c3
+      internalID: 1640367562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamikaze_spider_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfcb1be2ac830544193204c4d97be5db
+      internalID: 1782586493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamikaze_spider_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d42b1e953cbd34d992ad2db3082ff1
+      internalID: 469353846
       vertices: []
       indices: 
       edges: []
@@ -230,10 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      projectileRedSlow_0: 178642043
-      projectileRedSlow_1: 1107292625
-      projectileRedSlow_2: -825962712
-      projectileRedSlow_3: -99662626
+      kamikaze_spider_Idle_0: -1616909753
+      kamikaze_spider_Idle_1: 607275735
+      kamikaze_spider_Idle_2: -749756938
+      kamikaze_spider_Idle_3: 1640367562
+      kamikaze_spider_Idle_4: 1782586493
+      kamikaze_spider_Idle_5: 469353846
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

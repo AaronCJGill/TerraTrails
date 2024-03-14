@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddb70865c8276ae4a9da1fa93fb973af
+guid: 90defec8a9331a14a92807bc818b1b4e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 6
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: projectileRedSlow_0
+      name: kamikaze_spider_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 886a8abc8fa9494409bd9f81b3cf605e
-      internalID: 178642043
+      spriteID: 84fce3e33ea8b44469b994a39b568e7a
+      internalID: -1096344004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectileRedSlow_1
+      name: kamikaze_spider_Walk_1
       rect:
         serializedVersion: 2
         x: 16
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 786cc6048f2df93449f79f15663e7298
-      internalID: 1107292625
+      spriteID: 2c0a5fdad57f53a4d949a7f5f4df3a24
+      internalID: 2056149569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectileRedSlow_2
+      name: kamikaze_spider_Walk_2
       rect:
         serializedVersion: 2
         x: 32
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 109f1b8d6ca0bfa4f9290d4f8b33971b
-      internalID: -825962712
+      spriteID: f7dee12ff156d1c42aefcb37f1180312
+      internalID: 334668249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectileRedSlow_3
+      name: kamikaze_spider_Walk_3
       rect:
         serializedVersion: 2
         x: 48
@@ -213,8 +213,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dceb78c0855acb46afabc0b56268dd9
-      internalID: -99662626
+      spriteID: e90ce2b02502da34aa3ac38685669297
+      internalID: -363952306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kamikaze_spider_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d758a4bb53ca3b49b6177feb94a8567
+      internalID: -710787921
       vertices: []
       indices: 
       edges: []
@@ -230,10 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      projectileRedSlow_0: 178642043
-      projectileRedSlow_1: 1107292625
-      projectileRedSlow_2: -825962712
-      projectileRedSlow_3: -99662626
+      kamikaze_spider_Walk_0: -1096344004
+      kamikaze_spider_Walk_1: 2056149569
+      kamikaze_spider_Walk_2: 334668249
+      kamikaze_spider_Walk_3: -363952306
+      kamikaze_spider_Walk_4: -710787921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
