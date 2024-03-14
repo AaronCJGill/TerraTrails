@@ -526,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 486629450}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 1
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -558,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 2058238191}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: isAlwaysUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 102157489}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -1343,7 +1343,7 @@ PrefabInstance:
       objectReference: {fileID: 1936589724}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 1
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -2066,7 +2066,7 @@ PrefabInstance:
       objectReference: {fileID: 1393843306}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
