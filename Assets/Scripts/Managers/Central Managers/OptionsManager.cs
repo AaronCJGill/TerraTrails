@@ -38,7 +38,7 @@ public class OptionsManager : MonoBehaviour
             else
             {
                 loadOptions();
-                Debug.Log(savedSettings.musicVolume);
+                //Debug.Log(savedSettings.musicVolume);
             }
         }
 
