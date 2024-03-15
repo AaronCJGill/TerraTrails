@@ -53,9 +53,9 @@ public class SpawnManager : MonoBehaviour
         if (GameSpawnList.Count == 0)
             Debug.Log("Game Spawn List is empty!");
 
-        //Invoke("startRoutine", StartSpawnDelay);
-        startRoutine();
-        spawnRoutine();
+        Invoke("startRoutine", StartSpawnDelay);
+        //startRoutine();
+        //spawnRoutine();
         
     }
 
