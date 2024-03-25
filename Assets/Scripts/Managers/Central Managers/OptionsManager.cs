@@ -38,7 +38,7 @@ public class OptionsManager : MonoBehaviour
             else
             {
                 loadOptions();
-                Debug.Log(savedSettings.musicVolume);
+                //Debug.Log(savedSettings.musicVolume);
             }
         }
 
@@ -69,7 +69,6 @@ public class OptionsManager : MonoBehaviour
     {
         if (isPaused)
         {
-            Time.timeScale = 0;
 
             Transform parent = GameObject.Find("GameCanvas").transform;
             if (pauseMenuInstance != null)
@@ -81,6 +80,7 @@ public class OptionsManager : MonoBehaviour
                 pauseMenuInstance = Instantiate(pauseMenuObject, parent);
 
             }
+            Time.timeScale = 0;
 
         }
         else if (!isPaused)

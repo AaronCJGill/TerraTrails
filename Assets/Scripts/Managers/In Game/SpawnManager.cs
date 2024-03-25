@@ -53,9 +53,9 @@ public class SpawnManager : MonoBehaviour
         if (GameSpawnList.Count == 0)
             Debug.Log("Game Spawn List is empty!");
 
-        //Invoke("startRoutine", StartSpawnDelay);
-        startRoutine();
-        spawnRoutine();
+        Invoke("startRoutine", StartSpawnDelay);
+        //startRoutine();
+        //spawnRoutine();
         
     }
 
@@ -81,7 +81,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (canSpawn && UseGameSpawnList)
         {
-
             if (currentPos >= GameSpawnList.Count && SpawnRoutineRestarts)
             {
                 //Debug.Log("At end of spawn list - restarting ");
@@ -161,6 +160,9 @@ public class SpawnManager : MonoBehaviour
     }
 
 }
+
+
+
 
 [System.Serializable]
 public class enemySpawn

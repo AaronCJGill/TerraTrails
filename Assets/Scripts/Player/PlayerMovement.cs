@@ -15,6 +15,14 @@ public class PlayerMovement : MonoBehaviour
     GameObject spriteObject;
     private Animator animator;
 
+    public Vector2 Position
+    {
+        get
+        {
+            return transform.position;
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

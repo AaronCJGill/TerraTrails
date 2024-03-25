@@ -64,7 +64,8 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             _levelstats = LevelStatsManager.instance.load(levelName);
             if (_levelstats.levelFinished())
             {
-                NextLevel.unlockLevel();
+                if(_nextLevel != null)
+                    NextLevel.unlockLevel();
             }
         }
 

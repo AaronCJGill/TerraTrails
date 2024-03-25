@@ -5819,6 +5819,10 @@ PrefabInstance:
       propertyPath: levelName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9be63a278732961478f696a4ce203120, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.size
       value: 4
@@ -5920,8 +5924,16 @@ PrefabInstance:
       value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[1].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[2].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].randomPosition
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: timerText
