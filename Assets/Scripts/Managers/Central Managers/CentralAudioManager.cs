@@ -71,11 +71,22 @@ public class CentralAudioManager : MonoBehaviour
     private void Update()
     {
         //volume manager
-        bgmVolume = (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume )/ 100;
-        sfxVolume = (OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 100;
+        //bgmVolume = (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume )/ 100;
+        //sfxVolume = (OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 100;
         //Debug.Log(OptionsManager.savedSettings.musicVolume + " " + OptionsManager.savedSettings.effectsVolume + " " +sfxVolume + " " + bgmVolume) ;
     }
 
+    public static void updateSoundSettings()
+    {
+        //when saving this updates the sound settings
+        if (instance != null)
+        {
+
+            instance.bgmVolume = (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume) / 100;
+            instance.sfxVolume = (OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 100;
+
+        }
+    }
 
 }
 public enum SoundFiles

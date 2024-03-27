@@ -30,10 +30,20 @@ public class OptionsManager : MonoBehaviour
             //if the directory does not exist
             if (!Directory.Exists(dir))
             {
-                Debug.Log("Directory Created");
+                Debug.Log("Settings Directory Created");
                 Directory.CreateDirectory(dir);
-                Debug.Log("Directory created");
-                Save(new menuSettings(100));
+                ResolutionSettings rs; //= new ResolutionSettings(ResolutionSettings.resOptions.WGXA, FullScreenMode.Windowed);
+                if (Application.platform == RuntimePlatform.WebGLPlayer)
+                {
+                    rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
+                }
+                else
+                {
+                    rs = new ResolutionSettings(ResolutionSettings.resOptions.WGXA, FullScreenMode.Windowed);
+                }
+                menuSettings ms = new menuSettings(100, 100, 100, rs);
+                //ms.resolutionSettings = rs;
+                Save(ms);
             }
             else
             {
@@ -43,13 +53,15 @@ public class OptionsManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+        
     }
 
-    private void deleteDirectory()
+    public void deleteDirectory()
     {
         Directory.Delete(Application.persistentDataPath + directory);
     }
     
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
@@ -58,6 +70,7 @@ public class OptionsManager : MonoBehaviour
             Debug.Log("Pause status: " + isPaused);
             handlePause();
         }
+
     }
     public void resumeGame()
     {
@@ -105,13 +118,44 @@ public class OptionsManager : MonoBehaviour
     public static void Save(menuSettings potentialSettings)
     {
         instance.saveOptions(potentialSettings);
+
+        //handle sound saving
+        CentralAudioManager.updateSoundSettings();
+
+        //handle resolution
+        ResolutionSettings rs = potentialSettings.resolutionSettings;
+        Debug.Log("RS Fullscreen mode : " + rs.screenMode);
+        Screen.SetResolution(rs.currentRes.x, rs.currentRes.y, rs.screenMode);
+        Debug.Log("RS Fullscreen mode : " + rs.screenMode + " - fsm " + Screen.fullScreenMode);
+
+        instance.updateSettings();
     }
+
+    public void updateSettings()
+    {
+
+        //handle sound saving
+        CentralAudioManager.updateSoundSettings();
+        ResolutionSettings rs = savedSettings.resolutionSettings;
+        //handle resolution
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
+        }
+        else
+        {
+            rs = savedSettings.resolutionSettings;
+        }
+        Debug.Log(rs.currentRes + " - " +rs.screenMode);
+        Screen.SetResolution(rs.currentRes.x, rs.currentRes.y, rs.screenMode);
+    }
+
     public void saveOptions(menuSettings potentialSettings)
     {
         Debug.Log("Settings Saving");
-        Debug.Log(savedSettings.effectsVolume);
+        //Debug.Log(savedSettings.effectsVolume);
         savedSettings = potentialSettings;
-        Debug.Log(savedSettings.effectsVolume);
+        Debug.Log(savedSettings.resolutionSettings.currentRes);
         //we just overwrite whatever we have
         string dir = Application.persistentDataPath + directory;
         string json;
@@ -120,6 +164,7 @@ public class OptionsManager : MonoBehaviour
         json = JsonUtility.ToJson(savedSettings);
         File.WriteAllText(filePath, json);
         Debug.Log("Settings Saved");
+        updateSettings();
     }
     public static menuSettings LoadOptions()
     {
@@ -134,18 +179,33 @@ public class OptionsManager : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             savedSettings = JsonUtility.FromJson<menuSettings>(json);
+
+            Screen.SetResolution(savedSettings.resolutionSettings.currentRes.x, savedSettings.resolutionSettings.currentRes.y, savedSettings.resolutionSettings.screenMode);
+
             return savedSettings;
-            Debug.Log("Successfully loaded settings");
+            //Debug.Log("Successfully loaded settings");
         }
         else
         {
             //save file does not exist - create new save file
-            savedSettings = new menuSettings(100, 100, 100);
+            //savedSettings = new menuSettings(100, 100, 100);
             Debug.Log("Settings not found, creating new settings");
-
-            saveOptions(savedSettings);
-            return new menuSettings();
+            ResolutionSettings rs;
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
+            }
+            else
+            {
+                rs = new ResolutionSettings(ResolutionSettings.resOptions.WGXA, FullScreenMode.Windowed);
+            }
+            menuSettings ms = new menuSettings(100, 100, 100, rs);
+            //ms.resolutionSettings = rs;
+            //Save(ms);
+            savedSettings = ms;
+            //updateSettings();
+            Save(ms);
+            return ms;
         }
     }
-
 }

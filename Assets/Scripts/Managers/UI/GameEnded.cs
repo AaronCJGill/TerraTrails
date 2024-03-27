@@ -38,7 +38,7 @@ public class GameEnded : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //gotomainmenu();
-            Application.Quit();
+            //Application.Quit();
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
