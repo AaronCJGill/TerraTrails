@@ -227,6 +227,7 @@ public class LevelStatsManager : MonoBehaviour
         //just saev whatever values have already been changed
         PlayerPrefs.SetFloat(totalTimeString, totalTimeValue);
         PlayerPrefs.SetInt(totalDeathString, totalDeathCount);
+        Debug.Log("time value set to : " + totalTimeValue);
     }
     void resetGlobalValues()
     {
@@ -338,7 +339,9 @@ public class LevelStatsManager : MonoBehaviour
     {
         if (canBuyLevel(cost))
         {
-            PlayerPrefs.SetFloat(instance.totalTimeString, totalTimeValue-cost);
+            totalTimeValue -= cost;
+            PlayerPrefs.SetFloat(instance.totalTimeString, totalTimeValue - cost);
+            Debug.Log("time value set to : " + totalTimeValue);
             instance.saveGlobalValues();
         }
     }

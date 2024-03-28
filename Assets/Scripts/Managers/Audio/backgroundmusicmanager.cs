@@ -5,6 +5,7 @@ using UnityEngine;
 public class backgroundmusicmanager : MonoBehaviour
 {
     //i imagine there will be several types of background music - one for map, one for main menu, one for levels
+    //multiple audiosources attached to this object. just set one to active
     public enum typeOfMusic
     {
         Map,

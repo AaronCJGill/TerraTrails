@@ -52,6 +52,11 @@ public class MapManager : MonoBehaviour
         //SceneManager.LoadScene("");
     }
 
+    public void spendButton()
+    {
+        LevelStatsManager.buyLevel(5);
+    }
+
     private void Update()
     {
 
