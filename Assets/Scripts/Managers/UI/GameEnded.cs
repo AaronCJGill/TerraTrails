@@ -95,7 +95,10 @@ public class GameEnded : MonoBehaviour
                 topGameOverText.text = "You Died";
 
                 //nextLevelButtonGameObect.SetActive(false);
-                GameOverText.text = GameOverTextGenerator.instance.generateString();
+                if (GameOverTextGenerator.instance != null)
+                    GameOverText.text = GameOverTextGenerator.instance.generateString();
+                else
+                    GameOverText.text = "Get Better!";
                 timeStatsText.text = "Time Needed: " + LevelInfo.instance.minTime
     + "\nTime Achieved: " + GameManager.instance.Timer; 
             }

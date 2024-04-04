@@ -16,10 +16,13 @@ public class EnemyMovementCharge : MonoBehaviour
     [Header("Randomization Settings")]
     [SerializeField]
     float chargeRandomization = 0.5f;
-
+    [SerializeField]
     SpriteRenderer sr;
     [SerializeField]
     float startupWaitTime = 1f;
+    [SerializeField]
+    private Animator anim;//just two animations, charges and charging up
+
 
     void Start()
     {
@@ -42,9 +45,16 @@ public class EnemyMovementCharge : MonoBehaviour
 
     IEnumerator move(float startWaitTime = 0)
     {
-        yield return new WaitForSeconds(startWaitTime);
+        anim.ResetTrigger("idle");
+        anim.SetTrigger("charge");
+
+        //anim.SetTrigger("chargeUp");
+        //yield return new WaitForSeconds(startWaitTime);
+        yield return new WaitForSeconds(1.1f);
         int rnum = Random.Range(0,101);
         //if is on top of player, just move to random target position away from player
+        //anim.ResetTrigger("chargeUp");
+        //anim.SetTrigger("charge");
 
         Vector2 targetPos;
         if (rnum <= chargeToPlayer && Vector2.Distance(transform.position, PlayerMovement.instance.transform.position) > 1)
@@ -52,14 +62,27 @@ public class EnemyMovementCharge : MonoBehaviour
         else
             targetPos = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
 
+        if (targetPos.x > transform.position.x)
+        {
+            //target is to the right
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+
         while (Vector2.Distance(transform.position, targetPos) > 0.2f)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             yield return null;
         }
-
+        anim.ResetTrigger("charge");
+        anim.SetTrigger("idle");
 
         yield return new WaitForSeconds(waitTime + Random.Range(-chargeRandomization, chargeRandomization));
+
+        //anim.ResetTrigger("charge");
         //wait a while
         StartCoroutine(move());
     }

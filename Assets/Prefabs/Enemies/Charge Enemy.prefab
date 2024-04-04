@@ -51,10 +51,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   waitTime: 2
-  doesSpawnRoutine: 1
+  doesSpawnRoutine: 0
   chargeToPlayer: 100
   chargeRandomization: 0.5
+  sr: {fileID: 7159489691961686155}
   startupWaitTime: 1
+  anim: {fileID: 911250675734293785}
 --- !u!212 &5167955590218165961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -272,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3840444515868997863}
   - component: {fileID: 7159489691961686155}
+  - component: {fileID: 911250675734293785}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -346,3 +349,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &911250675734293785
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232436823323897514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9bfc8ac46cba08f4e80e4489b1a0dfe0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

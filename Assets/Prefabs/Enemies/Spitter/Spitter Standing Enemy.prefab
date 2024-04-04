@@ -104,6 +104,8 @@ MonoBehaviour:
   spitWaitTIme: 2.5
   doesSpawnRoutine: 1
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}
+  anim: {fileID: 3747195944382594099}
+  sr: {fileID: 3330698981492666451}
 --- !u!61 &818680575229134421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5473607320492633732}
   - component: {fileID: 8013810136247724459}
+  - component: {fileID: 3747195944382594099}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -343,3 +346,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3747195944382594099
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5850428123155418434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 042d96929cb2a7a4ebae7f55258681a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

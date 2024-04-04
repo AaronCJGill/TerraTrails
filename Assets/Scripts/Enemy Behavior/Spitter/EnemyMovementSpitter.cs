@@ -10,6 +10,11 @@ public class EnemyMovementSpitter : MonoBehaviour
     [SerializeField]
     GameObject projectile;
     AudioInstance audioinstance;
+
+    [SerializeField]
+    Animator anim;
+    [SerializeField]
+    SpriteRenderer sr;
     void Start()
     {
         audioinstance = GetComponent<AudioInstance>();
@@ -23,7 +28,17 @@ public class EnemyMovementSpitter : MonoBehaviour
             StartCoroutine(shoot());
         }
     }
-
+    private void Update()
+    {
+        if (transform.position.x < PlayerMovement.instance.transform.position.x)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+    }
     void spawnSequence()
     {
         //animation
@@ -32,13 +47,18 @@ public class EnemyMovementSpitter : MonoBehaviour
 
     IEnumerator shoot()
     {
-        yield return new WaitForSeconds(spitWaitTIme);
+
+        yield return new WaitForSeconds(spitWaitTIme - 0.83f);
+        //time it so that the animation triggers at the correct moment
+        anim.SetTrigger("action");
+        yield return new WaitForSeconds(0.915f);
         //wait a while
         Instantiate(projectile, transform.position, Quaternion.identity);
         audioinstance.playSound();
 
 
         StartCoroutine(shoot());
+        anim.ResetTrigger("action");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

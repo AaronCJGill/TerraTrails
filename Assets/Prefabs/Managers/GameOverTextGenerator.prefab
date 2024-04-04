@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b8d05918f56d47b75d4f92f8a0876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPhrases: {fileID: 4900000, guid: 231801a3621c55848a513f1bc6be1fc4, type: 3}
+  gameOverPhrases: {fileID: 4900000, guid: ca5b29dc005dca24a89f82c56c0fbb31, type: 3}
   GameOverStrings:
   - "You suck\r"
   - "Wow, did you even try?\r"
@@ -56,3 +56,20 @@ MonoBehaviour:
   - "Keep going\r"
   - "Almost made it!\r"
   - Blame the devs
+  - "You suck\r"
+  - "Wow, did you even try?\r"
+  - "...\r"
+  - "Damn, youre shitty\r"
+  - "Good try!\r"
+  - "Maybe next time\r"
+  - "Death is not the end.\r"
+  - "Keep going\r"
+  - "Almost made it!\r"
+  - "Blame the devs\r"
+  - "You died ;)\r"
+  - "Good Try, I suppose\r"
+  - "Try dodging the enemies\r"
+  - "You can buy abilities from the store\r"
+  - "Press \"X\" or Space to use any ability you have equipped\r"
+  - "KEEP MOVING\r"
+  - You should buy powerups from the store

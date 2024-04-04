@@ -13,6 +13,10 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     bool allowUnlock;
     [SerializeField]
     bool levelLocked = true;
+    public bool LevelLocked
+    {
+        get{ return levelLocked; }
+    }
     [SerializeField]
     bool levelComplete = false;
     bool levelMastered = false;
@@ -23,24 +27,58 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     bool levelBought = false;
     [SerializeField]
     string levelName;
+    public string LevelName
+    {
+        get { return levelName; }
+    }
     [SerializeField]
     private float levelCost = 1;
 
     [SerializeField]
     LevelSelect _nextLevel;
+    public LevelSelect previousLevel;
     [SerializeField]
     Transform topPos, rightPos, bottomPos, leftPos;
+    Transform TopPos
+    {
+        get { return topPos; }
+    }
+    Transform RightPos
+    {
+        get { return rightPos; }
+    }
+    Transform BottomPos
+    {
+        get { return bottomPos; }
+    }
+    Transform LeftPos
+    {
+        get { return leftPos; }
+    }
+    public Transform ConnectedPoint
+    {
+        get; private set;
+
+    }
+
     [SerializeField]
     GameObject cantBuylockedPanel;
     [SerializeField]
     GameObject canBuyLockPanel;
     [SerializeField]
     bool isAlwaysUnlocked;
+    public bool IsAlwaysUnlocked
+    {
+        get { return isAlwaysUnlocked; }
+    }
     public LevelSelect NextLevel
     {
         get { return _nextLevel; }
     }
-
+    public Transform T
+    {
+        get { return transform; }
+    }
 
     levelStats _levelstats;
     public levelStats LevelStats
@@ -67,13 +105,18 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 if(_nextLevel != null)
                     NextLevel.unlockLevel();
             }
-        }
 
+        }
+        if (_nextLevel != null)
+        {
+            _nextLevel.previousLevel = this;
+        }
+        connectToNextLevelPoint();
     }
 
     public void checkStartingConditions( GameObject f)
     {
-        Debug.Log("Starting options + " + transform.name);
+        //Debug.Log("Starting options + " + transform.name);
         //when starting, check if save exists, if it exists, load the stats here
         if (string.IsNullOrEmpty(levelName))
         {
@@ -143,7 +186,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 levelMastered = false;
                 levelComplete = false;
                 levelBought = false;
-                Debug.Log("CANT BUY ------- " + transform.name);
+                //Debug.Log("CANT BUY ------- " + transform.name);
 
             }
         }
@@ -165,6 +208,69 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
 
     }
+
+    //connect to the net level's point
+    void connectToNextLevelPoint()
+    {
+        Transform[] x = connectedPos();
+        //if(x != null)
+        //    Debug.Log(transform.name + " " + x[0].name + " -- " + x[1].parent.name + " "+ x[1].name);
+    }
+
+    /// <summary>
+    /// first transform is the self point, second is the next point
+    /// </summary>
+    /// <returns></returns>
+    Transform[] connectedPos()
+    {
+
+        //check if next point exists
+        if (_nextLevel != null)
+        {
+            Transform selfPoint, nextPoint;
+            Transform[] allSelfPoints = { topPos, rightPos, bottomPos, leftPos };
+            selfPoint = allSelfPoints[0];
+
+            Transform[] allNextPoints = { NextLevel.TopPos, NextLevel.RightPos, NextLevel.BottomPos, NextLevel.LeftPos };
+
+            nextPoint = allNextPoints[0];
+
+            float savedDistance = Vector2.Distance(selfPoint.position, nextPoint.position);
+
+            for (int i = 0; i < allSelfPoints.Length; i++)
+            {
+                Transform TempSelfPoint = allSelfPoints[i];
+                //Debug.Log(TempSelfPoint.name);
+                for (int j = 0; j < allNextPoints.Length; j++)
+                {
+                    //Debug.Log(allNextPoints[i].name);
+                    Transform TempNextPoint = allNextPoints[i];
+                    //if this is the closest point pairing, then make these the saved values
+                    if (Vector2.Distance(TempNextPoint.position, TempSelfPoint.position) < savedDistance)
+                    {
+                        //make this the closest point and save these two plus the distance
+                        savedDistance = Vector2.Distance(TempNextPoint.position, TempSelfPoint.position);
+                        nextPoint = TempNextPoint;
+                        selfPoint = TempSelfPoint;
+                        Debug.Log(savedDistance + " " + nextPoint + nextPoint.transform.name + " " + selfPoint + transform.name);
+
+                    }
+                    //otherwise ignore
+                    //Debug.Log(Vector2.Distance(TempNextPoint.position, TempSelfPoint.position) + " " + savedDistance);
+                    
+                }
+            }
+
+            Transform[] points = { selfPoint, nextPoint };
+
+            return points;
+        }
+
+        return null;
+
+    }
+
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {

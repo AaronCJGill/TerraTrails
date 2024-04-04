@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 6
   disappearAnimTime: 2
+  sr: {fileID: 5484924179402615455}
   moveWaitTime: 2
   spitWaitTime: 2
   totalDisappearTime: 2
@@ -184,6 +185,7 @@ MonoBehaviour:
   restartTime: 1
   warningSymbol: {fileID: 4987578705084021693, guid: 3cce4049f7c40674ca4aa8ddc613caa8, type: 3}
   TeleToPlayer: 25
+  anim: {fileID: 5775544052975464625}
 --- !u!82 &-2428597912068807510
 AudioSource:
   m_ObjectHideFlags: 0
@@ -304,6 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195247622947998192}
   - component: {fileID: 5484924179402615455}
+  - component: {fileID: 5775544052975464625}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -378,3 +381,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5775544052975464625
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132564388269394623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5872dcba630b33e4f8cba7523ffa4490, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

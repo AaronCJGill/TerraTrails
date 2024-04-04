@@ -38,6 +38,7 @@ public class AudioInstance : MonoBehaviour
     {
         _as.clip = CentralAudioManager.retrieveSound(sound);
         _as.Play();
+        Debug.Log("Soundplaying");
     }
 
     public void playFirstSound()
