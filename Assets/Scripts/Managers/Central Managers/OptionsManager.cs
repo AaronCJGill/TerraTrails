@@ -55,7 +55,10 @@ public class OptionsManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
     }
-
+    private void Start()
+    {
+        Save(savedSettings);
+    }
     public void deleteDirectory()
     {
         Directory.Delete(Application.persistentDataPath + directory);
@@ -124,9 +127,9 @@ public class OptionsManager : MonoBehaviour
 
         //handle resolution
         ResolutionSettings rs = potentialSettings.resolutionSettings;
-        Debug.Log("RS Fullscreen mode : " + rs.screenMode);
+        //Debug.Log("RS Fullscreen mode : " + rs.screenMode);
         Screen.SetResolution(rs.currentRes.x, rs.currentRes.y, rs.screenMode);
-        Debug.Log("RS Fullscreen mode : " + rs.screenMode + " - fsm " + Screen.fullScreenMode);
+        //Debug.Log("RS Fullscreen mode : " + rs.screenMode + " - fsm " + Screen.fullScreenMode);
 
         instance.updateSettings();
     }
@@ -141,6 +144,7 @@ public class OptionsManager : MonoBehaviour
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
+
         }
         else
         {
@@ -181,7 +185,7 @@ public class OptionsManager : MonoBehaviour
             savedSettings = JsonUtility.FromJson<menuSettings>(json);
 
             Screen.SetResolution(savedSettings.resolutionSettings.currentRes.x, savedSettings.resolutionSettings.currentRes.y, savedSettings.resolutionSettings.screenMode);
-
+            CentralAudioManager.updateSoundSettings();
             return savedSettings;
             //Debug.Log("Successfully loaded settings");
         }

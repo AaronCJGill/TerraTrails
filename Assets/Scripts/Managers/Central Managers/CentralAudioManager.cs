@@ -40,6 +40,8 @@ public class CentralAudioManager : MonoBehaviour
         else if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+
         }
     }
 
@@ -79,12 +81,12 @@ public class CentralAudioManager : MonoBehaviour
     public static void updateSoundSettings()
     {
         //when saving this updates the sound settings
+
         if (instance != null)
         {
-
-            instance.bgmVolume = (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume) / 100;
-            instance.sfxVolume = (OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 100;
-
+            //Debug.Log("BGM Audio: " + ((float) (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume )/ 10000) + " || SFX Volume: " +((float) (OptionsManager.savedSettings.effectsVolume * (float)OptionsManager.savedSettings.masterVolume) / 10000));
+            instance.bgmVolume = (float)(OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume) / 10000;
+            instance.sfxVolume = (float)(OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 10000;
         }
     }
 

@@ -36,6 +36,7 @@ public class backgroundmusicmanager : MonoBehaviour
         _as.loop = true;
         _as.clip = CentralAudioManager.retrieveSound(SoundFiles.backgroundMusic);
         _as.Play();
+        _as.volume = CentralAudioManager.instance.bgmVolume;
     }
 
     
