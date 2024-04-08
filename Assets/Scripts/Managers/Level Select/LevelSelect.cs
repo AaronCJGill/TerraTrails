@@ -252,7 +252,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                         savedDistance = Vector2.Distance(TempNextPoint.position, TempSelfPoint.position);
                         nextPoint = TempNextPoint;
                         selfPoint = TempSelfPoint;
-                        Debug.Log(savedDistance + " " + nextPoint + nextPoint.transform.name + " " + selfPoint + transform.name);
+                        //Debug.Log(savedDistance + " " + nextPoint + nextPoint.transform.name + " " + selfPoint + transform.name);
 
                     }
                     //otherwise ignore

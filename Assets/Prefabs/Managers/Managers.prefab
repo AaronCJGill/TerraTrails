@@ -299,8 +299,8 @@ MonoBehaviour:
   levelType: 0
   isTimed: 1
   bossTime: 0
-  minTime: 0
-  devTime: 0
+  minTime: 20
+  devTime: 40
   thisLevelsStats:
     levelName: 
     totalDeathCounter: 0
@@ -321,7 +321,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4abab2d9e4b837438e991aa984a7911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSpawnList: []
+  StartSpawnList:
+  - enemyPrefab: {fileID: 0}
+    randomPosition: 0
+    spawnPoint: {x: 0, y: 0}
+    waitTime: 0
+  StartSpawnDelay: 1
   GameSpawnList:
   - enemyPrefab: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
     randomPosition: 1
@@ -337,6 +342,7 @@ MonoBehaviour:
     waitTime: 5
   UseGameSpawnList: 1
   SpawnRoutineRestarts: 1
+  MasteredSpawnList: []
   SpawnedEnemies: []
 --- !u!1001 &400389527583414733
 PrefabInstance:

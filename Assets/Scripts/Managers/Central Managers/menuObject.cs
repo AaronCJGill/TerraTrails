@@ -112,7 +112,7 @@ public class menuObject : MonoBehaviour
         if (activeTab == tabActive.audio)
         {
             potentialSettings.musicVolume = (int) (musicVolumeSlider.value * 100);
-            //Debug.Log("potential val" + (musicVolumeSlider.value * 100) + "  --- adjusted val " + (int)(musicVolumeSlider.value * 100));
+            Debug.Log("potential val" + (musicVolumeSlider.value * 100) + "  --- adjusted val " + (int)(musicVolumeSlider.value * 100));
             potentialSettings.effectsVolume = (int) (effectsVolumeSlider.value * 100 );
             potentialSettings.masterVolume = (int) (masterVolumeSlider.value * 100);
             //Debug.Log("audiotab");
@@ -193,6 +193,11 @@ public class menuObject : MonoBehaviour
 
     public void saveSettings()
     {
+        //potentialSettings.effectsVolume /= 100;
+        //potentialSettings.masterVolume /= 100;
+        //potentialSettings.musicVolume /= 100;
+        Debug.Log("Master vol after save: " + potentialSettings.masterVolume + " || Music: " +potentialSettings.musicVolume);
+
         OptionsManager.Save(potentialSettings);
         deactivateSettingsPage();
         //maybe resume as well
