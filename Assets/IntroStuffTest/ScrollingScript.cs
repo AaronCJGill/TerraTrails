@@ -26,10 +26,7 @@ public class ScrollingScript : MonoBehaviour
 
         if (waitTime <= 0)
         {
-
             newPos.y += speed * Time.deltaTime;
-
-            //when y>=35 it should ends
         }
 
         transform.position = newPos;
