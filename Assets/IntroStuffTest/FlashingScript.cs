@@ -13,10 +13,10 @@ public class FlashingScript : MonoBehaviour
     public float barForTransparent = 20;
 
     public bool horizontal = false;
-    public bool transparentStart = false;
 
     public bool startCountDown = false;
     public float countDown = 3f;
+    public float rateHorizontal = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -44,25 +44,17 @@ public class FlashingScript : MonoBehaviour
         {
             if (transform.position.x >= barForTransparent)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    startCountDown = true;
-                }
+                startCountDown = true;
+            }
 
-                if (startCountDown)
-                {
-                    countDown -= Time.deltaTime;
-                }
+            if (startCountDown)
+            {
+                countDown -= Time.deltaTime;
+            }
 
-                if(countDown <= 0)
-                {
-                    transparentStart = true;
-                }
-
-                if (transparentStart && alpha.a >= 0)
-                {
-                    alpha.a -= rateDeInAlpha * (transform.position.x - barForTransparent);
-                }
+            if (countDown <= 0 && alpha.a >= 0)
+            {
+                alpha.a -= rateHorizontal;
             }
         }
 

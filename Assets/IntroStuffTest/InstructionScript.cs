@@ -7,6 +7,8 @@ public class InstructionScript : MonoBehaviour
 {
     public float speed = 2f;
 
+    public float barForStop = 4f;
+
     public float deacceleration = 2f;
 
     // Start is called before the first frame update
@@ -25,7 +27,7 @@ public class InstructionScript : MonoBehaviour
 
         Vector3 newPos = transform.position;
 
-        if(transform.position.x <= 4)
+        if(transform.position.x <= barForStop)
         {
             newPos.x += speed * deacceleration;
         }
