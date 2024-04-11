@@ -34,7 +34,7 @@ public class Parry : MonoBehaviour
                 //Debug.Log("canParry");
 
             }
-            if (Input.GetKeyDown(KeyCode.Space) && canParry)
+            if (Input.GetAxisRaw("Jump") == 1 && canParry)
             {
                 canParry = false;
 

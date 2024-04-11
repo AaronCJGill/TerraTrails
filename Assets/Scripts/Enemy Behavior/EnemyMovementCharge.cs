@@ -72,6 +72,11 @@ public class EnemyMovementCharge : MonoBehaviour
             sr.flipX = false;
         }
 
+        float targetDeviationRangeX = Random.Range(-1,1);
+        float targetDeviationRangeY = Random.Range(-1,1);
+        targetPos.x += targetDeviationRangeX;
+        targetPos.y += targetDeviationRangeY;
+
         while (Vector2.Distance(transform.position, targetPos) > 0.2f)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);

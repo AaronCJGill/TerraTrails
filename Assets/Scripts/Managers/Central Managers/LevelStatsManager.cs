@@ -64,6 +64,11 @@ public class LevelStatsManager : MonoBehaviour
     {
         instance.save(ls, playerdied);
     }
+    public void increaseTotalTimeCheat()
+    {
+        totalTimeValue += 50;
+        saveGlobalValues();
+    }
 
     
     //each level has its own json file with its stats
@@ -296,6 +301,20 @@ public class LevelStatsManager : MonoBehaviour
         }
         //reset global stats
         resetGlobalValues();
+        resetAbilities();
+
+    }
+
+    public void resetAbilities()
+    {
+        if (File.Exists(Application.persistentDataPath + "/SettingsData/AbilitySettings"))//File.Exists(Application.persistentDataPath + "/SettingsData/" + "AbilitySettings"))
+        {//"C:\Users\jamal\AppData\LocalLow\TerraTrialsMSS\TerraTrials\SettingsData\AbilitySettings.txt"
+            File.Delete(Application.persistentDataPath + "/SettingsData/" + "AbilitySettings");
+        }
+        else
+        {
+            Debug.Log("File does not exist");
+        }
     }
 
     public bool deleteLevelStats(levelStats ls)

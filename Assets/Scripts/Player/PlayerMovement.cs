@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
     GameObject spriteObject;
     private Animator animator;
-
+    float dashMultiplier = 1;
     public Vector2 Position
     {
         get
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
             instance = this;
         }
 
+        //powerup is activated and ready as soon as player gets into the scene
+        AbilityManager.activatePowerup();
     }
     private void Start()
     {
@@ -111,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + move * movementSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(transform.position + move * movementSpeed * dashMultiplier * Time.fixedDeltaTime);
     }
     public static void kill()
     {
@@ -120,6 +122,11 @@ public class PlayerMovement : MonoBehaviour
 
         //fix this later
         instance.spriteObject.SetActive(false);
+    }
+
+    public void playerDash(float pdM = 1)
+    {
+        dashMultiplier = pdM;
     }
 
 }

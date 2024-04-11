@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
-    GameObject floorOneObjects;
     [SerializeField]
     TextMeshProUGUI timeText, deathsText;
 
     LevelSelect[] allLevelSelectOptions;
+    [SerializeField]
+    GameObject shopParent, mapParent;
 
     private void Awake()
     {
@@ -59,7 +60,10 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            LevelStatsManager.instance.increaseTotalTimeCheat();
+        }
 
         timeText.text = "time: " + string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
         deathsText.text = "" + LevelStatsManager.totalDeathCount;
@@ -73,8 +77,20 @@ public class MapManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            resetAllLevels();
+            //resetAllLevels();
 
         }
+    }
+
+    public void showMap()
+    {
+        shopParent.SetActive(false);
+        mapParent.SetActive(true);
+    }
+    public void showShop()
+    {
+        mapParent.SetActive(false);
+        shopParent.SetActive(true);
+        MapShopManager.instance.shopActivated();
     }
 }

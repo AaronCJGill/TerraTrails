@@ -150,16 +150,16 @@ public class OptionsManager : MonoBehaviour
         {
             rs = savedSettings.resolutionSettings;
         }
-        Debug.Log(rs.currentRes + " - " +rs.screenMode);
+        //Debug.Log(rs.currentRes + " - " +rs.screenMode);
         Screen.SetResolution(rs.currentRes.x, rs.currentRes.y, rs.screenMode);
     }
 
     public void saveOptions(menuSettings potentialSettings)
     {
-        Debug.Log("Settings Saving");
+        //Debug.Log("Settings Saving");
         //Debug.Log(savedSettings.effectsVolume);
         savedSettings = potentialSettings;
-        Debug.Log(savedSettings.resolutionSettings.currentRes);
+        //Debug.Log(savedSettings.resolutionSettings.currentRes);
         //we just overwrite whatever we have
         string dir = Application.persistentDataPath + directory;
         string json;
@@ -167,7 +167,7 @@ public class OptionsManager : MonoBehaviour
         string filePath = dir + settingsName + ".txt";
         json = JsonUtility.ToJson(savedSettings);
         File.WriteAllText(filePath, json);
-        Debug.Log("Settings Saved");
+        //Debug.Log("Settings Saved");
         updateSettings();
     }
     public static menuSettings LoadOptions()
@@ -193,7 +193,7 @@ public class OptionsManager : MonoBehaviour
         {
             //save file does not exist - create new save file
             //savedSettings = new menuSettings(100, 100, 100);
-            Debug.Log("Settings not found, creating new settings");
+            //Debug.Log("Settings not found, creating new settings");
             ResolutionSettings rs;
             if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
