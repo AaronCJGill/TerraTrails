@@ -74,6 +74,16 @@ public class MapShopManager : MonoBehaviour
             parryboughtText.text = "Parry is not unlocked : " + parryCost;
             parryButtonText.text = "Buy Parry";
         }
+
+        if (!AbilityManager.checkIfFileExists)
+        {
+
+            dashboughttext.text = "Dash is not unlocked : " + dashCost;
+            dashButtonText.text = "Buy Dash";
+            parryboughtText.text = "Parry is not unlocked : " + parryCost;
+            parryButtonText.text = "Buy Parry";
+            equippedtext.text = "Nothing is equipped";
+        }
     }
     public void buyDashButton()
     {

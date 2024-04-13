@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostBehavior : MonoBehaviour
+public class GhostBehavior : MonoBehaviour, enemyDestroy
 {
     //possibly make this chase the player at 10 speed, for around 2 seconds
 
@@ -76,5 +76,8 @@ public class GhostBehavior : MonoBehaviour
         }
     }
 
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
     public static PlayerMovement instance;
     GameObject spriteObject;
+    private SpriteRenderer sr;
     private Animator animator;
     float dashMultiplier = 1;
     public Vector2 Position
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         animator = transform.GetChild(0).GetComponent<Animator>();
+        sr = animator.gameObject.GetComponent<SpriteRenderer>();
         if (instance != this && instance != null)
         {
             Destroy(gameObject);
@@ -38,8 +40,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //powerup is activated and ready as soon as player gets into the scene
+        instance.animator.ResetTrigger("hasDied");
         AbilityManager.activatePowerup();
     }
+
+    
     private void Start()
     {
         spriteObject = transform.GetChild(0).gameObject;
@@ -105,6 +110,15 @@ public class PlayerMovement : MonoBehaviour
                 s = Input.GetAxisRaw("Vertical");
 
             s = Mathf.Abs(s);
+
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                sr.flipX = true;
+            }
+            else if(Input.GetAxisRaw("Horizontal") < 0)
+            {
+                sr.flipX = false;
+            }
         }
         //print(s);
         animator.SetFloat("Speed", s);
@@ -121,9 +135,16 @@ public class PlayerMovement : MonoBehaviour
 
 
         //fix this later
-        instance.spriteObject.SetActive(false);
+        //instance.spriteObject.SetActive(false);
+        Debug.Log("kill");
+        instance.animator.SetTrigger("hasDied");
     }
 
+    public void doKillAnim()
+    {
+        Debug.Log("kill");
+        instance.animator.SetTrigger("hasDied");
+    }
     public void playerDash(float pdM = 1)
     {
         dashMultiplier = pdM;

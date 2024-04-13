@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementTeleport : MonoBehaviour
+public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
 {
     [Header("Behavior Time Settings")]
     bool doesSpawnRoutine = true;
@@ -140,7 +140,9 @@ public class EnemyMovementTeleport : MonoBehaviour
         //set collider back on
         cd.enabled = true;
 
-        randomDestinationPoint = usefulFunctions.positioning.getRandomSpawnPoint();
+        //randomDestinationPoint = usefulFunctions.positioning.getRandomSpawnPoint();
+        randomDestinationPoint = usefulFunctions.positioning.getFreePosition();
+
         walktimer = 0;
         //do random walking, going to multiple places
         while (walktimer < walkTimeTotal)
@@ -222,7 +224,10 @@ public class EnemyMovementTeleport : MonoBehaviour
             Health.instance.takeDamage(1);
         }
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }
 
 

@@ -15,7 +15,14 @@ public class Parry : MonoBehaviour
     bool canParry = true;
     [SerializeField]
     GameObject parrycircle;
-
+    private void Awake()
+    {
+        parrycircle = Resources.Load("Parry Circle") as GameObject;
+        if (parrycircle != null)
+        {
+            Debug.Log("Parry");
+        }
+    }
 
     // Update is called once per frame
     void Update()

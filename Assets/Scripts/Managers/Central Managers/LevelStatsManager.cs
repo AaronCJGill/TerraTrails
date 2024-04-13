@@ -307,9 +307,10 @@ public class LevelStatsManager : MonoBehaviour
 
     public void resetAbilities()
     {
-        if (File.Exists(Application.persistentDataPath + "/SettingsData/AbilitySettings"))//File.Exists(Application.persistentDataPath + "/SettingsData/" + "AbilitySettings"))
+
+        if (File.Exists(Application.persistentDataPath + AbilityManager.directory + AbilityManager.settingsName + ".txt"))//File.Exists(Application.persistentDataPath + "/SettingsData/" + "AbilitySettings"))
         {//"C:\Users\jamal\AppData\LocalLow\TerraTrialsMSS\TerraTrials\SettingsData\AbilitySettings.txt"
-            File.Delete(Application.persistentDataPath + "/SettingsData/" + "AbilitySettings");
+            File.Delete(Application.persistentDataPath + AbilityManager.directory + AbilityManager.settingsName + ".txt");
         }
         else
         {

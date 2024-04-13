@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementSpitterCharge : MonoBehaviour
+public class EnemyMovementSpitterCharge : MonoBehaviour, enemyDestroy
 {
     //does not lerp to position but moves based on physics
     [SerializeField]
@@ -80,5 +80,8 @@ public class EnemyMovementSpitterCharge : MonoBehaviour
             Health.instance.takeDamage(1);
         }
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }

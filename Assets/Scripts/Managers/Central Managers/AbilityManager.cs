@@ -9,9 +9,13 @@ public class AbilityManager : MonoBehaviour
     public Abilities savedAbilities;
     public static AbilityManager instance;
 
-    private static string settingsName = "AbilitySettings";
-    private static string directory = "/SettingsData/";
-
+    public static string settingsName = "AbilitySettings";
+    public static string directory = "/SettingsData/";
+    public static bool checkIfFileExists
+    {
+        //checks if save file exists
+        get { return File.Exists(Application.persistentDataPath + directory + settingsName + ".txt"); }
+    }
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -74,7 +78,15 @@ public class AbilityManager : MonoBehaviour
             PlayerMovement.instance.gameObject.AddComponent<Parry>();
         }
     }
-
+    public static void deleteFilePath()
+    {
+        string dir = Application.persistentDataPath + directory;
+        string filePath = dir + settingsName + ".txt";
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+    }
     public static void activatePowerup()
     {
         switch (instance.savedAbilities.equippedAbility)

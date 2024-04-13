@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementCharge : MonoBehaviour
+public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
 {
     //does not lerp to position but moves based on physics
     [SerializeField]
@@ -74,6 +74,7 @@ public class EnemyMovementCharge : MonoBehaviour
 
         float targetDeviationRangeX = Random.Range(-1,1);
         float targetDeviationRangeY = Random.Range(-1,1);
+        //deviates from the 
         targetPos.x += targetDeviationRangeX;
         targetPos.y += targetDeviationRangeY;
 
@@ -99,5 +100,8 @@ public class EnemyMovementCharge : MonoBehaviour
             Health.instance.takeDamage(1);
         }
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }

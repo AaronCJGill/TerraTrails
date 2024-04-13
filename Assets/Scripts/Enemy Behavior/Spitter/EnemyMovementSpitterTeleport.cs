@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementSpitterTeleport : MonoBehaviour
+public class EnemyMovementSpitterTeleport : MonoBehaviour, enemyDestroy
 {
     [Header("Behavior Time Settings")]
     bool doesSpawnRoutine = true;
@@ -154,5 +154,8 @@ public class EnemyMovementSpitterTeleport : MonoBehaviour
             Health.instance.takeDamage(1);
         }
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class kamikazeBehavior : MonoBehaviour
+public class kamikazeBehavior : MonoBehaviour, enemyDestroy
 {
     float speed = 10;
     [SerializeField]
@@ -234,5 +234,8 @@ public class kamikazeBehavior : MonoBehaviour
         }
     }
 
-
+    public void levelEnd()
+    {
+        //would say switch to dormant but may be weird if it just sits dormant
+    }
 }
