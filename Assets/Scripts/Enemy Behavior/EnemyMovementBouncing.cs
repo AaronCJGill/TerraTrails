@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementBouncing : MonoBehaviour
+public class EnemyMovementBouncing : MonoBehaviour, enemyDestroy
 {
     [SerializeField]
     private float speed = 10;
@@ -117,5 +117,8 @@ public class EnemyMovementBouncing : MonoBehaviour
         }
 
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }

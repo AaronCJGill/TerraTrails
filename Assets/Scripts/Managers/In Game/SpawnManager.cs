@@ -121,7 +121,8 @@ public class SpawnManager : MonoBehaviour
         {
             //spawning at a random position
             //spawnedEnemy = Instantiate(e.enemyPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
-            spawnedEnemy = Instantiate(e.enemyPrefab, getRandomSpawnPoint(), Quaternion.identity);
+            //spawnedEnemy = Instantiate(e.enemyPrefab, getRandomSpawnPoint(), Quaternion.identity);
+            spawnedEnemy = Instantiate(e.enemyPrefab, usefulFunctions.positioning.getFreePosition(), Quaternion.identity);
         }
         else
         {
@@ -154,14 +155,17 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (GameObject enemy in instance.SpawnedEnemies)
         {
-            Destroy(enemy);
+            //Destroy(enemy);
+            enemy.GetComponent<enemyDestroy>().levelEnd();
         }
         instance.canSpawn = false;
     }
 
 }
 
-
+public interface enemyDestroy {
+    public void levelEnd();
+}
 
 
 [System.Serializable]

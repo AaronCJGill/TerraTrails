@@ -66,9 +66,13 @@ public class GameEnded : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void showScreen(bool playerDied = false)
+    float waitTimeTotal = 1.5f;
+    float waitTimeCurrent = 0;
+    IEnumerator showScreenRoutine(bool playerDied = false)
     {
-        //TODO: check if level completed first
+        if (playerDied)
+            yield return new WaitForSeconds(waitTimeTotal);
+        
         GameOverUI.SetActive(true);
         if (LevelInfo.instance.LevelType == levelType.arcade)
         {
@@ -86,7 +90,7 @@ public class GameEnded : MonoBehaviour
                 //if the level has been passed, show the option for a dev time
                 timeStatsText.text = "Time Needed: " + LevelInfo.instance.minTime
                     + "\nTime Achieved: " + GameManager.instance.Timer
-                    +"\nGold Time: " + LevelInfo.instance.devTime;
+                    + "\nGold Time: " + LevelInfo.instance.devTime;
             }
             else
             {
@@ -100,10 +104,10 @@ public class GameEnded : MonoBehaviour
                 else
                     GameOverText.text = "Get Better!";
                 timeStatsText.text = "Time Needed: " + LevelInfo.instance.minTime
-    + "\nTime Achieved: " + GameManager.instance.Timer; 
+    + "\nTime Achieved: " + GameManager.instance.Timer;
             }
         }
-        else if(LevelInfo.instance.LevelType == levelType.boss)
+        else if (LevelInfo.instance.LevelType == levelType.boss)
         {
             //boss level, have to either be at door or die
             if (GameManager.instance.Timer >= LevelInfo.instance.bossTime)
@@ -121,6 +125,9 @@ public class GameEnded : MonoBehaviour
             }
         }
 
-
+    }
+    public void showScreen(bool playerDied = false)
+    {
+        StartCoroutine(showScreenRoutine(playerDied));
     }
 }

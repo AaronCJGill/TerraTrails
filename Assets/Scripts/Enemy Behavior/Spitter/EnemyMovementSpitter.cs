@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementSpitter : MonoBehaviour
+public class EnemyMovementSpitter : MonoBehaviour, enemyDestroy
 {
     [SerializeField]
     private float spitWaitTIme= 2.5f;
@@ -69,10 +69,8 @@ public class EnemyMovementSpitter : MonoBehaviour
         }
     }
 
-
-    //flies to random place or flies to player position
-
-    //spits at player
-
-    //repeat
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }
