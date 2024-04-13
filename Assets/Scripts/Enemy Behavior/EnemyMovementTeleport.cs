@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementTeleport : MonoBehaviour
+public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
 {
     [Header("Behavior Time Settings")]
     bool doesSpawnRoutine = true;
@@ -106,18 +106,18 @@ public class EnemyMovementTeleport : MonoBehaviour
     {
         //dig down
         anim.SetTrigger("digDown");
-        Debug.Log("starting dig down");
+       // Debug.Log("starting dig down");
         yield return new WaitForSeconds(1.7f);
         //move this character off screen 
         transform.position = new Vector3(100, 100);
-        Debug.Log("starting dig down");
+        //Debug.Log("starting dig down");
 
 
         //disappear for a set amount of time
         yield return new WaitForSeconds(totalDisappearTime);
 
         //dig up
-        Debug.Log("digging back up");
+        //Debug.Log("digging back up");
         anim.ResetTrigger("digDown");
 
         anim.SetTrigger("digUp");
@@ -140,14 +140,16 @@ public class EnemyMovementTeleport : MonoBehaviour
         //set collider back on
         cd.enabled = true;
 
-        randomDestinationPoint = usefulFunctions.positioning.getRandomSpawnPoint();
+        //randomDestinationPoint = usefulFunctions.positioning.getRandomSpawnPoint();
+        randomDestinationPoint = usefulFunctions.positioning.getFreePosition();
+
         walktimer = 0;
         //do random walking, going to multiple places
         while (walktimer < walkTimeTotal)
         {
             if (Vector2.Distance(transform.position, randomDestinationPoint) > 1)
             {
-                Debug.Log("MovingTowards");
+                //Debug.Log("MovingTowards");
                 if (randomDestinationPoint.x > transform.position.x)
                 {
                     //random position is to the right
@@ -166,13 +168,13 @@ public class EnemyMovementTeleport : MonoBehaviour
             }
             else //we are close to the point and should choose next point
             {
-                Debug.Log("Finding random Spot");
+                //Debug.Log("Finding random Spot");
                 Vector2 potentialSpot = usefulFunctions.positioning.getRandomSpawnPoint();
                 //make sure the point is close enough
                 if (Vector2.Distance(transform.position, potentialSpot) < 6)
                 {
                     randomDestinationPoint = potentialSpot;
-                    Debug.Log("Found random spot");
+                    //Debug.Log("Found random spot");
                 }
             }
          
@@ -222,7 +224,10 @@ public class EnemyMovementTeleport : MonoBehaviour
             Health.instance.takeDamage(1);
         }
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }
 
 

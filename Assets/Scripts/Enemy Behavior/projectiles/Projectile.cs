@@ -17,6 +17,13 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (transform.position.x > LevelBoundary.BottomRightBound.X || transform.position.x < LevelBoundary.leftTopBound.X ||
+            transform.position.y < LevelBoundary.BottomRightBound.Y || transform.position.y > LevelBoundary.leftTopBound.Y
+            )
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +32,10 @@ public class Projectile : MonoBehaviour
         {
             Health.instance.takeDamage(1);
         }
+        
     }
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+    }
 }

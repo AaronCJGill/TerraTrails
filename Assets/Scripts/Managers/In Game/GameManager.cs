@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
             {
                 GameEnded.instance.showScreen(playerDied);
                 LevelInfo.instance.levelEnd(true);
+                PlayerMovement.instance.doKillAnim();
             }
             else
             {
@@ -119,6 +120,7 @@ public class GameManager : MonoBehaviour
             {
                 GameEnded.instance.showScreen(playerDied);
                 LevelInfo.instance.levelEnd(true);
+                PlayerMovement.instance.doKillAnim();
             }
             else
             {
@@ -255,6 +257,52 @@ namespace usefulFunctions
             }
 
             return spawnPoint;
+        }
+
+
+        public static Vector3 getFreePosition()
+        {
+            Vector3 spawnPoint;
+            for (int i = 0; i < 100; i++)
+            {
+                float randomXPos = Random.Range(LevelBoundary.leftTopBound.X, LevelBoundary.BottomRightBound.X);
+                float randomYPos = Random.Range(LevelBoundary.leftTopBound.Y, LevelBoundary.BottomRightBound.Y);
+
+                spawnPoint = new Vector3(randomXPos, randomYPos, 0);
+                Collider[] hits = Physics.OverlapSphere(spawnPoint, 1, 0, QueryTriggerInteraction.Ignore);
+                Debug.Log("Finding point");
+                if (hits.Length == 0)
+                {
+                    Debug.Log("Found point");
+                    //Gizmos.DrawCube(spawnPoint, Vector3.one);
+                    return spawnPoint;
+                }
+            }
+
+            return Vector3.one;
+        }
+        public static Vector3 getFreePosition(Vector3 pos)
+        {
+            Vector3 spawnPoint;
+            for (int i = 0; i < 100; i++)
+            {
+                float randomXPos = Random.Range(LevelBoundary.leftTopBound.X, LevelBoundary.BottomRightBound.X);
+                float randomYPos = Random.Range(LevelBoundary.leftTopBound.Y, LevelBoundary.BottomRightBound.Y);
+
+                spawnPoint = new Vector3(randomXPos, randomYPos, 0);
+                Collider[] hits = Physics.OverlapSphere(spawnPoint, 1, 6, QueryTriggerInteraction.Ignore);
+                Debug.Log("Finding point");
+                if (hits.Length == 0)
+                {
+                    Debug.Log("Found point");
+                    //Gizmos.DrawCube(spawnPoint, Vector3.one);
+                    return spawnPoint;
+                }
+            }
+            float randomXPos2 = Random.Range(LevelBoundary.leftTopBound.X, LevelBoundary.BottomRightBound.X);
+            float randomYPos2 = Random.Range(LevelBoundary.leftTopBound.Y, LevelBoundary.BottomRightBound.Y);
+            Debug.Log("NonFreePoint found");
+            return new Vector3(randomXPos2, randomYPos2, 0); 
         }
     }
 

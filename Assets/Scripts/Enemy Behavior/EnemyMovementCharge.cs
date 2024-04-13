@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementCharge : MonoBehaviour
+public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
 {
     //does not lerp to position but moves based on physics
     [SerializeField]
@@ -72,6 +72,12 @@ public class EnemyMovementCharge : MonoBehaviour
             sr.flipX = false;
         }
 
+        float targetDeviationRangeX = Random.Range(-1,1);
+        float targetDeviationRangeY = Random.Range(-1,1);
+        //deviates from the 
+        targetPos.x += targetDeviationRangeX;
+        targetPos.y += targetDeviationRangeY;
+
         while (Vector2.Distance(transform.position, targetPos) > 0.2f)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -94,5 +100,8 @@ public class EnemyMovementCharge : MonoBehaviour
             Health.instance.takeDamage(1);
         }
     }
-
+    public void levelEnd()
+    {
+        StopAllCoroutines();
+    }
 }
