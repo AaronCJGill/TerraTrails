@@ -48,9 +48,17 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         anim.ResetTrigger("idle");
         anim.SetTrigger("charge");
 
-        //anim.SetTrigger("chargeUp");
-        //yield return new WaitForSeconds(startWaitTime);
-        yield return new WaitForSeconds(1.1f);
+        if (PlayerMovement.instance.Position.x > transform.position.x)
+        {
+            //target is to the right
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+
+        yield return new WaitForSeconds(1.5f);
         int rnum = Random.Range(0,101);
         //if is on top of player, just move to random target position away from player
         //anim.ResetTrigger("chargeUp");
