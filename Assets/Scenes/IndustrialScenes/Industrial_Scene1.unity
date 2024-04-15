@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2062668136935178663, guid: 145175a3435800042aa2177d27655275, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.61
@@ -182,32 +178,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1345431640620541711, guid: 145175a3435800042aa2177d27655275, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 195044169}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 145175a3435800042aa2177d27655275, type: 3}
---- !u!1 &195044168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1345431640620541711, guid: 145175a3435800042aa2177d27655275, type: 3}
-  m_PrefabInstance: {fileID: 195044167}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &195044169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195044168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f15a6a866c4f2b4696935a436961cee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reuseTime: 2
-  destroyRadius: 3
-  parryActiveTime: 0.5
-  parrycircle: {fileID: 4946740918121350242, guid: 40a892c384889884f80101c076769edf, type: 3}
 --- !u!1 &200681669
 GameObject:
   m_ObjectHideFlags: 0
