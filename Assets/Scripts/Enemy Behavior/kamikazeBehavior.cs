@@ -206,6 +206,7 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
         anim.SetFloat("Vel", 0);
         //reactivate dc
         anim.ResetTrigger("chargeup");
+        //anim.SetTrigger("");
         dc.cooldownPeriod(cooldownPeriod);
     }
     void cooldownBehavior()
