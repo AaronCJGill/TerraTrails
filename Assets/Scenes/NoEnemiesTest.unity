@@ -755,6 +755,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1074903108697694201, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4226742503194505167, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -798,6 +802,10 @@ PrefabInstance:
     - target: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
       propertyPath: m_Name
       value: Kamikaze Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331296359288445983, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1237,6 +1245,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 772745235}
   - {fileID: 1170955426}
   - {fileID: 908498336}
   - {fileID: 1213451076}
@@ -1249,5 +1258,4 @@ SceneRoots:
   - {fileID: 1078332213}
   - {fileID: 139113695}
   - {fileID: 1806610511}
-  - {fileID: 772745235}
   - {fileID: 1281324582}
