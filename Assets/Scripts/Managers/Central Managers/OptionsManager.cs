@@ -69,9 +69,13 @@ public class OptionsManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
-            isPaused = !isPaused;
-            Debug.Log("Pause status: " + isPaused);
-            handlePause();
+            if (Health.instance != null && !Health.isDead)
+            {
+                
+                isPaused = !isPaused;
+                Debug.Log("Pause status: " + isPaused);
+                handlePause();
+            }
         }
 
     }

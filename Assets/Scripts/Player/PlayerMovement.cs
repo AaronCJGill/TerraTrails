@@ -136,13 +136,13 @@ public class PlayerMovement : MonoBehaviour
 
         //fix this later
         //instance.spriteObject.SetActive(false);
-        Debug.Log("kill");
+        //Debug.Log("kill");
         instance.animator.SetTrigger("hasDied");
     }
 
     public void doKillAnim()
     {
-        Debug.Log("kill");
+        //Debug.Log("kill");
         instance.animator.SetTrigger("hasDied");
     }
     public void playerDash(float pdM = 1)
