@@ -8,16 +8,15 @@ public class PhaseControllerScript : MonoBehaviour
 
     public float phaseNumber = 0f;
 
-    public float waitTime = 3f;
+    public float setWaitTime = 2f;
+    float waitTime;
 
-    public float newWaitTime = 3f;
-    //public float setWaitTime = 3f;
-
-    public float loadingTime = 1f;
     public float setloadingTime = 1f;
+    float loadingTime;
 
     public float scrollingTime = 3f;
 
+    //Assests from Page#2
     public GameObject page2P1;
     public GameObject page2P2;
     public GameObject page2P3;
@@ -26,6 +25,17 @@ public class PhaseControllerScript : MonoBehaviour
     public GameObject page2P6;
     public GameObject page2P7;
 
+    //Assets from Page#3
+    public GameObject page3P1;
+    public GameObject page3P2;
+    public GameObject page3P3;
+    public GameObject page3P4;
+
+    //Assets from Page#4
+    public GameObject page4P1;
+    public GameObject page4P2;
+
+    //Check that if the image is played
     bool p2p1 = false;
     bool p2p2 = false;
     bool p2p3 = false;
@@ -34,28 +44,48 @@ public class PhaseControllerScript : MonoBehaviour
     bool p2p6 = false;
     bool p2p7 = false;
 
+    bool p3p1 = false;
+    //bool p3p2 = false;
+    //bool p3p3 = false;
+    //bool p3p4 = false;
+
+    //bool p4p1 = false;
+    //bool p4p2 = false;
+
+    //Check that if the section of play is over
     bool p2s1 = false;
     bool p2s2 = false;
 
-    SpriteRenderer myRend;
+    //bool p3s1 = false;
+    //bool p3s2 = false;
+
+    //bool p2s1 = false;
+    //bool p2s2 = false;
+
+    //SpriteRenderer myRend;
+    CameraShake myCameraShake;
 
     // Start is called before the first frame update
     void Start()
     {
         phaseNumber = 0;
+        waitTime = setWaitTime;
+        loadingTime = setloadingTime;
 
-        myRend = GetComponent<SpriteRenderer>();
+        //myRend = GetComponent<SpriteRenderer>();
+        myCameraShake = GetComponent<CameraShake>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("phase" + phaseNumber);
+        Debug.Log(waitTime);
+        Debug.Log(loadingTime);
+
         //Beginning time to wait for the animation
-
-        if(phaseNumber == 0)
+        if (phaseNumber == 0)
         {
-            Debug.Log("phase0");
-
             if (waitTime >= 0)
             {
                 waitTime -= Time.deltaTime;
@@ -64,14 +94,13 @@ public class PhaseControllerScript : MonoBehaviour
             if (waitTime <= 0)
             {
                 phaseNumber = 1;
+                waitTime = setWaitTime;
             }
         }
 
-        //Fisrt Part
+        //Part1 Decrease in energy
         if (phaseNumber == 1)
         {
-            Debug.Log("phase1");
-
             if (loadingTime >= 0 && !p2s1)
             {
                 loadingTime -= Time.deltaTime;
@@ -98,8 +127,15 @@ public class PhaseControllerScript : MonoBehaviour
                 loadingTime = setloadingTime;
                 p2p3 = true;
             }
+            else if (loadingTime <= 0 && !p3p1)
+            {
+                page3P1.SetActive(true);
 
-            if(p2p1 && p2p2 && p2p3)
+                loadingTime = setloadingTime;
+                p3p1 = true;
+            }
+
+            if (p2p1 && p2p2 && p2p3 && p3p1)
             {
                 p2s1 = true;
             }
@@ -111,41 +147,34 @@ public class PhaseControllerScript : MonoBehaviour
                     page2P1.SetActive(false);
                     page2P2.SetActive(false);
                     page2P3.SetActive(false);
+                    page3P1.SetActive(false);
 
                     phaseNumber = 2;
                 }
             }
         }
 
-        //part2
-        if(phaseNumber == 2)
+        //Part2 The Spaceship slows
+        if (phaseNumber == 2)
         {
-            Debug.Log("phase2");
-
             page2P4.SetActive(true);
 
-            if (newWaitTime >= 0)
+            if (waitTime >= 0)
             {
-                newWaitTime -= Time.deltaTime;
+                waitTime -= Time.deltaTime;
             }
 
-            if (newWaitTime <= 0)
+            if (waitTime <= 0)
             {
-                Debug.Log("ready for phase3");
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    phaseNumber = 3;
-                }
+                waitTime = setWaitTime;
+                phaseNumber = 3;
             }
 
         }
 
-        //part3
+        //part3 It runs out of fuel
         if (phaseNumber == 3)
         {
-            Debug.Log("phase3");
-
             if (loadingTime >= 0 && !p2s2)
             {
                 loadingTime -= Time.deltaTime;
@@ -182,8 +211,101 @@ public class PhaseControllerScript : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    SceneManager.LoadScene(0);
+                    page2P5.SetActive(false);
+                    page2P6.SetActive(false);
+                    page2P7.SetActive(false);
+
+                    phaseNumber = 4;
                 }
+            }
+        }
+
+        //Part4 It floats in the space
+        if (phaseNumber == 4)
+        {
+            page3P2.SetActive(true);
+
+            if (waitTime >= 0)
+            {
+                waitTime -= Time.deltaTime;
+            }
+
+            if (waitTime <= 0)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    waitTime = setWaitTime;
+                    phaseNumber =5;
+                }
+            }
+
+            //if possible, could include a press to add to initiate bar
+            //notification of hold
+        }
+
+        //Part5 Atmopshere entry
+        if (phaseNumber == 5)
+        {
+            page3P3.SetActive(true);
+
+            if (waitTime >= 0)
+            {
+                waitTime -= Time.deltaTime;
+                myCameraShake.Shake(0.01f);
+            }
+
+            if (waitTime <= 0)
+            {
+                waitTime = setWaitTime;
+                page3P3.SetActive(false);
+                phaseNumber = 6;
+            }
+        }
+
+        //Part6 Passing through the sky
+        if (phaseNumber == 6)
+        {
+            page3P4.SetActive(true);
+
+            if (waitTime >= 0)
+            {
+                waitTime -= Time.deltaTime;
+            }
+
+            if (waitTime <= 0)
+            {
+                waitTime = setWaitTime;
+                page3P4.SetActive(false);
+                phaseNumber = 7;
+            }
+        }
+
+        //Part7 Scrolling from bottom to top
+        if (phaseNumber == 7)
+        {
+            page4P1.SetActive(true);
+
+            if (scrollingTime >= 0)
+            {
+                scrollingTime -= Time.deltaTime;
+            }
+
+            if (scrollingTime <= 0)
+            {
+                phaseNumber = 8;
+            }
+        }
+
+        //Part8 Last scene
+        if (phaseNumber == 8)
+        {
+            page4P2.SetActive(true);
+
+            //Do we need a press space to start?
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(0);
             }
         }
 

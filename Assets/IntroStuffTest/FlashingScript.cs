@@ -34,13 +34,21 @@ public class FlashingScript : MonoBehaviour
         {
             if (transform.position.y >= barForTransparent)
             {
-                if(alpha.a >= 0)
-                {
-                    alpha.a -= rateDeInAlpha * (transform.position.y - barForTransparent);
-                }
+                startCountDown = true;
+            }
+
+            if (startCountDown)
+            {
+                countDown -= Time.deltaTime;
+            }
+
+            if (countDown <= 0 && alpha.a >= 0)
+            {
+                //alpha.a -= rateDeInAlpha * (transform.position.y - barForTransparent);
+                alpha.a -= rateHorizontal*Time.deltaTime;
             }
         }
-        else
+        else if(horizontal)
         {
             if (transform.position.x >= barForTransparent)
             {
@@ -54,7 +62,7 @@ public class FlashingScript : MonoBehaviour
 
             if (countDown <= 0 && alpha.a >= 0)
             {
-                alpha.a -= rateHorizontal;
+                alpha.a -= rateHorizontal*Time.deltaTime;
             }
         }
 
