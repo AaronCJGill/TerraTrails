@@ -14,6 +14,9 @@ public class PhaseControllerScript : MonoBehaviour
     public float setloadingTime = 1f;
     float loadingTime;
 
+    public float longerTime = 3f;
+    public float shorterTime = 1.5f;
+
     public float scrollingTime = 3f;
 
     //Assests from Page#2
@@ -29,11 +32,15 @@ public class PhaseControllerScript : MonoBehaviour
     public GameObject page3P1;
     public GameObject page3P2;
     public GameObject page3P3;
-    public GameObject page3P4;
+    public GameObject page3P4_1;
+    public GameObject page3P4_2;
 
     //Assets from Page#4
     public GameObject page4P1;
     public GameObject page4P2;
+
+    //UI
+    public GameObject space;
 
     //Check that if the image is played
     bool p2p1 = false;
@@ -45,34 +52,21 @@ public class PhaseControllerScript : MonoBehaviour
     bool p2p7 = false;
 
     bool p3p1 = false;
-    //bool p3p2 = false;
-    //bool p3p3 = false;
-    //bool p3p4 = false;
-
-    //bool p4p1 = false;
-    //bool p4p2 = false;
+    bool instruction = false;
 
     //Check that if the section of play is over
     bool p2s1 = false;
     bool p2s2 = false;
 
-    //bool p3s1 = false;
-    //bool p3s2 = false;
-
-    //bool p2s1 = false;
-    //bool p2s2 = false;
-
-    //SpriteRenderer myRend;
     CameraShake myCameraShake;
 
     // Start is called before the first frame update
     void Start()
     {
-        phaseNumber = 0;
+        //phaseNumber = 0;
         waitTime = setWaitTime;
         loadingTime = setloadingTime;
 
-        //myRend = GetComponent<SpriteRenderer>();
         myCameraShake = GetComponent<CameraShake>();
     }
 
@@ -80,8 +74,8 @@ public class PhaseControllerScript : MonoBehaviour
     void Update()
     {
         Debug.Log("phase" + phaseNumber);
-        Debug.Log(waitTime);
-        Debug.Log(loadingTime);
+        Debug.Log("waitTime =" + waitTime);
+        Debug.Log("loadingTime =" + loadingTime);
 
         //Beginning time to wait for the animation
         if (phaseNumber == 0)
@@ -134,8 +128,16 @@ public class PhaseControllerScript : MonoBehaviour
                 loadingTime = setloadingTime;
                 p3p1 = true;
             }
+            else if (loadingTime <= 0 && !instruction)
+            {
+                space.SetActive(true);
 
-            if (p2p1 && p2p2 && p2p3 && p3p1)
+                loadingTime = setloadingTime;
+                instruction = true;
+            }
+
+
+            if (p2p1 && p2p2 && p2p3 && p3p1 && instruction)
             {
                 p2s1 = true;
             }
@@ -148,6 +150,8 @@ public class PhaseControllerScript : MonoBehaviour
                     page2P2.SetActive(false);
                     page2P3.SetActive(false);
                     page3P1.SetActive(false);
+                    space.SetActive(false);
+                    instruction = false;
 
                     phaseNumber = 2;
                 }
@@ -166,7 +170,7 @@ public class PhaseControllerScript : MonoBehaviour
 
             if (waitTime <= 0)
             {
-                waitTime = setWaitTime;
+                waitTime = longerTime;
                 phaseNumber = 3;
             }
 
@@ -201,8 +205,18 @@ public class PhaseControllerScript : MonoBehaviour
                 loadingTime = setloadingTime;
                 p2p7 = true;
             }
+            else if (loadingTime <= 0 && !instruction)
+            {
+                //Vector3 newpos = new Vector3 (-5,-3,0);
 
-            if (p2p5 && p2p6 && p2p7)
+                space.transform.position = new Vector3(-5, -3, 0);
+                space.SetActive(true);
+
+                loadingTime = setloadingTime;
+                instruction = true;
+            }
+
+            if (p2p5 && p2p6 && p2p7 && instruction)
             {
                 p2s2 = true;
             }
@@ -214,6 +228,8 @@ public class PhaseControllerScript : MonoBehaviour
                     page2P5.SetActive(false);
                     page2P6.SetActive(false);
                     page2P7.SetActive(false);
+                    space.SetActive(false);
+                    instruction = false;
 
                     phaseNumber = 4;
                 }
@@ -232,8 +248,14 @@ public class PhaseControllerScript : MonoBehaviour
 
             if (waitTime <= 0)
             {
+                //Vector3 newpos = new Vector3(5, -3.5f, 0);
+
+                space.transform.position = new Vector3(5, -3.5f, 0);
+                space.SetActive(true);
+
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    space.SetActive(false);
                     waitTime = setWaitTime;
                     phaseNumber =5;
                 }
@@ -251,12 +273,12 @@ public class PhaseControllerScript : MonoBehaviour
             if (waitTime >= 0)
             {
                 waitTime -= Time.deltaTime;
-                myCameraShake.Shake(0.01f);
+                myCameraShake.Shake(0.1f);
             }
 
             if (waitTime <= 0)
             {
-                waitTime = setWaitTime;
+                waitTime = shorterTime;
                 page3P3.SetActive(false);
                 phaseNumber = 6;
             }
@@ -265,7 +287,10 @@ public class PhaseControllerScript : MonoBehaviour
         //Part6 Passing through the sky
         if (phaseNumber == 6)
         {
-            page3P4.SetActive(true);
+            page3P4_1.SetActive(true);
+            page3P4_2.SetActive(true);
+
+            myCameraShake.Transform.localEulerAngles = new Vector3(0, 0, 0);
 
             if (waitTime >= 0)
             {
@@ -275,7 +300,8 @@ public class PhaseControllerScript : MonoBehaviour
             if (waitTime <= 0)
             {
                 waitTime = setWaitTime;
-                page3P4.SetActive(false);
+                page3P4_1.SetActive(false);
+                page3P4_2.SetActive(false);
                 phaseNumber = 7;
             }
         }
