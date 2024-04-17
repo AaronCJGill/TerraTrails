@@ -529,6 +529,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7024220786297237872, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
   m_PrefabInstance: {fileID: 961340340}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &553678548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+  m_PrefabInstance: {fileID: 1324490966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70516f3b041632f43a8d3050677504b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &555628000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 486629450}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 70
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -685,6 +696,10 @@ PrefabInstance:
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: previousLevel
+      value: 
+      objectReference: {fileID: 1575829644}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
@@ -1099,7 +1114,7 @@ PrefabInstance:
       objectReference: {fileID: 627093137}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -1121,6 +1136,10 @@ PrefabInstance:
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: previousLevel
+      value: 
+      objectReference: {fileID: 553678548}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
@@ -1462,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 102157489}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -1471,7 +1490,7 @@ PrefabInstance:
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 553678548}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelBought
       value: 0
@@ -1484,6 +1503,10 @@ PrefabInstance:
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: previousLevel
+      value: 
+      objectReference: {fileID: 555628002}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
@@ -1720,6 +1743,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044780225}
   m_CullTransparentMesh: 1
+--- !u!114 &1107997254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+  m_PrefabInstance: {fileID: 627093133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70516f3b041632f43a8d3050677504b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1111370145 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7875774230097333799, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -2095,7 +2129,7 @@ PrefabInstance:
       objectReference: {fileID: 1936589724}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 45
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -2117,6 +2151,10 @@ PrefabInstance:
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: previousLevel
+      value: 
+      objectReference: {fileID: 1706677852}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
@@ -2275,7 +2313,7 @@ PrefabInstance:
       objectReference: {fileID: 1324490970}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelCost
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelName
@@ -2284,7 +2322,7 @@ PrefabInstance:
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: _nextLevel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1107997254}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelBought
       value: 0
@@ -2297,6 +2335,10 @@ PrefabInstance:
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: previousLevel
+      value: 
+      objectReference: {fileID: 961340342}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
@@ -3561,6 +3603,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 653554640672444213, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
   m_PrefabInstance: {fileID: 1619480100}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1619480103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+  m_PrefabInstance: {fileID: 1619480100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70516f3b041632f43a8d3050677504b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629082166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,6 +4034,10 @@ PrefabInstance:
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 121614864}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: previousLevel
+      value: 
+      objectReference: {fileID: 1619480103}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
