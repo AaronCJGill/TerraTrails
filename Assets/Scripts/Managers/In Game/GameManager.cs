@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
     }
     public void mapButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
 
@@ -168,14 +168,14 @@ public class GameManager : MonoBehaviour
                 else if (timer >= LevelInfo.instance.minTime)
                 {
                     timerText.color = Color.grey;
-                    goalTimeText.text = "Gold Time: " + LevelInfo.instance.devTime.ToString();
+                    goalTimeText.text = LevelInfo.instance.devTime + ".00";
                     DoorScript.levelOver();
                 }
                 else if (timer <= LevelInfo.instance.minTime)
                 {
                     //not passed any time - still attempting level
-                    timerText.color = Color.black;
-                    goalTimeText.text = "Min Goal Time: " + LevelInfo.instance.minTime;
+                    //timerText.color = Color.black;
+                    goalTimeText.text = LevelInfo.instance.minTime + ".00";
                 }
 
             }

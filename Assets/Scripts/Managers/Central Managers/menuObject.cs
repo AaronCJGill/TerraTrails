@@ -213,7 +213,7 @@ public class menuObject : MonoBehaviour
 
     public void quitButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void restartButton()
