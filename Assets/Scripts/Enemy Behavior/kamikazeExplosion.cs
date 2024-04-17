@@ -38,8 +38,16 @@ public class kamikazeExplosion : MonoBehaviour
     public void init(float multiplier, float t)
     {
         float explosionTime = 0.4f;
-        startScale = Vector3.one;
+        //startScale = Vector3.one;
+        startScale = Vector3.one * 0.01f;
         endScale = Vector3.one * multiplier;
+        //Invoke("startexplosion", delay);
+        //startexplosion();
+        StartCoroutine(explode());
+    }
+    float delay = 1f;
+    private void startexplosion()
+    {
         StartCoroutine(explode());
     }
 

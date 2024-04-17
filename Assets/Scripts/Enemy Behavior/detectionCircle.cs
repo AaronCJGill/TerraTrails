@@ -59,7 +59,7 @@ public class detectionCircle : MonoBehaviour
     public void cooldownPeriod(float t)
     {
         //Debug.Log("CooldownPeriod" + t);
-        sr.enabled = true;
+        //sr.enabled = true;
         StartCoroutine(cooldownroutine(t - 0.45f));
     }
     IEnumerator cooldownroutine(float t)

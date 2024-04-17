@@ -65,7 +65,6 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         //animation of it disappearing
         anim.SetTrigger("digDown");
 
-
         int rnum = Random.Range(0, 101);
         Vector2 spawnPos;
         if (rnum >= TeleToPlayer)//if it is below ~25, teleport to player position
@@ -73,7 +72,7 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         else
             spawnPos = PlayerMovement.instance.transform.position;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.0f);
         //do appearing animation and random walking animation
         
 
