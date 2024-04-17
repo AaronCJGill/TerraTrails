@@ -186,9 +186,14 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
         randomDestinationPoint = transform.position;
         //stay in place,
         //change anim
+        Invoke("spawnExplosion", 0.6f);
+    }
+    void spawnExplosion()
+    {
         GameObject g = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         g.GetComponent<kamikazeExplosion>().init(explosionSize, explosionTime);
     }
+
     void explodingBehavior()
     {
         explodeWaitTimer += Time.deltaTime;
@@ -206,12 +211,17 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
         anim.SetFloat("Vel", 0);
         //reactivate dc
         anim.ResetTrigger("chargeup");
-        //anim.SetTrigger("");
+        anim.SetBool("recharging", true);
+        //do cooldown anim
         dc.cooldownPeriod(cooldownPeriod);
     }
     void cooldownBehavior()
     {
         cooldownTimer += Time.deltaTime;
+        if (cooldownTimer >= cooldownPeriod -1.5f)//subtract the time needed for cooldown anim
+        {
+            anim.SetBool("recharging", false);
+        }
         if (cooldownTimer >= cooldownPeriod)
         {
             switchState(state.dormant);

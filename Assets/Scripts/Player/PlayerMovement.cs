@@ -67,7 +67,9 @@ public class PlayerMovement : MonoBehaviour
                 move.y = 1;
             if (move.y < -controllerThreshold)
                 move.y = -1;
-            
+            if(move != Vector3.zero)
+                Debug.Log(move);
+
             //move left and right at a consistent rate
             /*
             if (move.x > 0)

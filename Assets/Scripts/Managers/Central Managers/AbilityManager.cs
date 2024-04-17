@@ -89,6 +89,7 @@ public class AbilityManager : MonoBehaviour
     }
     public static void activatePowerup()
     {
+        
         switch (instance.savedAbilities.equippedAbility)
         {
             case Abilities.AbilityType.nothing:
