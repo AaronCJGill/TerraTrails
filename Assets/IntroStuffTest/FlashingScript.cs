@@ -12,6 +12,12 @@ public class FlashingScript : MonoBehaviour
 
     public float barForTransparent = 20;
 
+    public bool horizontal = false;
+
+    public bool startCountDown = false;
+    public float countDown = 3f;
+    public float rateHorizontal = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +27,45 @@ public class FlashingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Color alpha = myRend.color;
 
-        if (transform.position.y >= barForTransparent)
+        if (!horizontal)
         {
-            if(alpha.a >= 0)
+            if (transform.position.y >= barForTransparent)
             {
-                alpha.a -= rateDeInAlpha * (transform.position.y - barForTransparent);
+                startCountDown = true;
+            }
+
+            if (startCountDown)
+            {
+                countDown -= Time.deltaTime;
+            }
+
+            if (countDown <= 0 && alpha.a >= 0)
+            {
+                //alpha.a -= rateDeInAlpha * (transform.position.y - barForTransparent);
+                alpha.a -= rateHorizontal*Time.deltaTime;
+            }
+        }
+        else if(horizontal)
+        {
+            if (transform.position.x >= barForTransparent)
+            {
+                startCountDown = true;
+            }
+
+            if (startCountDown)
+            {
+                countDown -= Time.deltaTime;
+            }
+
+            if (countDown <= 0 && alpha.a >= 0)
+            {
+                alpha.a -= rateHorizontal*Time.deltaTime;
             }
         }
 
         myRend.color = alpha;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("collision");
     }
 }
