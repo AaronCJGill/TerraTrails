@@ -48,7 +48,8 @@ public class GameEnded : MonoBehaviour
 
     public void gotomainmenu()
     {
-        //SceneManager.LoadScene(0);
+        //SceneManager.
+        //0);
         SceneManager.LoadScene("MapLevelSelect");
     }
     public void goToMapButton()

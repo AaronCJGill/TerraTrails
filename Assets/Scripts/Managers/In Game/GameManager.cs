@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
     }
     public void mapButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
 

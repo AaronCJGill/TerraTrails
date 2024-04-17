@@ -77,6 +77,12 @@ public class PhaseControllerScript : MonoBehaviour
         Debug.Log("waitTime =" + waitTime);
         Debug.Log("loadingTime =" + loadingTime);
 
+        //allow player to completely skip the scene
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(2);
+        }
+
         //Beginning time to wait for the animation
         if (phaseNumber == 0)
         {
@@ -331,7 +337,7 @@ public class PhaseControllerScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(2);
             }
         }
 
