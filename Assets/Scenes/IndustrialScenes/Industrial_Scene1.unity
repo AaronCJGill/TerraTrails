@@ -5117,9 +5117,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: bgmVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: sfxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: chargerSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: a2d6bca070717974bb494d6d56b9c945, type: 3}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: shootingSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bd7f5e959ee1489edcb7a560067aa, type: 3}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: teleportSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: dae997b4e12649b41ba638bf43169018, type: 3}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: playerhitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a76fa4af9a1f3d4688e1f7f379879ce, type: 3}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: playerWalkSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a93183be8df9b246bbc77e08b0fbbbc, type: 3}
+    - target: {fileID: 5016943357163187354, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 8300000, guid: 9be63a278732961478f696a4ce203120, type: 3}
+      objectReference: {fileID: 8300000, guid: d89e9211438580a45820a7d66836cd80, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.size
       value: 4
