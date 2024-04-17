@@ -8,8 +8,6 @@ public class FlashingScript : MonoBehaviour
 {
     SpriteRenderer myRend;
 
-    public float rateDeInAlpha = 1;
-
     public float barForTransparent = 20;
 
     public bool horizontal = false;
@@ -18,10 +16,19 @@ public class FlashingScript : MonoBehaviour
     public float countDown = 3f;
     public float rateHorizontal = 0.1f;
 
+    public bool popup;
+
     // Start is called before the first frame update
     void Start()
     {
         myRend = GetComponent<SpriteRenderer>();
+
+        //if (popup)
+        //{
+        //    Color alpha = myRend.color;
+        //    alpha.a = 0;
+        //    myRend.color = alpha;
+        //}
     }
 
     // Update is called once per frame
@@ -44,7 +51,6 @@ public class FlashingScript : MonoBehaviour
 
             if (countDown <= 0 && alpha.a >= 0)
             {
-                //alpha.a -= rateDeInAlpha * (transform.position.y - barForTransparent);
                 alpha.a -= rateHorizontal*Time.deltaTime;
             }
         }
