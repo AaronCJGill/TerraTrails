@@ -304,12 +304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateDeInAlpha: 1
   barForTransparent: 0
   horizontal: 0
   startCountDown: 0
   countDown: 2
   rateHorizontal: 0.25
+  popup: 0
 --- !u!1 &243789127
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,12 +940,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateDeInAlpha: 1
   barForTransparent: -2
   horizontal: 0
   startCountDown: 0
   countDown: 2
   rateHorizontal: 0.75
+  popup: 0
 --- !u!1 &922822725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,12 +1148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateDeInAlpha: 1
   barForTransparent: 0.75
   horizontal: 0
   startCountDown: 0
   countDown: 3
   rateHorizontal: 0.45
+  popup: 0
 --- !u!1 &1029433547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,12 +1272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateDeInAlpha: 1
   barForTransparent: -0.8
   horizontal: 0
   startCountDown: 0
   countDown: 3
   rateHorizontal: 0.33
+  popup: 0
 --- !u!1 &1036982596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,12 +1309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateDeInAlpha: 0.1
   barForTransparent: -1
   horizontal: 1
   startCountDown: 0
   countDown: 0.75
   rateHorizontal: 0.66
+  popup: 0
 --- !u!212 &1036982599
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11dcb38acea094230a12b59be149f894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phaseNumber: 4
+  phaseNumber: 0
   setWaitTime: 2
   setloadingTime: 1
   longerTime: 5
