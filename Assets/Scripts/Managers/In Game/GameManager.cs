@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
         if (GameUIParent == null)
         {
             GameUIParent = GameObject.Find("GameCanvas");
-            Debug.Log("GameCanvas Found");
+            //Debug.Log("GameCanvas Found");
         }
         if (goalTimeText == null)
         {
             goalTimeText = GameObject.Find("Goal Timer").GetComponent<TextMeshProUGUI>();
-            Debug.Log("GameCanvas Found");
+            //Debug.Log("GameCanvas Found");
         }
     }
 
