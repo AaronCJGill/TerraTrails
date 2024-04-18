@@ -35,8 +35,9 @@ public class MapManager : MonoBehaviour
         LevelStatsManager.instance.clearAllLevelStats();
 
         //levelOne tutorial deletion
-        if (PlayerPrefs.HasKey("TutorialDone"))
+        if (PlayerPrefs.HasKey("Industrial_Scene1TutorialDone"))
         {
+            Debug.Log("tutorial 1 reset ");
             PlayerPrefs.SetInt("Industrial_Scene1TutorialDone", 0);
         }
 

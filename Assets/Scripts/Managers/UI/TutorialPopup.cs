@@ -19,7 +19,7 @@ public class TutorialPopup : MonoBehaviour
     void Start()
     {
         tutorialSaveString = SceneManager.GetActiveScene().name + "TutorialDone";
-
+        Debug.Log(tutorialSaveString);
         tutorialObject.SetActive(false);
         pausegameBehavior();
     }
