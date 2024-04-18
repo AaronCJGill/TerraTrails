@@ -305,7 +305,7 @@ public class PhaseControllerScript : MonoBehaviour
 
             if (waitTime <= 0)
             {
-                waitTime = setWaitTime;
+                waitTime = 1.5f*longerTime;
                 page3P4_1.SetActive(false);
                 page3P4_2.SetActive(false);
                 phaseNumber = 7;
@@ -335,10 +335,20 @@ public class PhaseControllerScript : MonoBehaviour
 
             //Do we need a press space to start?
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (waitTime >= 0)
+            {
+                waitTime -= Time.deltaTime;
+            }
+
+            if (waitTime <= 0)
             {
                 SceneManager.LoadScene(2);
             }
+
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    SceneManager.LoadScene(2);
+            //}
         }
 
     }
