@@ -33,6 +33,13 @@ public class MapManager : MonoBehaviour
     public void clearGameDataButton()
     {
         LevelStatsManager.instance.clearAllLevelStats();
+
+        //levelOne tutorial deletion
+        if (PlayerPrefs.HasKey("TutorialDone"))
+        {
+            PlayerPrefs.SetInt("Industrial_Scene1TutorialDone", 0);
+        }
+
         resetAllLevels();
     }
 

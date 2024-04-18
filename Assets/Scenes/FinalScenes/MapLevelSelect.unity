@@ -724,6 +724,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 6462656903374531303, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_text
       value: LVL 4
@@ -861,8 +869,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Fabrication
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: previousLevel
@@ -877,11 +893,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 555628003}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -1168,6 +1197,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 6462656903374531303, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_text
       value: LVL 7
@@ -1301,8 +1338,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Living
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: previousLevel
@@ -1317,11 +1362,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 627093135}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -1380,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770977028
 Transform:
   m_ObjectHideFlags: 0
@@ -1573,6 +1631,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 6462656903374531303, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_text
       value: LVL 5
@@ -1706,8 +1772,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Construction
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: previousLevel
@@ -1718,11 +1792,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 897240178}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: isAlwaysUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 961340343}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -2306,6 +2397,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 6462656903374531303, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_text
       value: LVL 3
@@ -2439,8 +2538,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Production
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: previousLevel
@@ -2451,11 +2558,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 31410663}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: isAlwaysUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 1285817649}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -2490,6 +2614,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 6462656903374531303, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_text
       value: LVL 6
@@ -2623,8 +2755,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Natural
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: previousLevel
@@ -2639,11 +2779,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 1324490968}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -4075,6 +4228,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 3556409595763610643, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4220,6 +4381,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2016321328}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Industry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: canBuyLockPanel
       value: 
       objectReference: {fileID: 2016321328}
@@ -4228,11 +4393,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 1619480102}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
@@ -4545,6 +4723,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010892164232488714, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     - target: {fileID: 6462656903374531303, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: m_text
       value: LVL 2
@@ -4678,9 +4864,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel
       value: 
       objectReference: {fileID: 121614864}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: UIDisplayName
+      value: Manufacturing
+      objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: previousLevel
       value: 
@@ -4690,11 +4884,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 121614864}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: isAlwaysUnlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelLockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42b13972826e1c245a353720ac86161f, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: cantBuylockedPanel
       value: 
       objectReference: {fileID: 1706677853}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelBuyableSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17a66a8939038aa4d8d0b7218bf578cd, type: 3}
+    - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
+      propertyPath: levelUnlockedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2157408e5b06ede49a375ce1f805368d, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3214151647177961884, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8190e4bc673346d4998730586b1029bd, type: 3}

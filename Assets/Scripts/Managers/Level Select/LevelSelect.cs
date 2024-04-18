@@ -89,8 +89,21 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private GameObject popUpUIPrefab;
     private mapLevelUIPopup instantiatedPopUp;
 
+    [Header("New Sprites")]
+    [SerializeField]
+    Image sr;
+    [SerializeField]
+    private Sprite levelLockedSprite, levelBuyableSprite, levelUnlockedSprite;
+    [Header("Pretty Name")]
+    [SerializeField]
+    private string UIDisplayName;
     private void Awake()
     {
+        sr = GetComponent<Image>();
+        if (string.IsNullOrEmpty(UIDisplayName))
+        {
+            UIDisplayName = levelName;
+        }
     }
     private void Start()
     {
@@ -135,8 +148,11 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
             levelLocked = false;
             levelBought = true;
-            cantBuylockedPanel.SetActive(false);
-            canBuyLockPanel.SetActive(false);
+
+            sr.sprite = levelUnlockedSprite;
+
+            //cantBuylockedPanel.SetActive(false);
+            //canBuyLockPanel.SetActive(false);
         }
         else
         {
@@ -161,8 +177,10 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 levelPlayed = true;
                 levelLocked = false;
                 levelBought = true;
-                cantBuylockedPanel.SetActive(false);
-                canBuyLockPanel.SetActive(false);
+                //cantBuylockedPanel.SetActive(false);
+                //canBuyLockPanel.SetActive(false);
+
+                sr.sprite = levelUnlockedSprite;
             }
             else
             {
@@ -172,14 +190,15 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 //Debug.Log("Not found - " + levelName);
                 if (allowUnlock)
                 {
-                    cantBuylockedPanel.SetActive(false);
-                    canBuyLockPanel.SetActive(true);
+                    sr.sprite = levelBuyableSprite;
+                    //cantBuylockedPanel.SetActive(false);
+                    //canBuyLockPanel.SetActive(true);
                 }
                 else
                 {
-                    cantBuylockedPanel.SetActive(true);
-                    canBuyLockPanel.SetActive(false);
-
+                    //cantBuylockedPanel.SetActive(true);
+                    //canBuyLockPanel.SetActive(false);
+                    sr.sprite = levelLockedSprite;
                 }
                 levelPlayed = false;
                 //allowUnlock = false;
@@ -196,9 +215,9 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (!isAlwaysUnlocked)
         {
-
-            cantBuylockedPanel.SetActive(true);
-            canBuyLockPanel.SetActive(false);
+            sr.sprite = levelLockedSprite;
+            //cantBuylockedPanel.SetActive(true);
+            //canBuyLockPanel.SetActive(false);
             allowUnlock = false;
             levelPlayed = false;
             //allowUnlock = false;
@@ -281,30 +300,30 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         instantiatedPopUp = popui.GetComponent<mapLevelUIPopup>();
         if (levelMastered)
         {
-            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.mastered, _levelstats, levelName);
+            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.mastered, _levelstats, UIDisplayName);
         }
         else if (levelComplete || levelPlayed)
         {
-            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.played, _levelstats, levelName);
+            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.played, _levelstats, UIDisplayName);
         }
         else if (levelLocked && !levelPlayed)
         {
-            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.unplayed, _levelstats, levelName, levelCost);
+            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.unplayed, _levelstats, UIDisplayName, levelCost);
         }
         else if (levelLocked)
         {
-            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.locked, _levelstats, levelName, levelCost);
+            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.locked, _levelstats, UIDisplayName, levelCost);
 
         }
         else if (!levelLocked && ! levelBought)
         {
             //level is not locked but isnt bought,
-            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.locked, _levelstats, levelName, levelCost);
+            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.locked, _levelstats, UIDisplayName, levelCost);
         }
         else if (!levelPlayed && levelBought && !levelLocked || isAlwaysUnlocked)
         {
             //case all else fails
-            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.unplayed, _levelstats, levelName);
+            instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.unplayed, _levelstats, UIDisplayName);
         }
     }
 
@@ -312,8 +331,9 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         levelLocked = false;
         allowUnlock = true;
-        canBuyLockPanel.SetActive(true);
-        cantBuylockedPanel.SetActive(false);
+        sr.sprite = levelBuyableSprite;
+        //canBuyLockPanel.SetActive(true);
+        //cantBuylockedPanel.SetActive(false);
 
         //this is essentially a function that goes through the chain of connected levels
         //originally is only called in the first level
@@ -328,8 +348,10 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 //always unlock the second level if this level has been completed
                 _levelstats = LevelStatsManager.instance.load(levelName);
-                canBuyLockPanel.SetActive(false);
-                cantBuylockedPanel.SetActive(false);
+                sr.sprite = levelBuyableSprite;
+
+                //canBuyLockPanel.SetActive(false);
+                //cantBuylockedPanel.SetActive(false);
                 if (_levelstats.levelFinished())
                 {
                     //NextLevel.Invoke("unlockLevel", 5);
@@ -341,8 +363,10 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 //if the file does not exist and is unlocked, then change the lock texture
                 //this is specifically for when the player has not bought the level
                 Debug.Log("file does not exist but can buy level");
-                canBuyLockPanel.SetActive(true);
-                cantBuylockedPanel.SetActive(false);
+                //canBuyLockPanel.SetActive(true);
+                //cantBuylockedPanel.SetActive(false);
+
+                sr.sprite = levelBuyableSprite;
             }
         }
 
@@ -361,8 +385,9 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             levelBought = true;
             _levelstats = new levelStats(levelName);
             LevelStatsManager.Save(_levelstats);
-            canBuyLockPanel.SetActive(false);
-            cantBuylockedPanel.SetActive(false);
+            sr.sprite = levelUnlockedSprite;
+            //canBuyLockPanel.SetActive(false);
+            //cantBuylockedPanel.SetActive(false);
         }
         else
         {
