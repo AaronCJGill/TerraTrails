@@ -6533,11 +6533,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 9be63a278732961478f696a4ce203120, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: MasteredSpawnList.Array.size
@@ -6545,24 +6545,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[0].waitTime
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[1].waitTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].waitTime
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[0].waitTime
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[1].waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[2].waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[0].enemyPrefab
       value: 
-      objectReference: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[2].enemyPrefab
+      value: 
+      objectReference: {fileID: 2956250014916208435, guid: 924aba5fa98d01d4fbf652f972fd62c7, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].enemyPrefab
       value: 
-      objectReference: {fileID: 2956250014916208435, guid: 924aba5fa98d01d4fbf652f972fd62c7, type: 3}
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[0].enemyPrefab
       value: 
@@ -6571,6 +6591,10 @@ PrefabInstance:
       propertyPath: StartSpawnList.Array.data[1].enemyPrefab
       value: 
       objectReference: {fileID: 2956250014916208435, guid: 924aba5fa98d01d4fbf652f972fd62c7, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[2].enemyPrefab
+      value: 
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[0].spawnPoint.x
       value: -5.7
@@ -6581,18 +6605,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[1].spawnPoint.x
-      value: 5
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[1].spawnPoint.y
-      value: 18
+      value: 8.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[2].spawnPoint.x
+      value: -5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[2].spawnPoint.y
+      value: 8.53
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[0].randomPosition
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[1].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[2].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[0].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[1].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[2].randomPosition
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
