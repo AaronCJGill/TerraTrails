@@ -67,7 +67,9 @@ public class OptionsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1 && SceneManager.GetActiveScene().buildIndex != 2)
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0 
+            && SceneManager.GetActiveScene().buildIndex != 1 && SceneManager.GetActiveScene().buildIndex != 2
+            && !TutorialPopup.TutorialActive)
         {
             if (Health.instance != null && !Health.isDead)
             {
@@ -98,7 +100,6 @@ public class OptionsManager : MonoBehaviour
             else
             {
                 pauseMenuInstance = Instantiate(pauseMenuObject, parent);
-
             }
             Time.timeScale = 0;
 
@@ -113,7 +114,12 @@ public class OptionsManager : MonoBehaviour
 
     }
 
-
+    public void exitToLevelSelect()
+    {
+        //changes time scale back to 1 when exiting level
+        Time.timeScale = 1;
+        isPaused = false;
+    }
 
 
     //save options 

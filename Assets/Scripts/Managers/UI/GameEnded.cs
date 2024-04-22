@@ -35,12 +35,7 @@ public class GameEnded : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //gotomainmenu();
-            //Application.Quit();
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             restartButton();
         }
