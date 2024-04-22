@@ -14,6 +14,21 @@ public class TutorialPopup : MonoBehaviour
     [SerializeField]
     GameObject tutorialObject;
     bool tutorialActive = false;
+    public static TutorialPopup instance;
+    public static bool TutorialActive
+    {
+        get
+        {
+            if (instance == null)
+            {
+                return false;
+            }
+            else
+            {
+                return instance.tutorialActive;
+            }
+        }
+    }
     //string is set to
     string tutorialSaveString;
     void Start()
@@ -22,6 +37,14 @@ public class TutorialPopup : MonoBehaviour
         Debug.Log(tutorialSaveString);
         tutorialObject.SetActive(false);
         pausegameBehavior();
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     void pausegameBehavior()

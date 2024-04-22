@@ -213,6 +213,7 @@ public class menuObject : MonoBehaviour
 
     public void quitButton()
     {
+        OptionsManager.instance.exitToLevelSelect();
         SceneManager.LoadScene(2);
     }
 
