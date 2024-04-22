@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34a528111f04f2e4cb4d97c7e5d4bf28
+guid: b7fdb5642b0c68b43b83cea5bb3ebad6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,175 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sideBackgroundFlipped_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e1c051c7cf58c94bbedcb139058b43d
-      internalID: 1419501388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b839b977de3c3514caf73bf2b25d8fce
-      internalID: 1659596149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae4fa10d3e9c7964480ca732568ccbbe
-      internalID: -161107568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40f0bf25d5c153d4dbb91d84eeff9ad9
-      internalID: 1658033830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4945c8d0044d75146ae9a8f8da1e7e69
-      internalID: -1371112313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eff6839db1d01414a86947adf1e222e0
-      internalID: 1182736424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99a15fe6704a85440adbc753b6f73ff7
-      internalID: -74783527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_7
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68839279588231143b3b39d2baa9251e
-      internalID: -1426415513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sideBackgroundFlipped_8
+      name: abilityContainer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -292,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60eed4e86ec358478e26055a496177c
-      internalID: 1161307175
+      spriteID: e551d121995a1c447867d09dfd745b3c
+      internalID: -1351399653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sideBackgroundFlipped_9
+      name: abilityContainer_1
       rect:
         serializedVersion: 2
         x: 16
@@ -313,14 +145,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2852eba4920a443a49020acc190eac
-      internalID: -1603332918
+      spriteID: 256af1166757446469f28b03200e95f0
+      internalID: -783364368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sideBackgroundFlipped_10
+      name: abilityContainer_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70990be9dcfb4b419d80be4fa859719
+      internalID: 1944454191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityContainer_3
       rect:
         serializedVersion: 2
         x: 0
@@ -334,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 542179e083d13084889564d6f575cd09
-      internalID: 924394454
+      spriteID: 86b4df3085dbaa842b82bc5b3a93175c
+      internalID: 1549440345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sideBackgroundFlipped_11
+      name: abilityContainer_4
       rect:
         serializedVersion: 2
         x: 16
@@ -355,14 +208,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b1d04714d0217f498a2583f4ba788d2
-      internalID: 1786126939
+      spriteID: af76694e4073ba241881eea5d11b7799
+      internalID: 42623534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sideBackgroundFlipped_12
+      name: abilityContainer_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fda74603dfc30c4e8700a4083a853f2
+      internalID: -1871442176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityContainer_6
       rect:
         serializedVersion: 2
         x: 0
@@ -376,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f67cb516bcae1429ab142da06ef4ab
-      internalID: -351130983
+      spriteID: b8dc8034abf71a347a0caadd01139106
+      internalID: -392570738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sideBackgroundFlipped_13
+      name: abilityContainer_7
       rect:
         serializedVersion: 2
         x: 16
@@ -397,8 +271,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d7f3d026ea6a734799365221847a677
-      internalID: -750170418
+      spriteID: 9f2b1f29b9ad8ef4d9a5c7af3eec5e10
+      internalID: 594112412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityContainer_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80319d36a0e3964479c68d37291c56d2
+      internalID: 1072960667
       vertices: []
       indices: 
       edges: []
@@ -414,20 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sideBackgroundFlipped_0: 1419501388
-      sideBackgroundFlipped_1: 1659596149
-      sideBackgroundFlipped_10: 924394454
-      sideBackgroundFlipped_11: 1786126939
-      sideBackgroundFlipped_12: -351130983
-      sideBackgroundFlipped_13: -750170418
-      sideBackgroundFlipped_2: -161107568
-      sideBackgroundFlipped_3: 1658033830
-      sideBackgroundFlipped_4: -1371112313
-      sideBackgroundFlipped_5: 1182736424
-      sideBackgroundFlipped_6: -74783527
-      sideBackgroundFlipped_7: -1426415513
-      sideBackgroundFlipped_8: 1161307175
-      sideBackgroundFlipped_9: -1603332918
+      abilityContainer_0: -1351399653
+      abilityContainer_1: -783364368
+      abilityContainer_2: 1944454191
+      abilityContainer_3: 1549440345
+      abilityContainer_4: 42623534
+      abilityContainer_5: -1871442176
+      abilityContainer_6: -392570738
+      abilityContainer_7: 594112412
+      abilityContainer_8: 1072960667
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
