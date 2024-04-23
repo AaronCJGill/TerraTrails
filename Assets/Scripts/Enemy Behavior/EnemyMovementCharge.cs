@@ -22,10 +22,27 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
     float startupWaitTime = 1f;
     [SerializeField]
     private Animator anim;//just two animations, charges and charging up
-
-
+    [SerializeField]
+    private Transform storedTransform;
+    [SerializeField]
+    Pathfinding.Seeker seeker;
+    [SerializeField]
+    Pathfinding.AIPath pathing;
+    [SerializeField]
+    Pathfinding.AIDestinationSetter destinationSetter;
+    [SerializeField]
+    float chargingTime = 10;
     void Start()
     {
+        seeker = GetComponent<Pathfinding.Seeker>();
+        pathing = GetComponent<Pathfinding.AIPath>();
+        pathing.maxSpeed = speed;
+        //pathing.maxa
+        destinationSetter = GetComponent<Pathfinding.AIDestinationSetter>();
+        storedTransform = new GameObject("Charger " + "Target -- "  + name).transform;
+        pathing.canMove = false;
+        storedTransform.position = PlayerMovement.instance.Position;
+        destinationSetter.target = storedTransform;
         if (doesSpawnRoutine)
         {
             //animation
@@ -48,6 +65,8 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         anim.ResetTrigger("idle");
         anim.SetTrigger("charge");
 
+        float chargingTimer = 0;
+
         if (PlayerMovement.instance.Position.x > transform.position.x)
         {
             //target is to the right
@@ -63,7 +82,7 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         //if is on top of player, just move to random target position away from player
         //anim.ResetTrigger("chargeUp");
         //anim.SetTrigger("charge");
-
+        
         Vector2 targetPos;
         if (rnum <= chargeToPlayer && Vector2.Distance(transform.position, PlayerMovement.instance.transform.position) > 1)
             targetPos = PlayerMovement.instance.transform.position;
@@ -83,19 +102,29 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         float targetDeviationRangeX = Random.Range(-1,1);
         float targetDeviationRangeY = Random.Range(-1,1);
         //deviates from the 
+        if (targetPos.x + targetDeviationRangeX > LevelBoundary.BottomRightBound.X || targetPos.x + targetDeviationRangeX < LevelBoundary.leftTopBound.X)
+        {
+            targetDeviationRangeX = 0;
+        }
+        if (targetPos.y + targetDeviationRangeY > LevelBoundary.leftTopBound.Y || targetPos.y + targetDeviationRangeY < LevelBoundary.BottomRightBound.Y)
+        {
+            targetDeviationRangeY = 0;
+        }
         targetPos.x += targetDeviationRangeX;
         targetPos.y += targetDeviationRangeY;
-
-        while (Vector2.Distance(transform.position, targetPos) > 0.2f)
+        storedTransform.position = targetPos;
+        while (Vector2.Distance(transform.position, targetPos) > 0.4f && chargingTimer < chargingTime)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            pathing.canMove = true;
+            Debug.Log(chargingTimer);
+            chargingTimer += Time.deltaTime;
             yield return null;
         }
         anim.ResetTrigger("charge");
         anim.SetTrigger("idle");
-
+        pathing.canMove = false;
         yield return new WaitForSeconds(waitTime + Random.Range(-chargeRandomization, chargeRandomization));
-
         //anim.ResetTrigger("charge");
         //wait a while
         StartCoroutine(move());

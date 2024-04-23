@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7336191525877131712}
   - component: {fileID: 1752343517998110533}
   - component: {fileID: -8194113822697393865}
+  - component: {fileID: 1307537575209901633}
+  - component: {fileID: 4051378040281806871}
+  - component: {fileID: 8484290646524880644}
   m_Layer: 6
   m_Name: Charge Enemy
   m_TagString: Untagged
@@ -49,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac40736f4f5e03498fca96ee7b3b935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 8
   waitTime: 2
   doesSpawnRoutine: 0
   chargeToPlayer: 100
@@ -57,6 +60,11 @@ MonoBehaviour:
   sr: {fileID: 7159489691961686155}
   startupWaitTime: 1
   anim: {fileID: 911250675734293785}
+  storedTransform: {fileID: 0}
+  seeker: {fileID: 0}
+  pathing: {fileID: 0}
+  destinationSetter: {fileID: 0}
+  chargingTime: 8
 --- !u!212 &5167955590218165961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -264,6 +272,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: 2
   secondSound: 0
+--- !u!114 &1307537575209901633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956250014916208435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &4051378040281806871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956250014916208435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+  radius: 1.05
+  height: 5
+  canMove: 1
+  maxSpeed: 4.8
+  gravity: {x: 0, y: 0, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+  orientation: 1
+  enableRotation: 0
+  autoRepath:
+    mode: 2
+    interval: 0.5
+    sensitivity: 10
+    maximumInterval: 2
+    visualizeSensitivity: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 1
+  constrainInsideGraph: 0
+--- !u!114 &8484290646524880644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956250014916208435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
 --- !u!1 &6232436823323897514
 GameObject:
   m_ObjectHideFlags: 0
