@@ -57,6 +57,11 @@ public class ParryCircle : MonoBehaviour
         {
             if(item.CompareTag("projectile"))
                 Destroy(item.gameObject);
+            if (item.TryGetComponent<EnemyMovementCharge>(out EnemyMovementCharge chargeenemy))
+            {
+                chargeenemy.getStunned();
+                Debug.Log("Found enemy and stunning them");
+            }
         }
     }
 }
