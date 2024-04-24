@@ -7159,7 +7159,7 @@ Transform:
   m_GameObject: {fileID: 1579006467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.14, y: 8.79, z: -0.06296156}
+  m_LocalPosition: {x: 5.26, y: 10.94, z: -0.06296156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8269,6 +8269,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 1940864448560914093, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940864448560914093, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940864448560914093, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06296156
+      objectReference: {fileID: 0}
     - target: {fileID: 1943649886210370954, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5731707
@@ -8354,20 +8366,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: d89e9211438580a45820a7d66836cd80, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: SpawnRoutineRestarts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.size
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[0].waitTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[1].waitTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[2].waitTime
@@ -8375,32 +8391,112 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].waitTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[4].waitTime
-      value: 10
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[5].waitTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[6].waitTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[7].waitTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[8].waitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[9].waitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[10].waitTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[0].enemyPrefab
       value: 
-      objectReference: {fileID: 2956250014916208435, guid: 924aba5fa98d01d4fbf652f972fd62c7, type: 3}
+      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[1].enemyPrefab
       value: 
-      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[2].enemyPrefab
       value: 
-      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+      objectReference: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].enemyPrefab
       value: 
-      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[4].enemyPrefab
       value: 
       objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[5].enemyPrefab
+      value: 
+      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[6].enemyPrefab
+      value: 
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[7].enemyPrefab
+      value: 
+      objectReference: {fileID: 2937365492853854781, guid: 051965060307c974fa4807e6df7354fe, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[8].enemyPrefab
+      value: 
+      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[9].enemyPrefab
+      value: 
+      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[10].enemyPrefab
+      value: 
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[2].spawnPoint.x
+      value: -12.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[2].spawnPoint.y
+      value: 18.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[7].spawnPoint.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[7].spawnPoint.y
+      value: 10.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[8].spawnPoint.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[8].spawnPoint.y
+      value: 10.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[9].spawnPoint.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[9].spawnPoint.y
+      value: 10.94
+      objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[0].enemyPrefab
       value: 
@@ -8412,7 +8508,19 @@ PrefabInstance:
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[2].enemyPrefab
       value: 
-      objectReference: {fileID: 4948761129603276318, guid: 776c3975415ef004cbb37cfaade70d03, type: 3}
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[3].enemyPrefab
+      value: 
+      objectReference: {fileID: 4329366662828632870, guid: a1f65f1ab1e6bab41b938bfc9f671f2d, type: 3}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[10].spawnPoint.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[10].spawnPoint.y
+      value: 10.94
+      objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[0].spawnPoint.x
       value: -5.7
@@ -8423,19 +8531,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[1].spawnPoint.x
-      value: -5.7
+      value: -9.47
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[1].spawnPoint.y
-      value: 8.53
+      value: 15.15
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[2].spawnPoint.x
-      value: -5.7
+      value: -12.24
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: StartSpawnList.Array.data[2].spawnPoint.y
-      value: 8.53
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[3].spawnPoint.x
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[3].spawnPoint.y
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[0].randomPosition
@@ -8447,7 +8563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[2].randomPosition
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: GameSpawnList.Array.data[3].randomPosition
@@ -8458,12 +8574,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
-      propertyPath: StartSpawnList.Array.data[1].randomPosition
+      propertyPath: GameSpawnList.Array.data[5].randomPosition
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
-      propertyPath: StartSpawnList.Array.data[2].randomPosition
+      propertyPath: GameSpawnList.Array.data[6].randomPosition
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[7].randomPosition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[8].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[9].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: GameSpawnList.Array.data[10].randomPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[1].randomPosition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418377670941268165, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: StartSpawnList.Array.data[2].randomPosition
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
       propertyPath: timerText
