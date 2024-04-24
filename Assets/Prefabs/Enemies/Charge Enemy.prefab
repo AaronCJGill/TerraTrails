@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac40736f4f5e03498fca96ee7b3b935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 10
   waitTime: 2
   doesSpawnRoutine: 0
   chargeToPlayer: 100
@@ -65,6 +65,10 @@ MonoBehaviour:
   pathing: {fileID: 0}
   destinationSetter: {fileID: 0}
   chargingTime: 8
+  chargingAcceleration: 1000
+  stunTime: 3
+  stopDistance: 0.3
+  picknextwaypointdistance: 0.8
 --- !u!212 &5167955590218165961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -333,10 +337,10 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
+  maxAcceleration: 10
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.8
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -429,7 +433,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: -281472649, guid: 45341db19f0dd554a98a34ca0762cc5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

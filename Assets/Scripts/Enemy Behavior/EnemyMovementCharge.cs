@@ -22,6 +22,7 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
     float startupWaitTime = 1f;
     [SerializeField]
     private Animator anim;//just two animations, charges and charging up
+    [Header("Pathfinding Settings")]
     [SerializeField]
     private Transform storedTransform;
     [SerializeField]
@@ -30,19 +31,31 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
     Pathfinding.AIPath pathing;
     [SerializeField]
     Pathfinding.AIDestinationSetter destinationSetter;
-    [SerializeField]
+    [SerializeField][Tooltip("Amount of time this can spend charging. Either spends this much time charging or it hits its point")]
     float chargingTime = 10;
+    [SerializeField][Tooltip("Keep this as 10 if you want it to stay the default value.")]
+    float chargingAcceleration = 10;
+    [SerializeField]
+    [Tooltip("Keep in mind when using this does not factor in the 1.5 second recharge time the movement timer has. Add 1.5 to this number to get real time until it charges after a stun")]
+    float stunTime = 3f;
+    [SerializeField]
+    float stopDistance = 0.3f;
+    [SerializeField]
+    float picknextwaypointdistance = 1;
     void Start()
     {
         seeker = GetComponent<Pathfinding.Seeker>();
         pathing = GetComponent<Pathfinding.AIPath>();
         pathing.maxSpeed = speed;
+        pathing.slowdownDistance = stopDistance;
+        pathing.pickNextWaypointDist = picknextwaypointdistance; 
         //pathing.maxa
         destinationSetter = GetComponent<Pathfinding.AIDestinationSetter>();
         storedTransform = new GameObject("Charger " + "Target -- "  + name).transform;
         pathing.canMove = false;
         storedTransform.position = PlayerMovement.instance.Position;
         destinationSetter.target = storedTransform;
+        pathing.maxAcceleration = chargingAcceleration;
         if (doesSpawnRoutine)
         {
             //animation
@@ -88,7 +101,7 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
             targetPos = PlayerMovement.instance.transform.position;
         else
             targetPos = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-
+        /*
         if (targetPos.x > transform.position.x)
         {
             //target is to the right
@@ -98,7 +111,7 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         {
             sr.flipX = false;
         }
-
+        */
         float targetDeviationRangeX = Random.Range(-1,1);
         float targetDeviationRangeY = Random.Range(-1,1);
         //deviates from the 
@@ -113,7 +126,7 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         targetPos.x += targetDeviationRangeX;
         targetPos.y += targetDeviationRangeY;
         storedTransform.position = targetPos;
-        while (Vector2.Distance(transform.position, targetPos) > 0.4f && chargingTimer < chargingTime)
+        while (Vector2.Distance(transform.position, targetPos) > stopDistance && chargingTimer < chargingTime)
         {
             //transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             pathing.canMove = true;
@@ -127,6 +140,37 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         yield return new WaitForSeconds(waitTime + Random.Range(-chargeRandomization, chargeRandomization));
         //anim.ResetTrigger("charge");
         //wait a while
+        StartCoroutine(move());
+    }
+    private void Update()
+    {
+        if (storedTransform.position.x > transform.position.x)
+        {
+            //target is to the right
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+
+    }
+
+    public void getStunned()
+    {
+        StopAllCoroutines();
+        anim.ResetTrigger("charge");
+        anim.SetTrigger("idle");
+        Debug.Log("Stopping coroutine");
+        StartCoroutine(stunRoutine());
+    }
+    
+    IEnumerator stunRoutine()
+    {
+        pathing.canMove = false;
+        Debug.Log("cant move");
+        yield return new WaitForSeconds(stunTime);
+        Debug.Log("can move stun over");
         StartCoroutine(move());
     }
 
