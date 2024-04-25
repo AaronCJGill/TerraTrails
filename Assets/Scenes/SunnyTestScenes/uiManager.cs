@@ -33,6 +33,7 @@ public class uiManager : MonoBehaviour
     void Start()
     {
         LeanTween.init(800);
+        gameOverPanel.SetActive(false);
         leftPanelStart = leftPanel.GetComponent<RectTransform>().anchoredPosition;
         rightPanelStart = rightPanel.GetComponent<RectTransform>().anchoredPosition;
         topShutterStart = topShutter.GetComponent<RectTransform>().anchoredPosition;
