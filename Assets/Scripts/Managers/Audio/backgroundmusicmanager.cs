@@ -10,8 +10,11 @@ public class backgroundmusicmanager : MonoBehaviour
     {
         Map,
         MainMenu,
+        introcutscene,
         Level
     }
+
+    public AudioClip mmMusic, introMusic,MapMusic, industrialMusic, organicLevel;
 
     public static backgroundmusicmanager instance;
     private void Awake()
@@ -39,13 +42,50 @@ public class backgroundmusicmanager : MonoBehaviour
         _as.volume = CentralAudioManager.instance.bgmVolume;
     }
 
-    
 
-    public static void changeBackgroundMusic(typeOfMusic tom)
+
+    public enum levtype
     {
-        //change the music to whatever is requested
+        mainmenu,
+        intro,
+        levelselect,
+        industrial,
+        organic
     }
+    public void changeBackgroundMusic(levtype type)
+    {
+        //this is called from helper backgroundmusicinfo script
 
+        _as.volume = CentralAudioManager.instance.bgmVolume;
+        //change the music to whatever is requested
+        switch (type)
+        {
+            case levtype.mainmenu:
+                _as.clip = mmMusic;
+                _as.Play();
+                break;
+            case levtype.intro:
+                _as.clip = introMusic;
+                _as.Play();
+                break;
+            case levtype.levelselect:
+                _as.clip = MapMusic;
+                _as.Play();
+                break;
+            case levtype.industrial:
+                _as.clip = industrialMusic;
+                _as.Play();
+                break;
+            case levtype.organic:
+                _as.clip = organicLevel;
+                _as.Play();
+                break;
+            default:
+                _as.clip = industrialMusic;
+                _as.Play();
+                break;
+        }
+    }
 
     //CHANGE MUSIC USING SMOOTHSTEP TO THE new music type chosen. SMOOTHSTEP VOLUME TO 0 CHANGE AT 0 AND SWITCH TO NEW ONE STEPPING TO WHATEVER IS THE CHOSEN SOUND SETTING
 

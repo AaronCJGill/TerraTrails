@@ -20,7 +20,7 @@ public class Parry : MonoBehaviour
         parrycircle = Resources.Load("Parry Circle") as GameObject;
         if (parrycircle != null)
         {
-            Debug.Log("Parry");
+            //Debug.Log("Parry");
         }
     }
 
@@ -50,7 +50,7 @@ public class Parry : MonoBehaviour
                 GameObject pc = Instantiate(parrycircle, transform.position, Quaternion.identity);
                 pc.GetComponent<ParryCircle>().init(destroyRadius, parryActiveTime);
                 Invoke("parryAction", 0.1f);
-
+                GetComponent<AudioInstance>().playFirstSound();
                 timer = 0;
             }
         }

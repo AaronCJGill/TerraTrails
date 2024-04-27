@@ -5786,6 +5786,10 @@ PrefabInstance:
       value: Audiomanager
       objectReference: {fileID: 0}
     - target: {fileID: 2974143707490679064, guid: ddb4f7440827cc440a21cd4e6c8fe131, type: 3}
+      propertyPath: chargerSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: a2d6bca070717974bb494d6d56b9c945, type: 3}
+    - target: {fileID: 2974143707490679064, guid: ddb4f7440827cc440a21cd4e6c8fe131, type: 3}
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 8300000, guid: 9be63a278732961478f696a4ce203120, type: 3}
