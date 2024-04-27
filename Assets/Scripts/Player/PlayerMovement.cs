@@ -16,6 +16,12 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private Animator animator;
     float dashMultiplier = 1;
+    public Vector2 PositionPlusMove(float movemult)
+    {
+       
+        Debug.Log("current pos: "+ transform.position + " || Predicted pos: " + (transform.position + ((move * movementSpeed * dashMultiplier * Time.fixedDeltaTime) * movemult)) + " || Move mult: " + movemult);
+        return transform.position + ((move * movementSpeed * dashMultiplier * Time.fixedDeltaTime) * movemult);
+    }
     public Vector2 Position
     {
         get
@@ -67,8 +73,8 @@ public class PlayerMovement : MonoBehaviour
                 move.y = 1;
             if (move.y < -controllerThreshold)
                 move.y = -1;
-            if(move != Vector3.zero)
-                Debug.Log(move);
+            //if(move != Vector3.zero)
+                //Debug.Log(move);
 
             //move left and right at a consistent rate
             /*
@@ -92,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Health.instance.takeDamage(1);
+                //Health.instance.takeDamage(1);
             }
         }
         else
