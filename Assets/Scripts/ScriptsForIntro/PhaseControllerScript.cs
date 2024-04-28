@@ -177,6 +177,7 @@ public class PhaseControllerScript : MonoBehaviour
             if (waitTime <= 0)
             {
                 waitTime = longerTime;
+                page2P4.SetActive(false);
                 phaseNumber = 3;
             }
 
@@ -263,6 +264,7 @@ public class PhaseControllerScript : MonoBehaviour
                 {
                     space.SetActive(false);
                     waitTime = setWaitTime;
+                    page3P2.SetActive(false);
                     phaseNumber =5;
                 }
             }
@@ -324,6 +326,7 @@ public class PhaseControllerScript : MonoBehaviour
 
             if (scrollingTime <= 0)
             {
+                page4P1.SetActive(false);
                 phaseNumber = 8;
             }
         }
