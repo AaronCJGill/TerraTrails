@@ -38,7 +38,21 @@ public class uiManager : MonoBehaviour
     [Header("Scene Transition")]
     public GameObject transitionElement;
 
-    void Start()
+    public static uiManager instance;
+
+    private void Awake()
+    {
+        if (instance != this && instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+     }
+
+        void Start()
     {
         LeanTween.init(800);
 

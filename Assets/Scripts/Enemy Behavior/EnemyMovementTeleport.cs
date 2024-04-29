@@ -232,7 +232,7 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
             else //we are close to the point and should choose next point
             {
                 //Debug.Log("Finding random Spot");
-                Debug.Log("getting random point");
+                //Debug.Log("getting random point");
                 storedTransform.position = usefulFunctions.positioning.PickRandomPointNearby(transform.position, randomPointDestinationDistance);//somewhere within 2 units
                 //make sure the point is close enough
             }
