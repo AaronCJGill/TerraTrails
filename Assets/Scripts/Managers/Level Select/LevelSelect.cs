@@ -165,6 +165,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 if (_levelstats.levelFinishedGold())
                 {
                     //level completed and has been bought before
+                    
                     levelMastered = true;
                     levelComplete = true;
                 }
@@ -300,6 +301,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         instantiatedPopUp = popui.GetComponent<mapLevelUIPopup>();
         if (levelMastered)
         {
+            Debug.Log(_levelstats.devTime);
             instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.mastered, _levelstats, UIDisplayName);
         }
         else if (levelComplete || levelPlayed)

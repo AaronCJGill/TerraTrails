@@ -33,7 +33,8 @@ public class cutsceneManager : MonoBehaviour
 
     //Assets from Page#3
     public GameObject page3P1;
-    public GameObject page3P2;
+    public GameObject page3P2_1;
+    public GameObject page3P2_2;
     public GameObject page3P3;
     public GameObject page3P4_1;
     public GameObject page3P4_2;
@@ -64,6 +65,7 @@ public class cutsceneManager : MonoBehaviour
     //Check that if the section of play is over
     bool p2s1 = false;
     bool p2s2 = false;
+    bool p3s1 = false;
 
     CameraShake myCameraShake;
 
@@ -74,6 +76,7 @@ public class cutsceneManager : MonoBehaviour
     public Vector2 goal3 = new Vector2(1, 2);
     public Vector2 goal4;
     public Vector2 goal5;
+    public Vector2 goal6;
 
     // Start is called before the first frame update
     void Start()
@@ -205,7 +208,7 @@ public class cutsceneManager : MonoBehaviour
 
             if (waitTime <= 0)
             {
-                waitTime = setWaitTime;
+                waitTime = longerTime;
                 page2P4.SetActive(false);
                 phaseNumber = 3;
             }
@@ -273,14 +276,29 @@ public class cutsceneManager : MonoBehaviour
         //Part4 It floats in the space
         if (phaseNumber == 4)
         {
-            page3P2.SetActive(true);
+            page3P2_1.SetActive(true);
+            page3P2_2.SetActive(true);
 
-            Color alpha = page3P2.GetComponent<RawImage>().color;
+            Color alpha = page3P2_1.GetComponent<RawImage>().color;
 
             if (waitTime <= 1.5 && alpha.a >= 0)
             {
                 alpha.a -= Time.deltaTime;
-                page3P2.GetComponent<RawImage>().color = alpha;
+                page3P2_1.GetComponent<RawImage>().color = alpha;
+            }
+
+            Color beta = page3P2_2.GetComponent<RawImage>().color;
+
+            if (waitTime <= 1.5 && beta.a >= 0)
+            {
+                beta.a -= Time.deltaTime;
+                page3P2_2.GetComponent<RawImage>().color = beta;
+            }
+
+            if (page3P2_2 && !p3p2)
+            {
+                LeanTween.move(page3P2_2.GetComponent<RectTransform>(), goal6, 0.5f).setEase(LeanTweenType.easeOutSine);
+                p3p2 = true;
             }
 
             if (waitTime >= 0)
@@ -290,18 +308,19 @@ public class cutsceneManager : MonoBehaviour
 
             if (waitTime <= 0)
             {
-                if(!p3p2)
+                if(!p3s1)
                 {
                     LeanTween.move(space.GetComponent<RectTransform>(), goal2, 0).setEase(LeanTweenType.easeOutBack);
                     space.SetActive(true);
-                    p3p2 = true;
+                    p3s1 = true;
                 }
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     space.SetActive(false);
                     waitTime = setWaitTime;
-                    page3P2.SetActive(false);
+                    page3P2_1.SetActive(false);
+                    page3P2_2.SetActive(false);
                     phaseNumber = 5;
                 }
             }
@@ -364,7 +383,7 @@ public class cutsceneManager : MonoBehaviour
 
             if (waitTime <= 0)
             {
-                waitTime = 1.5f*longerTime;
+                waitTime = longerTime;
                 page3P4_1.SetActive(false);
                 page3P4_2.SetActive(false);
                 phaseNumber = 7;
@@ -406,6 +425,14 @@ public class cutsceneManager : MonoBehaviour
         if (phaseNumber == 8)
         {
             page4P2.SetActive(true);
+
+            Color beta = page4P2.GetComponent<RawImage>().color;
+
+            if (waitTime >= 4 && beta.a <= 1)
+            {
+                beta.a += Time.deltaTime;
+                page4P2.GetComponent<RawImage>().color = beta;
+            }
 
             Color alpha = page4P2.GetComponent<RawImage>().color;
 

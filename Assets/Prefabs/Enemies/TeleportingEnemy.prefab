@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4104446673111959287}
   - component: {fileID: 1628628008840315688}
-  - component: {fileID: 372580515574135469}
   - component: {fileID: 558332360990863118}
   - component: {fileID: 2550409329887824726}
   - component: {fileID: -2428597912068807510}
   - component: {fileID: 3235205167949430617}
+  - component: {fileID: 7314151957717693647}
+  - component: {fileID: 3602059321102810875}
+  - component: {fileID: 6622610318739026049}
   m_Layer: 6
   m_Name: TeleportingEnemy
   m_TagString: Untagged
@@ -90,33 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &372580515574135469
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948761129603276318}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!61 &558332360990863118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,8 +159,17 @@ MonoBehaviour:
   teleportWaitTIme: 0.5
   restartTime: 1
   warningSymbol: {fileID: 4987578705084021693, guid: 3cce4049f7c40674ca4aa8ddc613caa8, type: 3}
-  TeleToPlayer: 25
+  TeleToPlayer: 100
   anim: {fileID: 5775544052975464625}
+  storedTransform: {fileID: 0}
+  seeker: {fileID: 0}
+  pathing: {fileID: 0}
+  destinationSetter: {fileID: 0}
+  walkAcceleration: 1000
+  stopDistance: 0.3
+  picknextwaypointdistance: 0.8
+  predictionDistance: 10
+  randomPointDestinationDistance: 4
 --- !u!82 &-2428597912068807510
 AudioSource:
   m_ObjectHideFlags: 0
@@ -296,6 +280,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: 8
   secondSound: 0
+--- !u!114 &7314151957717693647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948761129603276318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &3602059321102810875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948761129603276318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+  radius: 0.5
+  height: 2
+  canMove: 1
+  maxSpeed: 4.8
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+  orientation: 1
+  enableRotation: 0
+  autoRepath:
+    mode: 2
+    interval: 0.5
+    sensitivity: 10
+    maximumInterval: 2
+    visualizeSensitivity: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: 1000
+  rotationSpeed: 360
+  slowdownDistance: 0.32
+  pickNextWaypointDist: 0.37
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 1
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 1
+  constrainInsideGraph: 0
+--- !u!114 &6622610318739026049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948761129603276318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
 --- !u!1 &9132564388269394623
 GameObject:
   m_ObjectHideFlags: 0

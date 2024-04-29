@@ -34,14 +34,14 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
     [SerializeField][Tooltip("Amount of time this can spend charging. Either spends this much time charging or it hits its point")]
     float chargingTime = 10;
     [SerializeField][Tooltip("Keep this as 10 if you want it to stay the default value.")]
-    float chargingAcceleration = 10;
+    float chargingAcceleration = 1000;
     [SerializeField]
     [Tooltip("Keep in mind when using this does not factor in the 1.5 second recharge time the movement timer has. Add 1.5 to this number to get real time until it charges after a stun")]
     float stunTime = 3f;
     [SerializeField]
     float stopDistance = 0.3f;
     [SerializeField]
-    float picknextwaypointdistance = 1;
+    float picknextwaypointdistance = 0.8f;
     void Start()
     {
         seeker = GetComponent<Pathfinding.Seeker>();
@@ -126,11 +126,12 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         targetPos.x += targetDeviationRangeX;
         targetPos.y += targetDeviationRangeY;
         storedTransform.position = targetPos;
+
         while (Vector2.Distance(transform.position, targetPos) > stopDistance && chargingTimer < chargingTime)
         {
             //transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             pathing.canMove = true;
-            Debug.Log(chargingTimer);
+            //Debug.Log(chargingTimer);
             chargingTimer += Time.deltaTime;
             yield return null;
         }

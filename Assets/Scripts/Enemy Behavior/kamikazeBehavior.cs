@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//dormant   -> wander to random point, canmove
+//chase     -> set onto the player, canmove
+//explosion -> stay in place, cantmove
+//cooldown  -> stay in place, cant move
 
 public class kamikazeBehavior : MonoBehaviour, enemyDestroy
 {
@@ -25,7 +29,23 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
     Animator anim;
 
     Vector2 lastPos;
+    [Header("Pathfinding Settings")]
+    [SerializeField]
+    private Transform storedTransform;
+    [SerializeField]
+    Pathfinding.Seeker seeker;
+    [SerializeField]
+    Pathfinding.AIPath pathing;
+    [SerializeField]
+    Pathfinding.AIDestinationSetter destinationSetter;
 
+    [SerializeField]
+    [Tooltip("Keep this as 10 if you want it to stay the default value.")]
+    float walkAcceleration = 1000;
+    [SerializeField]
+    float stopDistance = 0.3f;
+    [SerializeField]
+    float picknextwaypointdistance = 0.8f;
     enum state
     {
         dormant,//stays in place, waiting to detect player
@@ -41,12 +61,32 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
     float explodeWaitTime = 5;
     float explodeWaitTimer = 0;
     float explosionTime = 0.4f;
+    [SerializeField]
+    float walkingacceleration = 1000;
+    [SerializeField]
+    float randomPointDestinationDistance = 3f;
     // Start is called before the first frame update
     void Start()
     {
+
+        seeker = GetComponent<Pathfinding.Seeker>();
+        pathing = GetComponent<Pathfinding.AIPath>();
+        pathing.maxSpeed = speed;
+        pathing.slowdownDistance = stopDistance;
+        pathing.pickNextWaypointDist = picknextwaypointdistance;
+        //pathing.maxa
+        destinationSetter = GetComponent<Pathfinding.AIDestinationSetter>();
+        storedTransform = new GameObject("Spider " + "Target -- " + name).transform;
+        pathing.canMove = false;
+        storedTransform.position = transform.position;
+        destinationSetter.target = storedTransform;
+        pathing.maxAcceleration = walkingacceleration;
+
         switchState(state.dormant);
         dc.init(detectionRange, this);
         rb = GetComponent<Rigidbody2D>();
+
+
     }
 
 
@@ -105,61 +145,62 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
     {
         //waits in place - does nothing
         dc.dormantPeriod();
-        speed = wanderSpeed;
+        changeToWalkSpeed();
+        
     }
 
     Vector2 randomDestinationPoint;
     float pause;
     float pTime;
+    void getRandomPos()
+    {
+        storedTransform.position = usefulFunctions.positioning.PickRandomPointNearby(transform.position, randomPointDestinationDistance * 3);//somewhere within 2 units
+        Debug.Log("changing stored point " + storedTransform.position + " " + Vector2.Distance(storedTransform.position, transform.position));
+    }
+    void changeToWalkSpeed()
+    {
+        pathing.maxSpeed = wanderSpeed;
+
+    }
+    void changeToRunSpeed()
+    {
+        pathing.maxSpeed = fastSpeed;
+    }
     void dormantBehavior()
     {
-
         //wait for the dc to just give input
         //just walk around randomly
-
-        if (Vector2.Distance(transform.position, randomDestinationPoint) > 1)
+        
+        if (Vector2.Distance(transform.position, storedTransform.position) > 1)
         {
             //if we are faw away from distance point, just move
-            transform.position = Vector2.MoveTowards(transform.position, randomDestinationPoint, speed * Time.deltaTime);
-            anim.SetFloat("Vel", Vector2.MoveTowards(transform.position, randomDestinationPoint, speed * Time.deltaTime).magnitude);
-
+            pathing.canMove = true;
+            //transform.position = Vector2.MoveTowards(transform.position, randomDestinationPoint, speed * Time.deltaTime);
+            anim.SetFloat("Vel", Vector2.MoveTowards(transform.position, storedTransform.position, speed * Time.deltaTime).magnitude);
             pTime = Random.Range(3, 6);//generate random value for pausetime
         }
         else //we are close to the point and should pause
         {
+            //Debug.Log("Pause " + pTime + " " + pause);
+
             pause += Time.deltaTime;
+            pathing.canMove = false;
             //we do not move, but only add to pause time
             if (pause > pTime)
             {
-                Vector2 potentialSpot = usefulFunctions.positioning.getRandomSpawnPoint();
-
-                if (Vector2.Distance(transform.position, potentialSpot) < 6)
-                {
-                    randomDestinationPoint = potentialSpot;
-                    pause = 0;
-                }
+                getRandomPos();
+                pathing.canMove = true;
+                pause = 0;
             }
             anim.SetFloat("Vel", 0);
-
         }
-
-        /*
-        if (pause < pTime)
-        {
-            //paused
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, randomDestinationPoint, speed * Time.deltaTime);
-            //Debug.Log();
-        }
-        */
-
     }
+
     void chaseStart()
     {
         //Debug.Log("Chase starting");
-        speed = fastSpeed;
+        changeToRunSpeed();
+        pathing.canMove = true;
     }
     void chaseBehavior()
     {
@@ -176,14 +217,15 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
             else
             {
                 //move towards the player if we are not close enough to start exploding
-                transform.position = Vector2.MoveTowards(transform.position, PlayerMovement.instance.Position, speed * Time.deltaTime);
+                //transform.position = Vector2.MoveTowards(transform.position, PlayerMovement.instance.Position, speed * Time.deltaTime);
+                storedTransform.position = PlayerMovement.instance.Position;
                 anim.SetFloat("Vel", Vector2.MoveTowards(transform.position, PlayerMovement.instance.Position, speed * Time.deltaTime).magnitude);
             }
         }
     }
     void explodingStart()
     {
-        randomDestinationPoint = transform.position;
+        storedTransform.position = transform.position;
         //stay in place,
         //change anim
         Invoke("spawnExplosion", 0.6f);
@@ -197,7 +239,7 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
     void explodingBehavior()
     {
         explodeWaitTimer += Time.deltaTime;
-
+        
         if (explodeWaitTime >= explodeWaitTimer)
         {
             //explosion has already been spawned, just wait and possibly play an animation
@@ -210,6 +252,7 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
         //probably do cooldown anim, ideally a trigger
         anim.SetFloat("Vel", 0);
         //reactivate dc
+        pathing.canMove = false;
         anim.ResetTrigger("chargeup");
         anim.SetBool("recharging", true);
         //do cooldown anim

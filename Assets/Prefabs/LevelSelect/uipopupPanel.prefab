@@ -1848,7 +1848,9 @@ MonoBehaviour:
   costPanel: {fileID: 2262227925064353994}
   playedPanelGoalText: {fileID: 7005560553987591596}
   playedPanelPlayerText: {fileID: 5153299765513010725}
-  masteredPanelPlayerText: {fileID: 5153299765513010725}
-  masteredPanelGoalText: {fileID: 7005560553987591596}
+  masteredPanelPlayerText: {fileID: 6398370079208796553}
+  masteredPanelGoalText: {fileID: 8068532241665630455}
   costPanelText: {fileID: 6921364358025688025}
   levelNameText: {fileID: 4336716893881746915}
+  unplayedPanelPlayerTime: {fileID: 0}
+  unplayedPanelGoalTime: {fileID: 0}

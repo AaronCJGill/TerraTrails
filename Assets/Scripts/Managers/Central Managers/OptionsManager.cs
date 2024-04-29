@@ -87,6 +87,22 @@ public class OptionsManager : MonoBehaviour
         handlePause();
     }
 
+    public void optionsButton()
+    {
+        //main menu options button
+        //handlePause();
+        Transform parent = GameObject.Find("Canvas").transform;
+
+        if (pauseMenuInstance != null)
+        {
+            pauseMenuInstance.SetActive(true);
+        }
+        else
+        {
+            pauseMenuInstance = Instantiate(pauseMenuObject, parent);
+        }
+    }
+
     void handlePause()
     {
         if (isPaused)
