@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6029d7f9ebd8f4f1ab97995d48d9c981, type: 3}
+  m_Texture: {fileID: 2800000, guid: c5e875f518c184483a86414b016112a7, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1d2bf70e2d7f1488895ade1eb2fd7ba3, type: 3}
+  m_Texture: {fileID: 2800000, guid: 8621b9fd336cf4e4187b6408d6c84631, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -408,14 +408,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 044924d0adea4419fa54d68bb89fb53d, type: 3}
+  m_Texture: {fileID: 2800000, guid: f90fff49541904460909297fe08478ac, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -533,6 +533,7 @@ RectTransform:
   - {fileID: 1485064664}
   - {fileID: 35046580}
   - {fileID: 1925793528}
+  - {fileID: 777169738}
   - {fileID: 567378181}
   - {fileID: 1688722916}
   - {fileID: 1177998143}
@@ -573,14 +574,14 @@ RectTransform:
   m_GameObject: {fileID: 567378180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 8.333333, z: 2.7777777}
+  m_LocalScale: {x: 9.5, y: 5.277777, z: 1.7592592}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 515773462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85.4, y: 49.7}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &567378183
@@ -617,6 +618,97 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567378180}
+  m_CullTransparentMesh: 1
+--- !u!1 &777169737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 777169738}
+  - component: {fileID: 777169741}
+  - component: {fileID: 777169740}
+  - component: {fileID: 777169739}
+  m_Layer: 5
+  m_Name: Page#3_0_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &777169738
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777169737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 515773462}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -165, y: 28}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &777169739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777169737}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barForTransparent: 20
+  horizontal: 0
+  startCountDown: 0
+  countDown: 3
+  rateHorizontal: 0.1
+  popup: 0
+--- !u!114 &777169740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777169737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: ed71bc8047bd745aab7afec66d29edaf, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &777169741
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777169737}
   m_CullTransparentMesh: 1
 --- !u!1 &802072340
 GameObject:
@@ -762,7 +854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 8fec6f47d9162481eb380501807d0bbb, type: 3}
+  m_Texture: {fileID: 2800000, guid: cb346a78d550748c687d46ed8f708e46, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1069,7 +1161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 89b2a195fd61e4fe787a8b60f6ec8f77, type: 3}
+  m_Texture: {fileID: 2800000, guid: 6c95259f6b5644814832491a139ca65a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1141,7 +1233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bc6d51d71de0643d19460de2dc9c4edd, type: 3}
+  m_Texture: {fileID: 2800000, guid: 166314c9f6a314a7f935db64a8d43d3e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1231,7 +1323,8 @@ MonoBehaviour:
   page2P6: {fileID: 1485064663}
   page2P7: {fileID: 35046579}
   page3P1: {fileID: 2033271452}
-  page3P2: {fileID: 1925793527}
+  page3P2_1: {fileID: 1925793527}
+  page3P2_2: {fileID: 777169737}
   page3P3: {fileID: 567378180}
   page3P4_1: {fileID: 1688722915}
   page3P4_2: {fileID: 1177998142}
@@ -1241,9 +1334,10 @@ MonoBehaviour:
   goal0: {x: 0, y: 12.8}
   goal1: {x: -250, y: -150}
   goal2: {x: 285, y: -175}
-  goal3: {x: 25, y: 25}
+  goal3: {x: 25, y: -25}
   goal4: {x: -10, y: -40}
   goal5: {x: 113.09, y: -30}
+  goal6: {x: -155, y: 28}
 --- !u!1 &1925793527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1351,7 @@ GameObject:
   - component: {fileID: 1925793530}
   - component: {fileID: 1925793529}
   m_Layer: 5
-  m_Name: Page#3_0
+  m_Name: Page#3_0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1320,7 +1414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 603a5c15509b9433b89f53917f1220c2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 7209dfa0ccee642299381c210c826c9d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1628,7 +1722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 27a843592731045b2beac267d60cec6a, type: 3}
+  m_Texture: {fileID: 2800000, guid: c70d3fa1cf83a43ce8724d76b20dbee0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
