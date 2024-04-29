@@ -100,13 +100,14 @@ public class GameManager : MonoBehaviour
             }
             if (playerDied)
             {
-                GameEnded.instance.showScreen(playerDied);
-                LevelInfo.instance.levelEnd(true);
+                //GameEnded.instance.showScreen(playerDied);
+                LevelInfo.instance.levelEnd(playerDied);
                 PlayerMovement.instance.doKillAnim();
             }
             else
             {
-                GameEnded.instance.showScreen();
+                //GameEnded.instance.showScreen();
+                uiManager.instance.endGame(playerDied);
                 LevelInfo.instance.levelEnd();
             }
             GameOver = true;
