@@ -145,11 +145,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4226742503194505167}
   - component: {fileID: 573497481271770024}
-  - component: {fileID: 5451138095722168795}
   - component: {fileID: 6125067238780188800}
   - component: {fileID: 6455573917335264502}
   - component: {fileID: 413050512305188687}
   - component: {fileID: 5455373660570368220}
+  - component: {fileID: 1583076323040846755}
+  - component: {fileID: 4305127687633264342}
+  - component: {fileID: 5909854781248853764}
   m_Layer: 6
   m_Name: Kamikaze Enemy
   m_TagString: Untagged
@@ -226,33 +228,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5451138095722168795
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4329366662828632870}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &6125067238780188800
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -28,8 +28,8 @@ public class CentralAudioManager : MonoBehaviour
     private AudioClip playerhitSFX;
 
 
-    public float sfxVolume;
-    public float bgmVolume;
+    public float sfxVolume = 1;
+    public float bgmVolume = 1;
 
     private void Awake()
     {
@@ -40,6 +40,8 @@ public class CentralAudioManager : MonoBehaviour
         else if (instance == null)
         {
             instance = this;
+            updateSoundSettings();
+            Debug.Log("central Audio Instance made");
             DontDestroyOnLoad(gameObject);
 
         }

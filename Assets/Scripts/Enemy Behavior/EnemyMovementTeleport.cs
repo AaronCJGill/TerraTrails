@@ -47,7 +47,29 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
 
     BoxCollider2D cd;
 
+
     //wait, teleport to random spot or on top of player, repeat
+
+    [Header("Pathfinding Settings")]
+    [SerializeField]
+    private Transform storedTransform;
+    [SerializeField]
+    Pathfinding.Seeker seeker;
+    [SerializeField]
+    Pathfinding.AIPath pathing;
+    [SerializeField]
+    Pathfinding.AIDestinationSetter destinationSetter;
+
+    [SerializeField]
+    [Tooltip("Keep this as 10 if you want it to stay the default value.")]
+    float walkAcceleration = 1000;
+    [SerializeField]
+    float stopDistance = 0.3f;
+    [SerializeField]
+    float picknextwaypointdistance = 0.8f;
+    [SerializeField][Tooltip("Doesnt scale to units or to seconds. Dont ask me what the fuck it does. Set it somewhere between 10 and 50 and it will work")]
+
+    float predictionDistance = 10f;
     IEnumerator Movement()
     {
         disTimer = 0;
@@ -100,7 +122,10 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
     float walkSpeed = 3;
     float walkTimeTotal = 4f;
     float walktimer = 0;
+    [SerializeField]
+    float randomPointDestinationDistance = 4;
     Vector2 randomDestinationPoint;
+    
     IEnumerator newteleportbehavior()
     {
         //dig down
@@ -118,38 +143,77 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         //dig up
         //Debug.Log("digging back up");
         anim.ResetTrigger("digDown");
-
         anim.SetTrigger("digUp");
         //appear in new position
         int rnum = Random.Range(0, 101);
         Vector2 spawnPos;
+        bool playerlocvalid = false;
+        Vector2 playerLoc = PlayerMovement.instance.PositionPlusMove(predictionDistance);//multiplier to predict where the player will be
+        int spawnloctries = 0;
+        //check if player location is outside of bounds
+        while (playerlocvalid  == false|| spawnloctries < 100)
+        {
+            //if within the bounds of the levelboundaries
+            if (playerLoc.x < LevelBoundary.BottomRightBound.X &&
+                playerLoc.x > LevelBoundary.leftTopBound.X &&
+                playerLoc.y > LevelBoundary.BottomRightBound.Y &&
+                playerLoc.y < LevelBoundary.leftTopBound.Y
+                )
+            {
+                //check if predicted location is inside wall
+                Collider[] hits = Physics.OverlapSphere(playerLoc, 1, 6, QueryTriggerInteraction.Ignore);
+                //Debug.Log("Finding point inside ");
+                if (hits.Length == 0)
+                {
+                    //Debug.Log("Good player position found");
+                    //get out of loop when a free point is found
+                    playerlocvalid = true;
+                    spawnloctries = 99999;
+                    break;
+                }
+            }
+            else
+            {
+                playerLoc = PlayerMovement.instance.PositionPlusMove(predictionDistance - (float) (spawnloctries / 2));
+                Debug.Log("cant find good position found");
+            }
+            //stay in this loop until its exhausted
+
+            yield return null;
+        }
+
         if (rnum >= TeleToPlayer)//if it is below ~25, teleport to player position
             spawnPos = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+        else if (!playerlocvalid)//still need to spawn on player but cant find good position
+            spawnPos = PlayerMovement.instance.Position;
         else
-            spawnPos = PlayerMovement.instance.transform.position;
+            spawnPos = playerLoc;//spawn at where ever the player is currently
 
         transform.position = spawnPos;
         //set collider to off
         cd.enabled = false;
-
         //wait for duration of animation
-        yield return new WaitForSeconds(1.583f);
-        //should automatically go to the walking animation so we dont have specific trigger for walking
+        //Debug.Log("Beforecanmove");
+        yield return new WaitForSeconds(2.3f);
+        //Debug.Log("AfterCanlos");
 
-        //set collider back on
+        //should automatically go to the walking animation so we dont have specific trigger for walking
         cd.enabled = true;
+        //set collider back on
+        pathing.canMove = true;
+
 
         //randomDestinationPoint = usefulFunctions.positioning.getRandomSpawnPoint();
-        randomDestinationPoint = usefulFunctions.positioning.getFreePosition();
+        storedTransform.position = usefulFunctions.positioning.PickRandomPointNearby(transform.position, 3);//somewhere within 2 units
 
         walktimer = 0;
         //do random walking, going to multiple places
         while (walktimer < walkTimeTotal)
         {
-            if (Vector2.Distance(transform.position, randomDestinationPoint) > 1)
+            if (Vector2.Distance(transform.position, storedTransform.position) > 0.5f)
             {
                 //Debug.Log("MovingTowards");
-                if (randomDestinationPoint.x > transform.position.x)
+                if (storedTransform.position.x > transform.position.x)
                 {
                     //random position is to the right
                     sr.flipX = true;
@@ -160,28 +224,27 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
                     sr.flipX = false;
                 }
                 //if we are faw away from distance point, just move
-                transform.position = Vector2.MoveTowards(transform.position, randomDestinationPoint, walkSpeed * Time.deltaTime);
-
+                //transform.position = Vector2.MoveTowards(transform.position, randomDestinationPoint, walkSpeed * Time.deltaTime);
+                
                 walktimer += Time.deltaTime;
                 yield return null;
             }
             else //we are close to the point and should choose next point
             {
                 //Debug.Log("Finding random Spot");
-                Vector2 potentialSpot = usefulFunctions.positioning.getRandomSpawnPoint();
+                Debug.Log("getting random point");
+                storedTransform.position = usefulFunctions.positioning.PickRandomPointNearby(transform.position, randomPointDestinationDistance);//somewhere within 2 units
                 //make sure the point is close enough
-                if (Vector2.Distance(transform.position, potentialSpot) < 6)
-                {
-                    randomDestinationPoint = potentialSpot;
-                    //Debug.Log("Found random spot");
-                }
             }
-         
         }
+        
+        pathing.canMove = false;
 
         //restart the animation
         anim.ResetTrigger("digUp");
         //restart system
+        playerlocvalid = true;
+        spawnloctries = 99999;
         StartCoroutine(newteleportbehavior());
     }
 
@@ -193,9 +256,28 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         StartCoroutine(Movement());
     }
 
+    private void Update()
+    {
+        //pathing.canMove = true;
+    }
     private void Start()
     {
+       
         //sr = GetComponent<SpriteRenderer>();
+        seeker = GetComponent<Pathfinding.Seeker>();
+        pathing = GetComponent<Pathfinding.AIPath>();
+        destinationSetter = GetComponent<Pathfinding.AIDestinationSetter>();
+        pathing.maxSpeed = walkSpeed;
+        pathing.slowdownDistance = stopDistance;
+        pathing.pickNextWaypointDist = picknextwaypointdistance;
+        //pathing.maxa
+        storedTransform = new GameObject("Teleporter " + "Target -- " + name).transform;
+        //pathing.canMove = false;
+        pathing.canMove = true;
+        storedTransform.position = transform.position;
+        destinationSetter.target = storedTransform;
+        pathing.maxAcceleration = walkAcceleration;
+        
         cd = GetComponent<BoxCollider2D>();
         //spawn in phase
         if (doesSpawnRoutine)
@@ -227,6 +309,9 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
     {
         StopAllCoroutines();
     }
+
+
+
 }
 
 

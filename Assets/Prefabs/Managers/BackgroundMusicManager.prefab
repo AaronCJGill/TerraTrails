@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5b919ac48eec04dbc353a4d57cd481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mmMusic: {fileID: 8300000, guid: 939403095db31534ba1c8a8c50d292b7, type: 3}
+  introMusic: {fileID: 8300000, guid: 7f2efaa314d5e3648b3d53c1acf1c62b, type: 3}
+  MapMusic: {fileID: 8300000, guid: d9226a313bd2fed4d89608315ac78da5, type: 3}
+  industrialMusic: {fileID: 8300000, guid: f7048dde7ad3fd44eaad3b71d792fe3c, type: 3}
+  organicLevel: {fileID: 8300000, guid: a1c44db71492aeb4b978fb355a4a6750, type: 3}
 --- !u!82 &5860717926047738622
 AudioSource:
   m_ObjectHideFlags: 0

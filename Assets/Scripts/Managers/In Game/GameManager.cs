@@ -240,6 +240,15 @@ public class GameManager : MonoBehaviour
 namespace usefulFunctions
 {
     public static class positioning{
+
+        public static Vector3 PickRandomPointNearby(Vector3 pos, float radius)
+        {
+            var point = Random.insideUnitSphere * radius;
+            point.y = 0;
+            point += pos;
+            return point;
+        }
+
         public static Vector3 getRandomSpawnPoint()//if bounds are not set, then gives a random position between 0 and 10
         {
             Vector3 spawnPoint;
