@@ -6,6 +6,13 @@ public class backgroundmusicinfo : MonoBehaviour
     public backgroundmusicmanager.levtype lt;
     private void Awake()
     {
-        backgroundmusicmanager.instance.changeBackgroundMusic(lt);
+        
+    }
+    private void Start()
+    {
+        if (backgroundmusicmanager.instance != null)
+        {
+            backgroundmusicmanager.instance.changeBackgroundMusic(lt);
+        }
     }
 }

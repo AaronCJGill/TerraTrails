@@ -193,7 +193,10 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         //set collider to off
         cd.enabled = false;
         //wait for duration of animation
-        yield return new WaitForSeconds(1.7f);
+        //Debug.Log("Beforecanmove");
+        yield return new WaitForSeconds(2.3f);
+        //Debug.Log("AfterCanlos");
+
         //should automatically go to the walking animation so we dont have specific trigger for walking
         cd.enabled = true;
         //set collider back on
@@ -223,8 +226,6 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
                 //if we are faw away from distance point, just move
                 //transform.position = Vector2.MoveTowards(transform.position, randomDestinationPoint, walkSpeed * Time.deltaTime);
                 
-                
-
                 walktimer += Time.deltaTime;
                 yield return null;
             }
@@ -257,35 +258,36 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
 
     private void Update()
     {
-        pathing.canMove = true;
+        //pathing.canMove = true;
     }
     private void Start()
     {
+       
         //sr = GetComponent<SpriteRenderer>();
         seeker = GetComponent<Pathfinding.Seeker>();
         pathing = GetComponent<Pathfinding.AIPath>();
+        destinationSetter = GetComponent<Pathfinding.AIDestinationSetter>();
         pathing.maxSpeed = walkSpeed;
         pathing.slowdownDistance = stopDistance;
         pathing.pickNextWaypointDist = picknextwaypointdistance;
         //pathing.maxa
-        destinationSetter = GetComponent<Pathfinding.AIDestinationSetter>();
         storedTransform = new GameObject("Teleporter " + "Target -- " + name).transform;
-        pathing.canMove = false;
+        //pathing.canMove = false;
+        pathing.canMove = true;
         storedTransform.position = transform.position;
         destinationSetter.target = storedTransform;
         pathing.maxAcceleration = walkAcceleration;
-
-
+        
         cd = GetComponent<BoxCollider2D>();
         //spawn in phase
         if (doesSpawnRoutine)
         {
             //play animation and stand still
-            //spawnSequence();
+            spawnSequence();
         }
         else
         {
-            //StartCoroutine(newteleportbehavior());
+            StartCoroutine(newteleportbehavior());
         }
     }
     void spawnSequence()

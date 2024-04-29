@@ -37,9 +37,11 @@ public class backgroundmusicmanager : MonoBehaviour
         _as = GetComponent<AudioSource>();
         _as.playOnAwake = true;
         _as.loop = true;
-        _as.clip = CentralAudioManager.retrieveSound(SoundFiles.backgroundMusic);
-        _as.Play();
+        //_as.clip = CentralAudioManager.retrieveSound(SoundFiles.backgroundMusic);
+        //_as.Play();
         _as.volume = CentralAudioManager.instance.bgmVolume;
+        _as.clip = mmMusic;
+        _as.Play();
     }
 
 
@@ -55,8 +57,12 @@ public class backgroundmusicmanager : MonoBehaviour
     public void changeBackgroundMusic(levtype type)
     {
         //this is called from helper backgroundmusicinfo script
-
-        _as.volume = CentralAudioManager.instance.bgmVolume;
+        
+        if (CentralAudioManager.instance != null)
+        {
+            Debug.Log("Getting this");
+            _as.volume = CentralAudioManager.instance.bgmVolume;
+        }
         //change the music to whatever is requested
         switch (type)
         {
