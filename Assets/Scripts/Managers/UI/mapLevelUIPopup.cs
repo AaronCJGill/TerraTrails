@@ -17,6 +17,8 @@ public class mapLevelUIPopup : MonoBehaviour
     TextMeshProUGUI playedPanelGoalText, playedPanelPlayerText, masteredPanelPlayerText, masteredPanelGoalText, costPanelText;
     [SerializeField]
     TextMeshProUGUI levelNameText;
+    [SerializeField]
+    TextMeshProUGUI unplayedPanelPlayerTime, unplayedPanelGoalTime;
     public void init(levelInfoKnown lik, levelStats ls, string levelName, float cost = 0)
     {
         switch (lik)
@@ -37,6 +39,7 @@ public class mapLevelUIPopup : MonoBehaviour
                 playedPanelGoalText.text = "Min Time: " + ls.minTime + "\nGold Time: " + ls.devTime; 
                 break;
             case levelInfoKnown.mastered://TODO: Try to change the color of the text here
+                Debug.Log("Level Mastered " + ls.minTime + " " + ls.devTime);
                 masteredPanel.SetActive(true);
                 masteredPanelGoalText.text = "Best Time: " + ls.maxTimeCounter;
                 masteredPanelPlayerText.text = "Min Time: " + ls.minTime + "\nGold Time: " + ls.devTime;
@@ -46,10 +49,10 @@ public class mapLevelUIPopup : MonoBehaviour
         }
 
         //set the name of the level
-        if (!string.IsNullOrEmpty(ls.levelName))
-            levelNameText.text = ls.levelName;
-        else
+        if (!string.IsNullOrEmpty(levelName))
             levelNameText.text = levelName;
+        else
+            levelNameText.text = "???";//made it so that the level's name is not shown
     }
 
     // Start is called before the first frame update

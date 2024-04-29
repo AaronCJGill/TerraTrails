@@ -126,11 +126,12 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
         targetPos.x += targetDeviationRangeX;
         targetPos.y += targetDeviationRangeY;
         storedTransform.position = targetPos;
+
         while (Vector2.Distance(transform.position, targetPos) > stopDistance && chargingTimer < chargingTime)
         {
             //transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             pathing.canMove = true;
-            Debug.Log(chargingTimer);
+            //Debug.Log(chargingTimer);
             chargingTimer += Time.deltaTime;
             yield return null;
         }
