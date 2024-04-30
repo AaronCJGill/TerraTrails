@@ -39,7 +39,6 @@ public class uiManager : MonoBehaviour
     public GameObject transitionElement;
 
     public static uiManager instance;
-
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -54,7 +53,7 @@ public class uiManager : MonoBehaviour
 
         void Start()
     {
-        LeanTween.init(800);
+        LeanTween.init(1600);
 
         if (isGameScene)
         {
@@ -116,7 +115,10 @@ public class uiManager : MonoBehaviour
             //Collapse Shutter
             LeanTween.move(topShutter.GetComponent<RectTransform>(), new Vector3(topShutterGoal.x, topShutterGoal.y, -15f), transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
             LeanTween.move(bottomShutter.GetComponent<RectTransform>(), bottomShutterGoal, transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
+
             //Bring in death menu
+            gameOverPanel.SetActive(true);
+            Debug.Log("Game Over menu");
             LeanTween.move(gameOverPanel.GetComponent<RectTransform>(), gameOverGoal, transitionGameOverTime).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
             //LeanTween.move(retryButton.GetComponent<RectTransform>(), retryButtonGoal, transitionGameOverTime).setDelay(1f).setEase(LeanTweenType.easeOutBack);
         }
@@ -129,7 +131,9 @@ public class uiManager : MonoBehaviour
             //Collapse Shutter
             LeanTween.move(topShutter.GetComponent<RectTransform>(), new Vector3(topShutterGoal.x, topShutterGoal.y, -15f), transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
             LeanTween.move(bottomShutter.GetComponent<RectTransform>(), bottomShutterGoal, transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
+            Debug.Log("Game Over menu");
             //Bring in death menu
+            gameOverPanel.SetActive(true);
             LeanTween.move(gameOverPanel.GetComponent<RectTransform>(), gameOverGoal, transitionGameOverTime).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
             //LeanTween.move(retryButton.GetComponent<RectTransform>(), retryButtonGoal, transitionGameOverTime).setDelay(1f).setEase(LeanTweenType.easeOutCubic);
             //Move in additional effects
@@ -146,6 +150,18 @@ public class uiManager : MonoBehaviour
         LeanTween.moveX(transitionElement.GetComponent<RectTransform>(), 0f, 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
         {
             SceneManager.LoadScene(sceneID);
+        });
+    }
+
+    public void RestartScene()
+    {
+        transitionElement.SetActive(true);
+        transitionElement.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, 0f, 0f);
+        LeanTween.cancel(transitionElement);
+
+        LeanTween.moveX(transitionElement.GetComponent<RectTransform>(), 0f, 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }
 }

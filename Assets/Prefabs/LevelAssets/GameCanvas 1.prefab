@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 7904039273416066608}
   - component: {fileID: 3237180799511467930}
   - component: {fileID: 5119780991622025592}
+  - component: {fileID: 1142385742524347840}
   m_Layer: 5
   m_Name: GameOverMain
   m_TagString: Untagged
@@ -227,6 +228,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1142385742524347840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565952639061672062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a8b39904e4fab468bce74dde590103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverUI: {fileID: 0}
+  topGameOverText: {fileID: 0}
+  timeStatsText: {fileID: 0}
+  GameOverText: {fileID: 0}
+  nextLevelButtonGameObect: {fileID: 0}
+  goalTimeText: {fileID: 7344506314278737120}
+  actualTimeText: {fileID: 3021716521942574574}
+  timeGainedText: {fileID: 5471382169752030018}
+  totalTimeText: {fileID: 841829897895238451}
 --- !u!1 &797827282464673913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1264,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 889824961640988687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4487483229771705264}
+        m_TargetAssemblyTypeName: uiManager, Assembly-CSharp
+        m_MethodName: RestartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7557715944858448112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,7 +2652,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 147547836610728848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4487483229771705264}
+        m_TargetAssemblyTypeName: uiManager, Assembly-CSharp
+        m_MethodName: CloseScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2143938320595230576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3099,7 +3145,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -3862,6 +3908,10 @@ MonoBehaviour:
   timeStatsText: {fileID: 4788233602903034417}
   GameOverText: {fileID: 6776347758242071338}
   nextLevelButtonGameObect: {fileID: 2392756427465260424}
+  goalTimeText: {fileID: 0}
+  actualTimeText: {fileID: 0}
+  timeGainedText: {fileID: 0}
+  totalTimeText: {fileID: 0}
 --- !u!1 &5818718975721574876
 GameObject:
   m_ObjectHideFlags: 0

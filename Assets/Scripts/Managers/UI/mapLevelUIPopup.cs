@@ -24,22 +24,22 @@ public class mapLevelUIPopup : MonoBehaviour
         switch (lik)
         {
             case levelInfoKnown.locked:
-                Debug.Log("Level locked");
+                //Debug.Log("Level locked");
                 costPanel.SetActive(true);
                 costPanelText.text = "Cost: " + cost;
                 break;
             case levelInfoKnown.unplayed:
                 unplayedPanel.SetActive(true);
-                Debug.Log("Level unPlayed");
+                //Debug.Log("Level unPlayed");
                 break;
             case levelInfoKnown.played:
-                Debug.Log("Level Played " + ls.maxTimeCounter);
+                //Debug.Log("Level Played " + ls.maxTimeCounter);
                 playedPanel.SetActive(true);
                 playedPanelPlayerText.text = "Best Time: " + ls.maxTimeCounter;
                 playedPanelGoalText.text = "Min Time: " + ls.minTime + "\nGold Time: " + ls.devTime; 
                 break;
             case levelInfoKnown.mastered://TODO: Try to change the color of the text here
-                Debug.Log("Level Mastered " + ls.minTime + " " + ls.devTime);
+                //Debug.Log("Level Mastered " + ls.minTime + " " + ls.devTime);
                 masteredPanel.SetActive(true);
                 masteredPanelGoalText.text = "Best Time: " + ls.maxTimeCounter;
                 masteredPanelPlayerText.text = "Min Time: " + ls.minTime + "\nGold Time: " + ls.devTime;
