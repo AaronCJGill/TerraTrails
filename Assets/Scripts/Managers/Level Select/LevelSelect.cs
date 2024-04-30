@@ -291,12 +291,22 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
 
-
+    [SerializeField]
+    Transform popupspawnpoint;
     public void OnPointerEnter(PointerEventData eventData)
     {
         //Debug.Log("Mouse Entered");
         //create popup UI
-        GameObject popui = Instantiate(popUpUIPrefab, topPos.position + Vector3.up * 2.25f, Quaternion.identity, transform.parent);
+        GameObject popui;
+        if (popupspawnpoint != null)
+        {
+            popui = Instantiate(popUpUIPrefab, popupspawnpoint.position, Quaternion.identity, transform.parent);
+        }
+        else
+        {
+            popui = Instantiate(popUpUIPrefab, topPos.position + Vector3.up * 2.25f, Quaternion.identity, transform.parent);
+        }
+
         //Debug.Log(" best" + _levelstats.maxTimeCounter + " min " + _levelstats.minTime);
         instantiatedPopUp = popui.GetComponent<mapLevelUIPopup>();
         if (levelMastered)
