@@ -225,6 +225,10 @@ public class OptionsManager : MonoBehaviour
             {
                 rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
             }
+            else if (Screen.currentResolution.width < 1280 || Screen.currentResolution.height < 800)
+            {
+                rs = new ResolutionSettings(ResolutionSettings.resOptions.thinkpad, FullScreenMode.Windowed);
+            }
             else
             {
                 rs = new ResolutionSettings(ResolutionSettings.resOptions.WGXA, FullScreenMode.Windowed);

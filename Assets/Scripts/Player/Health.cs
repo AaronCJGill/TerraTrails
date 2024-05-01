@@ -12,6 +12,13 @@ public class Health : MonoBehaviour
 
     public static Health instance;
 
+    private AudioInstance audioinstance;
+
+    //player
+    //1) death,
+    //2) parry
+    //3) dash
+
     bool canBeDamaged = true;
     [SerializeField]
     [Tooltip("Amount of time in seconds, that character has invincibility for ")]
@@ -36,6 +43,8 @@ public class Health : MonoBehaviour
         if (oneHitKill)
             maxHealth = 1;
         OneHitKill = oneHitKill;
+
+        audioinstance = GetComponent<AudioInstance>();
     }
     private void Start()
     {

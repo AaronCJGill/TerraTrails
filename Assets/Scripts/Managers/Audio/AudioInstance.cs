@@ -12,10 +12,18 @@ public class AudioInstance : MonoBehaviour
     private SoundFiles sound;
     [Tooltip("Not necessary unless this plays more than one sound. Sound order is Shoot, teleport, charge")][SerializeField]
     private SoundFiles secondSound;
+    [SerializeField]
+    private SoundFiles thirdSound;
     private AudioClip soundToPlay;
     private AudioSource _as;
 
-    private void Start()
+    //player
+        //1) death,
+        //2) parry
+        //3) dash
+
+
+    private void Awake()
     {
         if (TryGetComponent<AudioSource>(out AudioSource AS))
         {
@@ -37,22 +45,31 @@ public class AudioInstance : MonoBehaviour
     public void playSound()
     {
         _as.clip = CentralAudioManager.retrieveSound(sound);
-        _as.Play();
+        if (_as.clip != null)
+            _as.Play();
+
         Debug.Log("Soundplaying");
     }
 
     public void playFirstSound()
     {
         _as.clip = CentralAudioManager.retrieveSound(sound);
-        _as.Play();
+        if(_as.clip != null)
+            _as.Play();
     }
 
     public void playSecondSound()
     {
         _as.clip = CentralAudioManager.retrieveSound(secondSound);
-        _as.Play();
+        if (_as.clip != null)
+            _as.Play();
     }
 
-
+    public void playThirdSound()
+    {
+        _as.clip = CentralAudioManager.retrieveSound(thirdSound);
+        if (_as.clip != null)
+            _as.Play();
+    }
 
 }

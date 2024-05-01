@@ -15,9 +15,16 @@ public class Parry : MonoBehaviour
     bool canParry = true;
     [SerializeField]
     GameObject parrycircle;
+
+    AudioInstance audioinstance;
+    //player
+    //1) death,
+    //2) parry
+    //3) dash
     private void Awake()
     {
         parrycircle = Resources.Load("Parry Circle") as GameObject;
+        audioinstance = GetComponent<AudioInstance>();
         if (parrycircle != null)
         {
             //Debug.Log("Parry");
@@ -44,7 +51,7 @@ public class Parry : MonoBehaviour
             if (Input.GetAxisRaw("Jump") == 1 && canParry)
             {
                 canParry = false;
-
+                audioinstance.playSecondSound();
                 //Debug.Log("Parried");
                 //lazy method, find each gameobject projectile in scene and just delete whichever ones are closest
                 GameObject pc = Instantiate(parrycircle, transform.position, Quaternion.identity);

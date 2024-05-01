@@ -155,7 +155,7 @@ public class kamikazeBehavior : MonoBehaviour, enemyDestroy
     void getRandomPos()
     {
         storedTransform.position = usefulFunctions.positioning.PickRandomPointNearby(transform.position, randomPointDestinationDistance * 3);//somewhere within 2 units
-        Debug.Log("changing stored point " + storedTransform.position + " " + Vector2.Distance(storedTransform.position, transform.position));
+        //Debug.Log("changing stored point " + storedTransform.position + " " + Vector2.Distance(storedTransform.position, transform.position));
     }
     void changeToWalkSpeed()
     {

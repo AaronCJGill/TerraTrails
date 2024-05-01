@@ -104,6 +104,7 @@ MonoBehaviour:
   spitWaitTIme: 2.5
   doesSpawnRoutine: 1
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}
+  audioinstance: {fileID: -5350741981809948616}
   anim: {fileID: 3747195944382594099}
   sr: {fileID: 3330698981492666451}
 --- !u!61 &818680575229134421

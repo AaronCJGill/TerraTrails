@@ -26,8 +26,10 @@ public class CentralAudioManager : MonoBehaviour
     private AudioClip playerWalkSFX;
     [SerializeField]
     private AudioClip playerhitSFX;
-
-
+    [SerializeField]
+    private AudioClip industrialDoorSFX;
+    [SerializeField]
+    private AudioClip organicDoorSFX;
     public float sfxVolume = 1;
     public float bgmVolume = 1;
 
@@ -67,6 +69,12 @@ public class CentralAudioManager : MonoBehaviour
                 return instance.playerWalkSFX;
             case SoundFiles.teleportSFX:
                 return instance.teleportSFX;
+            case SoundFiles.industrialDoorSFX:
+                return instance.industrialDoorSFX;
+            case SoundFiles.organicDoorSFX:
+                return instance.organicDoorSFX;
+
+
             default:
                 return null;
         }
@@ -104,5 +112,6 @@ public enum SoundFiles
     playerWalkSFX,
     playerHitSFX,
     teleportSFX,
-
+    industrialDoorSFX,
+    organicDoorSFX,
 }

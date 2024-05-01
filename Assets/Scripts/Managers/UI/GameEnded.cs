@@ -62,8 +62,8 @@ public class GameEnded : MonoBehaviour
         goalTimeText.text = string.Format("{0:0.000}", goalTime);
         actualTimeText.text = string.Format("{0:0.000}", actualTime);
 
-        totalTimeText.text = string.Format("{0}", (int) totalTime);
-        timeGainedText.text = string.Format("{0}", (int)timeGained);
+        totalTimeText.text = string.Format("{0}", (int) (totalTime + timeGained));
+        timeGainedText.text = string.Format("+{0}", (int)timeGained);
         
 
         //goal time in "00.00" format

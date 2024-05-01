@@ -16,7 +16,7 @@ public class DoorScript : MonoBehaviour
     private void Awake()
     {
         bxCol = GetComponent<BoxCollider2D>();
-        
+        _as = GetComponent<AudioSource>();
         if (instance != this && instance != null)
         {
             Destroy(gameObject);

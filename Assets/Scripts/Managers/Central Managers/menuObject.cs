@@ -65,6 +65,7 @@ public class menuObject : MonoBehaviour
         {
             gameTabButton.SetActive(true);
         }
+        
         //potentialSettings = OptionsManager.savedSettings;
         Debug.Log("Initializing settings");
         potentialSettings = new menuSettings(OptionsManager.savedSettings.masterVolume, OptionsManager.savedSettings.effectsVolume, OptionsManager.savedSettings.musicVolume);
@@ -77,6 +78,10 @@ public class menuObject : MonoBehaviour
         if (OptionsManager.savedSettings.resolutionSettings.currentRes == new Vector2Int(1280, 800))
         {
             resolutionDropdown.value = 0;
+        }
+        else if (OptionsManager.savedSettings.resolutionSettings.currentRes == new Vector2Int(640, 400))
+        {
+            //resolutionDropdown.value = 5;
         }
         else if (OptionsManager.savedSettings.resolutionSettings.currentRes == new Vector2Int(1440, 900))
         {
@@ -147,6 +152,7 @@ public class menuObject : MonoBehaviour
         WSXGAPlus,//1680	1050
         WUXGA,//1920	1200
         WQXGA,//2560	1600 
+        thinkpad, 640   400
                  */
                 case 0:
                     rs = new ResolutionSettings(ResolutionSettings.resOptions.WGXA, fsm);
@@ -299,10 +305,14 @@ public struct ResolutionSettings
             case resOptions.itchBuild:
                 currentRes = new Vector2Int(960, 600);
                 break;
+            case resOptions.thinkpad:
+                currentRes = new Vector2Int(640, 400);
+                break;
             default://defaults to WGXA
             case resOptions.WGXA:
                 currentRes = new Vector2Int(1280, 800);
                 break;
+
         }
         screenMode = fsm;
     }
@@ -314,8 +324,8 @@ public struct ResolutionSettings
         WSXGAPlus,//1680	1050
         WUXGA,//1920	1200
         WQXGA,//2560	1600
-        itchBuild //960  600
-
+        itchBuild, //960  600
+        thinkpad//640 400
     }
 }
 

@@ -17,9 +17,12 @@ public class PlayerDash : MonoBehaviour
     bool dashActive = false;
     [SerializeField]
     bool canDash = false;
+    AudioInstance audioinstance;//second sound
+
     private void Start()
     {
         pm = PlayerMovement.instance;
+        audioinstance = GetComponent<AudioInstance>();
     }
 
 
@@ -42,6 +45,7 @@ public class PlayerDash : MonoBehaviour
             {
                 if (Input.GetAxisRaw("Jump") == 1)
                 {
+                    audioinstance.playThirdSound();
                     Debug.Log("Dashed");
                     pm.playerDash(speedMultiplier);
                     dashTimer = 0;
