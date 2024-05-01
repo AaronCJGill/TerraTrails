@@ -101,12 +101,27 @@ public class GameManager : MonoBehaviour
             if (playerDied)
             {
                 //GameEnded.instance.showScreen(playerDied);
+                uiManager.instance.endGame(true);
+
+                //float goalTime, float actualTime, float timeGained
+                //if hte player did not beat the dev time show the lesser time
+                float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
+                //if the player has done better than the current time, then send in the difference in time
+                float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+
+                LevelStatsManager.instance.sendOverGameOverInfo(goaltime, timer, timegained);
                 LevelInfo.instance.levelEnd(playerDied);
                 PlayerMovement.instance.doKillAnim();
             }
             else
             {
+                uiManager.instance.endGame(false);
                 //GameEnded.instance.showScreen();
+                float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
+                //if the player has done better than the current time, then send in the difference in time
+                float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+
+                LevelStatsManager.instance.sendOverGameOverInfo(goaltime, timer, timegained);
                 uiManager.instance.endGame(playerDied);
                 LevelInfo.instance.levelEnd();
             }

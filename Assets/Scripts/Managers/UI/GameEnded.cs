@@ -20,6 +20,18 @@ public class GameEnded : MonoBehaviour
     [SerializeField]
     private GameObject nextLevelButtonGameObect;
 
+
+    [Header("")]
+    [SerializeField]
+    private TextMeshProUGUI goalTimeText;
+    [SerializeField]
+    private TextMeshProUGUI actualTimeText;
+    [SerializeField]
+    private TextMeshProUGUI timeGainedText;
+    [SerializeField]
+    private TextMeshProUGUI totalTimeText;
+
+
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -30,7 +42,8 @@ public class GameEnded : MonoBehaviour
         {
             instance = this;
         }
-        GameOverUI.SetActive(false);
+        if(GameOverUI != null)
+            GameOverUI.SetActive(false);
     }
 
     void Update()
@@ -39,6 +52,25 @@ public class GameEnded : MonoBehaviour
         {
             restartButton();
         }
+    }
+
+    public void gameOverLevelOverInfo(float goalTime, float actualTime, float timeGained, float totalTime)
+    {
+
+        //takes in following values 
+
+        goalTimeText.text = string.Format("{0:0.000}", goalTime);
+        actualTimeText.text = string.Format("{0:0.000}", actualTime);
+
+        totalTimeText.text = string.Format("{0}", (int) totalTime);
+        timeGainedText.text = string.Format("{0}", (int)timeGained);
+        
+
+        //goal time in "00.00" format
+        //this should change if the player has hit the best time in current run
+        //actual time survived in "00:00" format
+        //time gained in format "0xx"
+        //total time value in int value
     }
 
     public void gotomainmenu()

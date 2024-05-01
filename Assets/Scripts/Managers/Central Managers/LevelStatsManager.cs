@@ -71,6 +71,20 @@ public class LevelStatsManager : MonoBehaviour
     }
 
     
+    //send over game ended info
+    public void sendOverGameOverInfo(float goalTime, float actualTime, float timeGained)
+    {
+        //if UI manager exists and it has game over panel
+        //change UI panel info
+        if (uiManager.instance != null && uiManager.instance.isGameScene)
+        {
+            //float goalTime, float actualTime, float timeGained, float totalTime
+            float totalTime = PlayerPrefs.GetFloat(totalTimeString);
+            GameEnded.instance.gameOverLevelOverInfo(goalTime, actualTime, timeGained, totalTime);
+        }
+    }
+
+
     //each level has its own json file with its stats
     public void save(levelStats ls, bool playerDied = false)
     {
@@ -164,7 +178,9 @@ public class LevelStatsManager : MonoBehaviour
 
         }
 
-        //get json and save it if it does not
+
+
+
 
 
         //save playerprefs
