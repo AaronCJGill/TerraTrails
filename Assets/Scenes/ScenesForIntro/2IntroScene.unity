@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036982596}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 212679ccde90f487f8e9c481f5e059f9, type: 3}
   m_Name: 
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036982596}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1989a0123684e10aff82322d9b349f, type: 3}
   m_Name: 
@@ -1800,7 +1800,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88a76312dc6e4044b53dee191f3d8a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 0}
+  phaseNumber: 0
+  setWaitTime: 2
+  setloadingTime: 1
+  longerTime: 3
+  shorterTime: 1.5
+  scrollingTime: 3
+  rateOfDecrease: 0.1
+  page2P1: {fileID: 0}
+  page2P2: {fileID: 0}
+  page2P3: {fileID: 0}
+  page2P4: {fileID: 0}
+  page2P5: {fileID: 0}
+  page2P6: {fileID: 0}
+  page2P7: {fileID: 0}
+  page3P1: {fileID: 0}
+  page3P2_1: {fileID: 0}
+  page3P2_2: {fileID: 0}
+  page3P3: {fileID: 0}
+  page3P4_1: {fileID: 0}
+  page3P4_2: {fileID: 0}
+  page4P1: {fileID: 0}
+  page4P2: {fileID: 0}
+  space: {fileID: 0}
+  goal0: {x: 1, y: 2}
+  goal1: {x: 1, y: 2}
+  goal2: {x: 1, y: 2}
+  goal3: {x: 1, y: 2}
+  goal4: {x: 0, y: 0}
+  goal5: {x: 0, y: 0}
+  goal6: {x: 0, y: 0}
 --- !u!114 &1265295437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,11 +1842,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618534b47ec5a6d4cb6bf14cb1b70416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameScene: 0
+  hasOpenTransition: 0
   leftPanel: {fileID: 0}
   rightPanel: {fileID: 0}
   topShutter: {fileID: 0}
   bottomShutter: {fileID: 0}
   gameOverPanel: {fileID: 0}
+  detailBlood: {fileID: 0}
   transitionPanelTime: 0
   transitionShutterTime: 0
   transitionGameOverTime: 0
@@ -1826,6 +1858,8 @@ MonoBehaviour:
   topShutterGoal: {x: 0, y: 0}
   bottomShutterGoal: {x: 0, y: 0}
   gameOverGoal: {x: 0, y: 0}
+  detailBloodGoal: {x: 0, y: 0}
+  transitionElement: {fileID: 0}
 --- !u!1 &1394853491
 GameObject:
   m_ObjectHideFlags: 0
