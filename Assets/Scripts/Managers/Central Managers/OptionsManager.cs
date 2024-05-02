@@ -8,6 +8,8 @@ public class OptionsManager : MonoBehaviour
     public static OptionsManager instance;
     [SerializeField]
     private GameObject pauseMenuObject;
+    [SerializeField]
+    private GameObject pauseMenuObjectMainMenu;
     private GameObject pauseMenuInstance;
 
 
@@ -37,9 +39,13 @@ public class OptionsManager : MonoBehaviour
                 {
                     rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
                 }
-                else
+                else if(Screen.currentResolution.width > 700 || Screen.currentResolution.height < 500)
                 {
                     rs = new ResolutionSettings(ResolutionSettings.resOptions.WGXA, FullScreenMode.Windowed);
+                }
+                else
+                {
+                    rs = new ResolutionSettings(ResolutionSettings.resOptions.thinkpad, FullScreenMode.Windowed);
                 }
                 menuSettings ms = new menuSettings(100, 100, 100, rs);
                 //ms.resolutionSettings = rs;
@@ -170,7 +176,6 @@ public class OptionsManager : MonoBehaviour
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             rs = new ResolutionSettings(ResolutionSettings.resOptions.itchBuild, FullScreenMode.Windowed);
-
         }
         else
         {

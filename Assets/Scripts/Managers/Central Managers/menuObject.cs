@@ -81,7 +81,7 @@ public class menuObject : MonoBehaviour
         }
         else if (OptionsManager.savedSettings.resolutionSettings.currentRes == new Vector2Int(640, 400))
         {
-            //resolutionDropdown.value = 5;
+            resolutionDropdown.value = 5;
         }
         else if (OptionsManager.savedSettings.resolutionSettings.currentRes == new Vector2Int(1440, 900))
         {
@@ -117,7 +117,7 @@ public class menuObject : MonoBehaviour
         if (activeTab == tabActive.audio)
         {
             potentialSettings.musicVolume = (int) (musicVolumeSlider.value * 100);
-            Debug.Log("potential val" + (musicVolumeSlider.value * 100) + "  --- adjusted val " + (int)(musicVolumeSlider.value * 100));
+            //Debug.Log("potential val" + (musicVolumeSlider.value * 100) + "  --- adjusted val " + (int)(musicVolumeSlider.value * 100));
             potentialSettings.effectsVolume = (int) (effectsVolumeSlider.value * 100 );
             potentialSettings.masterVolume = (int) (masterVolumeSlider.value * 100);
             //Debug.Log("audiotab");
@@ -169,6 +169,9 @@ public class menuObject : MonoBehaviour
                 case 4:
                     rs = new ResolutionSettings(ResolutionSettings.resOptions.WQXGA, fsm);
                     break;
+                case 5:
+                    rs = new ResolutionSettings(ResolutionSettings.resOptions.thinkpad, fsm);
+                    break;
                 default:
                     rs = new ResolutionSettings();
                     break;
@@ -183,11 +186,17 @@ public class menuObject : MonoBehaviour
 
     public void deactivateSettingsPage()
     {
-        settingsObject.SetActive(false);
+        if (settingsObject)
+        {
+            settingsObject.SetActive(false);
+        }
     }
     public void activateSettingsPage()
     {
-        settingsObject.SetActive(true);
+        if (settingsObject)
+        {
+            settingsObject.SetActive(true);
+        }
     }
 
     public void cancelSettings()

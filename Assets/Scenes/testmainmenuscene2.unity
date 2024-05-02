@@ -508,6 +508,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 602953847}
+        m_TargetAssemblyTypeName: menuObject, Assembly-CSharp
+        m_MethodName: saveSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &154175342
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +724,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2793378018650079887, guid: c5ce53bf17736e44a8588572b92494fc, type: 3}
       propertyPath: pauseMenuObject
+      value: 
+      objectReference: {fileID: 5894423304933054638, guid: 631c456d16ad0764eb340446eb65d1a2, type: 3}
+    - target: {fileID: 2793378018650079887, guid: c5ce53bf17736e44a8588572b92494fc, type: 3}
+      propertyPath: pauseMenuObjectMainMenu
       value: 
       objectReference: {fileID: 4225780971091405192, guid: f2117bce25b44aa4d9cd1b11a0ee1e8a, type: 3}
     m_RemovedComponents: []
@@ -1428,7 +1444,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12127,6 +12143,8 @@ MonoBehaviour:
     - m_Text: 1920, 1200
       m_Image: {fileID: 0}
     - m_Text: 2560, 1600
+      m_Image: {fileID: 0}
+    - m_Text: 640, 400
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

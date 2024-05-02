@@ -94,7 +94,8 @@ public class CentralAudioManager : MonoBehaviour
 
         if (instance != null)
         {
-            //Debug.Log("BGM Audio: " + ((float) (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume )/ 10000) + " || SFX Volume: " +((float) (OptionsManager.savedSettings.effectsVolume * (float)OptionsManager.savedSettings.masterVolume) / 10000));
+            Debug.Log("BGM Audio: " + ((float) (OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume )/ 10000) + " || SFX Volume: " +((float) (OptionsManager.savedSettings.effectsVolume * (float)OptionsManager.savedSettings.masterVolume) / 10000));
+
             instance.bgmVolume = (float)(OptionsManager.savedSettings.musicVolume * OptionsManager.savedSettings.masterVolume) / 10000;
             instance.sfxVolume = (float)(OptionsManager.savedSettings.effectsVolume * OptionsManager.savedSettings.masterVolume) / 10000;
         }

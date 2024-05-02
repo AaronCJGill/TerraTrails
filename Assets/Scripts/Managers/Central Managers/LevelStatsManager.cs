@@ -151,12 +151,6 @@ public class LevelStatsManager : MonoBehaviour
 
             }
 
-
-
-            //we can communicate with UI and display new high score thing
-
-
-
         }
         else 
         {
@@ -177,10 +171,6 @@ public class LevelStatsManager : MonoBehaviour
 
 
         }
-
-
-
-
 
 
         //save playerprefs
