@@ -100,7 +100,9 @@ public class backgroundmusicmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //FIXXX
         _as.volume = CentralAudioManager.instance.bgmVolume;
+        //_as.volume = 0;
 
     }
 
