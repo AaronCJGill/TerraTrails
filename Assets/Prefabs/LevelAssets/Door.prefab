@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1670610166591001200
 Transform:
   m_ObjectHideFlags: 0
@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 2017259936827176310}
   bxCol: {fileID: 3800022904537301803}
+  _as: {fileID: 0}
