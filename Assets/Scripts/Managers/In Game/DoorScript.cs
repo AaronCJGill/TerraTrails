@@ -13,7 +13,7 @@ public class DoorScript : MonoBehaviour
     public static DoorScript instance;
     [SerializeField]
     private AudioSource _as;
-    bool leveldone;
+    bool leveldone = false;
     private void Awake()
     {
         bxCol = GetComponent<BoxCollider2D>();
