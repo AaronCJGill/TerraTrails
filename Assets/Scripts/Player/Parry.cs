@@ -30,7 +30,10 @@ public class Parry : MonoBehaviour
             //Debug.Log("Parry");
         }
     }
-
+    private void Start()
+    {
+        abilityRechargeUI.instance.initialize(abilityRechargeUI.abilitytype.parry, reuseTime);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -55,6 +58,7 @@ public class Parry : MonoBehaviour
                 //Debug.Log("Parried");
                 //lazy method, find each gameobject projectile in scene and just delete whichever ones are closest
                 GameObject pc = Instantiate(parrycircle, transform.position, Quaternion.identity);
+                abilityRechargeUI.instance.abilityUsed();
                 pc.GetComponent<ParryCircle>().init(destroyRadius, parryActiveTime);
                 Invoke("parryAction", 0.1f);
                 GetComponent<AudioInstance>().playFirstSound();

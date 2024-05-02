@@ -211,7 +211,6 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
         }
     }
-
     public void lockLevel()
     {
         if (!isAlwaysUnlocked)
@@ -311,7 +310,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         instantiatedPopUp = popui.GetComponent<mapLevelUIPopup>();
         if (levelMastered)
         {
-            Debug.Log(_levelstats.devTime);
+            //Debug.Log(_levelstats.devTime);
             instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.mastered, _levelstats, UIDisplayName);
         }
         else if (levelComplete || levelPlayed)

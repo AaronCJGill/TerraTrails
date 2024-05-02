@@ -9,9 +9,11 @@ public class MapShopManager : MonoBehaviour
     //ideally the player would move to the shop on the map, but idk how it looks on andrea's side of things
     [SerializeField]
     GameObject parryButton, dashButton;
+    //[SerializeField]
+    //TextMeshProUGUI parryButtonText, dashButtonText;
     [SerializeField]
-    TextMeshProUGUI parryButtonText, dashButtonText;
     float parryCost = 50;
+    [SerializeField]
     float dashCost = 50;
     Abilities pA;
     [SerializeField]
@@ -57,31 +59,31 @@ public class MapShopManager : MonoBehaviour
         if (pA.dashUnlocked)
         {
             dashboughttext.text = "Dash is unlocked";
-            dashButtonText.text = "Equip Dash";
+            //dashButtonText.text = "Equip Dash";
         }
         else
         {
             dashboughttext.text = "Dash is not unlocked : " + dashCost;
-            dashButtonText.text = "Buy Dash";
+            //dashButtonText.text = "Buy Dash";
         }
         if (pA.parryUnlocked)
         {
             parryboughtText.text = "Parry is unlocked";
-            parryButtonText.text = "Equip Parry";
+            //parryButtonText.text = "Equip Parry";
         }
         else
         {
             parryboughtText.text = "Parry is not unlocked : " + parryCost;
-            parryButtonText.text = "Buy Parry";
+            //parryButtonText.text = "Buy Parry";
         }
 
         if (!AbilityManager.checkIfFileExists)
         {
 
             dashboughttext.text = "Dash is not unlocked : " + dashCost;
-            dashButtonText.text = "Buy Dash";
+            //dashButtonText.text = "Buy Dash";
             parryboughtText.text = "Parry is not unlocked : " + parryCost;
-            parryButtonText.text = "Buy Parry";
+            //parryButtonText.text = "Buy Parry";
             equippedtext.text = "Nothing is equipped";
         }
     }

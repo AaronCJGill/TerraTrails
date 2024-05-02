@@ -23,6 +23,8 @@ public class PlayerDash : MonoBehaviour
     {
         pm = PlayerMovement.instance;
         audioinstance = GetComponent<AudioInstance>();
+        abilityRechargeUI.instance.initialize(abilityRechargeUI.abilitytype.dash, dashCooldown);
+
     }
 
 
@@ -47,6 +49,7 @@ public class PlayerDash : MonoBehaviour
                 {
                     audioinstance.playThirdSound();
                     Debug.Log("Dashed");
+                    abilityRechargeUI.instance.abilityUsed();
                     pm.playerDash(speedMultiplier);
                     dashTimer = 0;
                     cooldownTimer = 0;

@@ -900,7 +900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &558962814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -935,8 +935,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parryButton: {fileID: 1760561046}
   dashButton: {fileID: 1785837963}
-  parryButtonText: {fileID: 0}
-  dashButtonText: {fileID: 0}
+  parryCost: 50
+  dashCost: 50
   parryboughtText: {fileID: 1368995756}
   dashboughttext: {fileID: 917217944}
   equippedtext: {fileID: 1586332340}
@@ -2400,7 +2400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1173860236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4651,7 +4651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: levelPlayed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511045009997746793, guid: 8190e4bc673346d4998730586b1029bd, type: 3}
       propertyPath: lockedPanel

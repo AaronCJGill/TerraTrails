@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 PositionPlusMove(float movemult)
     {
        
-        Debug.Log("current pos: "+ transform.position + " || Predicted pos: " + (transform.position + ((move * movementSpeed * dashMultiplier * Time.fixedDeltaTime) * movemult)) + " || Move mult: " + movemult);
+        //Debug.Log("current pos: "+ transform.position + " || Predicted pos: " + (transform.position + ((move * movementSpeed * dashMultiplier * Time.fixedDeltaTime) * movemult)) + " || Move mult: " + movemult);
         return transform.position + ((move * movementSpeed * dashMultiplier * Time.fixedDeltaTime) * movemult);
     }
     public Vector2 Position

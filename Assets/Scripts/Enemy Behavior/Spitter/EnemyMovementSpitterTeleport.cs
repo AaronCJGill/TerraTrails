@@ -77,7 +77,7 @@ public class EnemyMovementSpitterTeleport : MonoBehaviour, enemyDestroy
         disTimer = 0;
         //spawn in a warning symbol as soon as this is ready to teleport
         GameObject GS = Instantiate(warningSymbol, transform.position, Quaternion.identity);//create a warning symbol for the area
-        GS.GetComponent<WarningSymbolBehavior>().init(teleportPrepTime - 0.1f);
+        //GS.GetComponent<WarningSymbolBehavior>().init(teleportPrepTime - 0.1f);
         yield return new WaitForSeconds(teleportPrepTime);
 
         //animation of it disappearing
@@ -114,7 +114,7 @@ public class EnemyMovementSpitterTeleport : MonoBehaviour, enemyDestroy
 
         //maybe new spawn delay so its gone for one second
         GameObject WS = Instantiate(warningSymbol, spawnPos, Quaternion.identity);//create a warning symbol for the area
-        WS.GetComponent<WarningSymbolBehavior>().init(moveWaitTime, true);
+        //WS.GetComponent<WarningSymbolBehavior>().init(moveWaitTime, true);
         yield return new WaitForSeconds(moveWaitTime);
         transform.position = spawnPos;
         disTimer = 0;

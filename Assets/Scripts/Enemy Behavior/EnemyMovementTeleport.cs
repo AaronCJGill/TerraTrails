@@ -75,7 +75,7 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         disTimer = 0;
         //spawn in a warning symbol as soon as this is ready to teleport
         GameObject GS = Instantiate(warningSymbol, transform.position, Quaternion.identity);//create a warning symbol for the area
-        GS.GetComponent<WarningSymbolBehavior>().init(teleportPrepTime - 0.1f);
+        //GS.GetComponent<WarningSymbolBehavior>().init(teleportPrepTime - 0.1f);
 
 
         
@@ -101,8 +101,8 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         //spawn in explosion or warning symbol
         
         GameObject WS = Instantiate(warningSymbol, spawnPos, Quaternion.identity);//create a warning symbol for the area
-        WS.GetComponent<WarningSymbolBehavior>().init(moveWaitTime, true);
-        yield return new WaitForSeconds(moveWaitTime);
+        //WS.GetComponent<WarningSymbolBehavior>().init(moveWaitTime, true);
+        //yield return new WaitForSeconds(moveWaitTime);
         transform.position = spawnPos;
         disTimer = 0;
         //emerge animation
@@ -194,6 +194,9 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         cd.enabled = false;
         //wait for duration of animation
         //Debug.Log("Beforecanmove");
+        pathing.canMove = false;
+        //spawn in warning symbol
+        Instantiate(warningSymbol, spawnPos, Quaternion.identity);
         yield return new WaitForSeconds(2.3f);
         //Debug.Log("AfterCanlos");
 

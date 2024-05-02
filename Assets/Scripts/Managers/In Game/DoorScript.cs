@@ -13,6 +13,7 @@ public class DoorScript : MonoBehaviour
     public static DoorScript instance;
     [SerializeField]
     private AudioSource _as;
+    bool leveldone;
     private void Awake()
     {
         bxCol = GetComponent<BoxCollider2D>();
@@ -44,7 +45,12 @@ public class DoorScript : MonoBehaviour
         //allow door to be spawned in 
         //sprite child object is now loaded, box collider is active
         instance._as.volume = CentralAudioManager.instance.sfxVolume;
-        instance._as.Play();
+        if (!instance.leveldone)
+        {
+            Debug.Log("PLAY");
+            instance._as.Play();
+            instance.leveldone = true;
+        }
         instance.bxCol.enabled = true;
         instance.sprite.SetActive(true);
     }

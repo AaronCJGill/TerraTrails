@@ -49,6 +49,7 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < allLevelSelectOptions.Length; i++)
         {
             allLevelSelectOptions[i].checkStartingConditions(gameObject);
+            allLevelSelectOptions[i].lockLevel();
         }
     }
 
