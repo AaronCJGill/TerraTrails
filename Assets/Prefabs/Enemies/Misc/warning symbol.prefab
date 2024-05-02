@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 8348555836285915801}
-  destroyTime: 4
+  destroyTime: 1
 --- !u!1 &5700811716014133600
 GameObject:
   m_ObjectHideFlags: 0

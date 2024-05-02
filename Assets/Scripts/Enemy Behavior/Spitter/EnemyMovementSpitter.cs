@@ -50,14 +50,14 @@ public class EnemyMovementSpitter : MonoBehaviour, enemyDestroy
 
     IEnumerator shoot()
     {
-        audioinstance.playFirstSound();
+        //audioinstance.playFirstSound();
         yield return new WaitForSeconds(spitWaitTIme - 0.83f);
         //time it so that the animation triggers at the correct moment
         anim.SetTrigger("action");
         yield return new WaitForSeconds(0.915f);
         //wait a while
         Instantiate(projectile, transform.position, Quaternion.identity);
-        audioinstance.playSound();
+        //audioinstance.playSound();
 
 
         StartCoroutine(shoot());
