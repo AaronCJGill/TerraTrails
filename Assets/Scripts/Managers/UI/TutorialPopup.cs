@@ -15,6 +15,8 @@ public class TutorialPopup : MonoBehaviour
     GameObject tutorialObject;
     bool tutorialActive = false;
     public static TutorialPopup instance;
+    [SerializeField]
+    bool shopTutorial = false;
     public static bool TutorialActive
     {
         get
@@ -33,52 +35,68 @@ public class TutorialPopup : MonoBehaviour
     string tutorialSaveString;
     void Start()
     {
-        tutorialSaveString = SceneManager.GetActiveScene().name + "TutorialDone";
-        Debug.Log(tutorialSaveString);
-        tutorialObject.SetActive(false);
-        pausegameBehavior();
-        if (instance != null && instance != this)
+        if (shopTutorial)
         {
-            Destroy(gameObject);
+            pausegameBehavior();
         }
         else
         {
-            instance = this;
+            tutorialSaveString = SceneManager.GetActiveScene().name + "TutorialDone";
+            Debug.Log(tutorialSaveString);
+            tutorialObject.SetActive(false);
+            pausegameBehavior();
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
         }
+        
     }
 
     void pausegameBehavior()
     {
         //saves the level name and if the player has played this level before to level prefs
         //uses the name of the level and a bool to check if tutorial needs to play
-        if (PlayerPrefs.HasKey(tutorialSaveString))
+        if (!shopTutorial)
         {
-            if (PlayerPrefs.GetInt(tutorialSaveString) == 0)
+            if (PlayerPrefs.HasKey(tutorialSaveString))
             {
-                //tutorial has not been activated
+                if (PlayerPrefs.GetInt(tutorialSaveString) == 0)
+                {
+                    //tutorial has not been activated
+                    tutorialObject.SetActive(true);
+                    PlayerPrefs.SetInt(tutorialSaveString, 1);
+                    tutorialActive = true;
+                    Time.timeScale = 0;
+
+                }
+                else
+                {
+                    //tutorial has been activated
+                    //dont do anything
+                    tutorialActive = false;
+                }
+            }
+            else
+            {
+                //the tutorial has never been activated, activate it now
                 tutorialObject.SetActive(true);
                 PlayerPrefs.SetInt(tutorialSaveString, 1);
                 tutorialActive = true;
                 Time.timeScale = 0;
-
-            }
-            else
-            {
-                //tutorial has been activated
-                //dont do anything
-                tutorialActive = false;
             }
         }
         else
         {
-            //the tutorial has never been activated, activate it now
             tutorialObject.SetActive(true);
             PlayerPrefs.SetInt(tutorialSaveString, 1);
             tutorialActive = true;
             Time.timeScale = 0;
-
         }
-
     }
     void resetTutorial()
     {
@@ -91,18 +109,32 @@ public class TutorialPopup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tutorialActive && Input.GetAxisRaw("Jump") == 1)
+        if (shopTutorial)
         {
-            //remove tutorial
-            tutorialObject.SetActive(false);
-            tutorialActive = false;
-            Time.timeScale = 1;
-
+            if (tutorialActive && Input.GetAxisRaw("Jump") == 1)
+            {
+                //remove tutorial
+                tutorialActive = false;
+                Time.timeScale = 1;
+                gameObject.SetActive(false);
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
+        else
         {
-            resetTutorial();//resets the tutorial on this level
+            if (tutorialActive && Input.GetAxisRaw("Jump") == 1)
+            {
+                //remove tutorial
+                tutorialObject.SetActive(false);
+                tutorialActive = false;
+                Time.timeScale = 1;
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                //resetTutorial();//resets the tutorial on this level
+            }
         }
+        
     }
 }

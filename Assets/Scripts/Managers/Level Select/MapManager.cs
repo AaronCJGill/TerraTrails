@@ -71,7 +71,7 @@ public class MapManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            LevelStatsManager.instance.increaseTotalTimeCheat();
+            //LevelStatsManager.instance.increaseTotalTimeCheat();
         }
 
         timeText.text = "time: " + string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
@@ -81,7 +81,7 @@ public class MapManager : MonoBehaviour
         {
             for (int i = 0; i < allLevelSelectOptions.Length; i++)
             {
-                Debug.Log(allLevelSelectOptions[i].name);
+                //Debug.Log(allLevelSelectOptions[i].name);
             }
         }
         if (Input.GetKeyDown(KeyCode.H))

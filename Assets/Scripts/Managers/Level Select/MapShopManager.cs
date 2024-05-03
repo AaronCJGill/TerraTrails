@@ -19,6 +19,8 @@ public class MapShopManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI parryboughtText, dashboughttext, equippedtext;
     public static MapShopManager instance;
+    [SerializeField]
+    private GameObject parrytutorialobject, dashtutorialobject;
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -34,6 +36,8 @@ public class MapShopManager : MonoBehaviour
     private void Start()
     {
         pA = AbilityManager.instance.savedAbilities;
+        parrytutorialobject.SetActive(false);
+        dashtutorialobject.SetActive(false);
     }
     public void shopActivated()
     {
@@ -100,9 +104,11 @@ public class MapShopManager : MonoBehaviour
             //then buy parry
             LevelStatsManager.buyLevel(dashCost);
             Debug.Log("Bought dash");
+
             pA.dashUnlocked = true;
             pA.equippedAbility = Abilities.AbilityType.dash;
             AbilityManager.instance.SaveAbilities(pA);
+            dashtutorialobject.SetActive(true);
         }
         else if(!LevelStatsManager.canBuyLevel(dashCost))
         {
@@ -128,6 +134,7 @@ public class MapShopManager : MonoBehaviour
             pA.parryUnlocked = true;
             pA.equippedAbility = Abilities.AbilityType.parry;
             AbilityManager.instance.SaveAbilities(pA);
+            parrytutorialobject.SetActive(true);
         }
         else if (!LevelStatsManager.canBuyLevel(dashCost))
         {

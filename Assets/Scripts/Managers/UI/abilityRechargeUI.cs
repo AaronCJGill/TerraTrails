@@ -85,7 +85,7 @@ public class abilityRechargeUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            abilityUsed();
+            //abilityUsed();
         }
         handleRecharge();
     }
