@@ -111,7 +111,7 @@ public class TutorialPopup : MonoBehaviour
     {
         if (shopTutorial)
         {
-            if (tutorialActive && Input.GetAxisRaw("Jump") == 1)
+            if (tutorialActive && Input.GetAxisRaw("Jump") == 1 || tutorialActive && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 //remove tutorial
                 tutorialActive = false;
@@ -121,7 +121,7 @@ public class TutorialPopup : MonoBehaviour
         }
         else
         {
-            if (tutorialActive && Input.GetAxisRaw("Jump") == 1)
+            if (tutorialActive && Input.GetAxisRaw("Jump") == 1 || tutorialActive && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 //remove tutorial
                 tutorialObject.SetActive(false);

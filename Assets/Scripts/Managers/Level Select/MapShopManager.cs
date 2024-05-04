@@ -21,6 +21,8 @@ public class MapShopManager : MonoBehaviour
     public static MapShopManager instance;
     [SerializeField]
     private GameObject parrytutorialobject, dashtutorialobject;
+    [SerializeField]
+    private TextMeshProUGUI currencyText;
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -90,6 +92,7 @@ public class MapShopManager : MonoBehaviour
             //parryButtonText.text = "Buy Parry";
             equippedtext.text = "Nothing is equipped";
         }
+        currencyText.text = "time: " + string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
     }
     public void buyDashButton()
     {

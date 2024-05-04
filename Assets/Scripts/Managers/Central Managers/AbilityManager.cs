@@ -32,7 +32,13 @@ public class AbilityManager : MonoBehaviour
 
         }
     }
-
+    public void resetAbilities()
+    {
+        Abilities ab = new Abilities(Abilities.AbilityType.nothing);
+        savedAbilities = ab;
+        SaveAbilities(ab);
+        Debug.Log("Created new abilities " + savedAbilities.equippedAbility);
+    }
     public void SaveAbilities(Abilities potentialAbilities)
     {
         savedAbilities = potentialAbilities;

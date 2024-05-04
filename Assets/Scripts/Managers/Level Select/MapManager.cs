@@ -42,6 +42,7 @@ public class MapManager : MonoBehaviour
         }
 
         resetAllLevels();
+        AbilityManager.instance.resetAbilities();
     }
 
     void resetAllLevels()
