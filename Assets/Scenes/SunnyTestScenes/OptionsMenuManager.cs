@@ -20,18 +20,11 @@ public class OptionsMenuManager : MonoBehaviour
     public Sprite videoDefault;
     public Sprite videoSelected;
 
-
     private Vector2 BGPositionStart;
 
     void Start()
     {
         BGPositionStart = BG.GetComponent<RectTransform>().anchoredPosition;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void openOptions()
