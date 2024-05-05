@@ -28,8 +28,10 @@ public class triggerSfx : MonoBehaviour
     public AudioClip chStop;
 
     bool fireFx = true;
+    bool active = true;
 
     AudioSource aud;
+    PlayerMovement plM;
 
     private void Awake()
     {
@@ -41,6 +43,11 @@ public class triggerSfx : MonoBehaviour
 
     public void PlayKaWalk()
     {
+        if (!GameManager.GameOver)
+        {
+
+        }
+
         aud.pitch = Random.Range(.8f, 1.3f);
         aud.PlayOneShot(kaWalk, .5f);
     }
@@ -98,16 +105,21 @@ public class triggerSfx : MonoBehaviour
     }
     public void PlaychStep()
     {
-        aud.pitch = 1;
-        aud.volume = .4f;
-        aud.PlayOneShot(chStep, 1F);
+        if (!GameManager.GameOver)
+        {
+            aud.pitch = 1;
+            aud.volume = .4f;
+            aud.PlayOneShot(chStep, 1F);
+        }
     }
     public void PlaychBackStep()
     {
-        //aud.pitch = Random.Range(1.1f, 1.2f);
-        aud.volume = .4f;
-        aud.pitch = 1;
-        aud.PlayOneShot(chBackStep, 1);
+        if (!GameManager.GameOver)
+        {
+            aud.volume = .4f;
+            aud.pitch = 1;
+            aud.PlayOneShot(chBackStep, 1);
+        }
     }
     public void PlaychStop()
     {

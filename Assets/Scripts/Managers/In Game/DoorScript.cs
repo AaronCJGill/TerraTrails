@@ -49,6 +49,7 @@ public class DoorScript : MonoBehaviour
         if (!instance.levelDone)
         {
             instance.levelDone = true;
+            instance._as.pitch = 1;
             instance._as.Play();
         }
         //instance._as.Play();

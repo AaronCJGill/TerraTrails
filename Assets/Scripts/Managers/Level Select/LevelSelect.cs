@@ -406,11 +406,13 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             sr.sprite = levelUnlockedSprite;
             //canBuyLockPanel.SetActive(false);
             //cantBuylockedPanel.SetActive(false);
+            _as.pitch = 2;
             _as.PlayOneShot(snBuy, 1);
 
         }
         else
         {
+            _as.pitch = 1;
             _as.PlayOneShot(snCantBuy, 1);
             Debug.Log("Cannot purchase level");
         }
