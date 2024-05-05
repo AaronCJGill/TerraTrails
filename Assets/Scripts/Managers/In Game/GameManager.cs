@@ -86,6 +86,20 @@ public class GameManager : MonoBehaviour
         instance.GameUIParent.SetActive(true);
     }
 
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        backgroundmusicmanager.instance.changeBackgroundMusic(backgroundmusicmanager.levtype.none);
+        yield break;
+    }
+
 
     public void GameOverSequence(bool playerDied = false)
     {
@@ -109,6 +123,9 @@ public class GameManager : MonoBehaviour
                 //if the player has done better than the current time, then send in the difference in time
                 float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
 
+                PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snDie);
+                backgroundmusicmanager.instance.changeBackgroundMusic(backgroundmusicmanager.levtype.gameover);
+
                 LevelStatsManager.instance.sendOverGameOverInfo(goaltime, timer, timegained);
                 LevelInfo.instance.levelEnd(playerDied);
                 PlayerMovement.instance.doKillAnim();
@@ -120,6 +137,10 @@ public class GameManager : MonoBehaviour
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
                 //if the player has done better than the current time, then send in the difference in time
                 float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+
+                PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snPass);
+                PlayerMovement.instance._as2.Play();
+                StartCoroutine(StartFade(GameObject.Find("BackgroundMusicManager").GetComponent<AudioSource>(), 2.4f, 0));
 
                 LevelStatsManager.instance.sendOverGameOverInfo(goaltime, timer, timegained);
                 uiManager.instance.endGame(playerDied);

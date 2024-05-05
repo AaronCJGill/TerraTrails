@@ -48,9 +48,11 @@ MonoBehaviour:
   chargerSFX: {fileID: 0}
   shootingSFX: {fileID: 0}
   parrySFX: {fileID: 8300000, guid: cdbaa685f4953b543aa453b0004132c8, type: 3}
-  dashSFX: {fileID: 0}
+  dashSFX: {fileID: 8300000, guid: 3718d0c1469e3f944995054a5caaca08, type: 3}
   teleportSFX: {fileID: 8300000, guid: 405d7f34f1141d14093e6d7f13627974, type: 3}
   playerWalkSFX: {fileID: 8300000, guid: b870573fc45302e42b2fd52960a1f92c, type: 3}
   playerhitSFX: {fileID: 8300000, guid: 8b160f79fb035dd4e9e413bfddf06e26, type: 3}
+  industrialDoorSFX: {fileID: 0}
+  organicDoorSFX: {fileID: 0}
   sfxVolume: 0
   bgmVolume: 0

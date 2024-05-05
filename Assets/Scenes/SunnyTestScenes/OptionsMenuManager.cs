@@ -22,9 +22,15 @@ public class OptionsMenuManager : MonoBehaviour
 
     private Vector2 BGPositionStart;
 
+    AudioSource _as;
+    uiManager _ui;
+
     void Start()
     {
         BGPositionStart = BG.GetComponent<RectTransform>().anchoredPosition;
+
+        _as = GetComponent<AudioSource>();
+        _ui = GetComponent<uiManager>();
     }
 
     public void openOptions()
@@ -32,9 +38,20 @@ public class OptionsMenuManager : MonoBehaviour
         LeanTween.move(mainMenu.GetComponent<RectTransform>(), menuGoalOffPosition, 1f).setEase(LeanTweenType.easeOutCubic);
         LeanTween.move(optionsMenu.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), transitionTime).setEase(LeanTweenType.easeOutBack).setDelay(0.25f);
         LeanTween.move(BG.GetComponent<RectTransform>(), new Vector3(BGPositionStart.x - 30f, BGPositionStart.y, 0f), 1.25f).setEase(LeanTweenType.easeOutQuad);
+
+        _as.pitch = 1;
+        _as.PlayOneShot(_ui.snOptions, .9f);
     }
 
     public void closeOptions()
+    {
+        LeanTween.move(mainMenu.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), transitionTime).setEase(LeanTweenType.easeOutBack).setDelay(0.25f); ;
+        LeanTween.move(optionsMenu.GetComponent<RectTransform>(), optionsMenuOffPosition, 1f).setEase(LeanTweenType.easeOutCubic);
+        LeanTween.move(BG.GetComponent<RectTransform>(), BGPositionStart, 1.25f).setEase(LeanTweenType.easeOutQuad);
+        _as.pitch = 1;
+        _as.PlayOneShot(_ui.snNoSave, 1);
+    }
+    public void closeOptionsSave()
     {
         LeanTween.move(mainMenu.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), transitionTime).setEase(LeanTweenType.easeOutBack).setDelay(0.25f); ;
         LeanTween.move(optionsMenu.GetComponent<RectTransform>(), optionsMenuOffPosition, 1f).setEase(LeanTweenType.easeOutCubic);

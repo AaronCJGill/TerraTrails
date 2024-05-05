@@ -27,13 +27,14 @@ public class triggerSfx : MonoBehaviour
     public AudioClip chBackStep;
     public AudioClip chStop;
 
+    bool fireFx = true;
+
     AudioSource aud;
 
-    void Start()
+    private void Awake()
     {
         aud = GetComponent<AudioSource>();
     }
-
 
 
     //KAMIKAZE
@@ -57,30 +58,33 @@ public class triggerSfx : MonoBehaviour
     //SPITTER
 
     public void PlaySpLazer()
-    {
-        //aud.pitch = Random.Range(.7f, 1f);
-        aud.PlayOneShot(spLazer, 1f);
+    { 
+
+        if (fireFx)
+        {
+            aud.PlayOneShot(spLazer, 1f);
+        }
     }
 
     //TELEPORT
 
     public void PlayTePopup()
     {
-        aud.pitch = Random.Range(.8f, 1f);
-        aud.PlayOneShot(tePopup, .6f);
+        aud.pitch = Random.Range(1, 1);
+        aud.PlayOneShot(tePopup, .9f);
     }
     public void PlayTePlop()
     {
-        aud.pitch = Random.Range(.7f, 1f);
-        aud.PlayOneShot(tePlop, .7f);
+        aud.pitch = Random.Range(1, 1); 
+        aud.PlayOneShot(tePlop, .9f);
     }
 
     //PLAYER
 
     public void PlayPlStep()
     {
-        aud.pitch = Random.Range(.7f, .9f);
-        aud.volume = .8f;
+        aud.pitch = Random.Range(2f, 3f);
+        aud.volume = 1;
         aud.PlayOneShot(plStep, 1F);
     }
 
@@ -88,25 +92,27 @@ public class triggerSfx : MonoBehaviour
 
     public void PlaychChrg()
     {
-        aud.pitch = Random.Range(0.9f, 1.1f);
-        aud.PlayOneShot(chrg,1F);
+        aud.pitch = Random.Range(1,1);
+        aud.volume = 1;
+        aud.PlayOneShot(chrg, 1f);
     }
     public void PlaychStep()
     {
-        aud.pitch = Random.Range(.9f,1f);
-        aud.volume = 1f;
-        aud.PlayOneShot(chStop, 1F);
+        aud.pitch = 1;
+        aud.volume = .4f;
+        aud.PlayOneShot(chStep, 1F);
     }
     public void PlaychBackStep()
     {
-        aud.pitch = Random.Range(1.1f, 1.2f);
-        aud.volume = .6f;
-        aud.PlayOneShot(chStop, 1F);
+        //aud.pitch = Random.Range(1.1f, 1.2f);
+        aud.volume = .4f;
+        aud.pitch = 1;
+        aud.PlayOneShot(chBackStep, 1);
     }
     public void PlaychStop()
     {
-        aud.volume = 1f;
+        aud.volume = 1;
         aud.pitch = 2;
-        aud.PlayOneShot(chStop, 1F);
+        aud.PlayOneShot(chStop, 1);
     }
 }

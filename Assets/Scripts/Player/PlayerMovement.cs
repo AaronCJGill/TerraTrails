@@ -16,6 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private Animator animator;
     float dashMultiplier = 1;
+
+    public AudioClip snStartLevel;
+    public AudioClip snDie;
+    public AudioClip snPass;
+
+    public AudioSource _as;
+    public AudioSource _as2;
     public Vector2 PositionPlusMove(float movemult)
     {
        
@@ -33,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        _as = GetComponent<AudioSource>();
 
         animator = transform.GetChild(0).GetComponent<Animator>();
         sr = animator.gameObject.GetComponent<SpriteRenderer>();
@@ -53,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Start()
     {
+        _as.PlayOneShot(snStartLevel, 1);
         spriteObject = transform.GetChild(0).gameObject;
     }
     void Update()

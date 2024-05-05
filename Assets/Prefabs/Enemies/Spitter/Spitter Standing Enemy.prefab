@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5350741981809948616}
   m_Layer: 6
   m_Name: Spitter Standing Enemy
-  m_TagString: Untagged
+  m_TagString: spitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: 3
   secondSound: 0
+  thirdSound: 0
 --- !u!1 &5850428123155418434
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +380,7 @@ AudioSource:
   m_GameObject: {fileID: 5850428123155418434}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3502087770932387404, guid: f7b2b77aaa571d842bf84fa894175eb8, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -478,10 +479,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a6cda9e173a1d47929d22103f50707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spLazer: {fileID: 8300000, guid: c38142ad03f66d44cbbfca8b8d9daead, type: 3}
-  tePopup: {fileID: 0}
+  kaWalk: {fileID: 0}
+  kaRun: {fileID: 0}
+  kaExplode: {fileID: 0}
+  spLazer: {fileID: 8300000, guid: 8279238bd8ebf874fbdee27f48cfd486, type: 3}
+  tePopup: {fileID: 8300000, guid: 28a23d7f133b6cf489b243c09b489718, type: 3}
+  tePlop: {fileID: 0}
   plStep: {fileID: 0}
-  chrg: {fileID: 0}
-  chStep: {fileID: 0}
+  chrg: {fileID: 8300000, guid: 50a76ab426021bb4cbc300cc0bfb9d69, type: 3}
+  chStep: {fileID: 8300000, guid: 4d7cea48fa2aaaa409ee201110798b0f, type: 3}
   chBackStep: {fileID: 0}
   chStop: {fileID: 0}

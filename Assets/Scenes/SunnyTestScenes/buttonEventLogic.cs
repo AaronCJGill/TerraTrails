@@ -13,6 +13,9 @@ public class buttonEventLogic : MonoBehaviour
     Vector4 originalPadding;
     public float scaleValue;
     public float offsetValue;
+
+    AudioSource _as;
+    AudioClip _ac;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +45,17 @@ public class buttonEventLogic : MonoBehaviour
         LeanTween.moveX((RectTransform)transform, originalPosition.x, 0.5f).setEase(LeanTweenType.easeOutQuad);
         image.raycastPadding = originalPadding;
         animator.SetTrigger("endHover");
+    }
+
+    public void clickFx()
+    {
+        Debug.Log("CLIK");
+        var par = transform.parent.transform.parent;
+        var uiMngr = par.GetComponent<uiManager>();
+        AudioClip snClick = uiMngr.snClick;
+        _as = par.GetComponent<AudioSource>();
+        _as.pitch = 1.5f;
+        //_as.volume = 1;
+        _as.PlayOneShot(snClick, .8f);
     }
 }

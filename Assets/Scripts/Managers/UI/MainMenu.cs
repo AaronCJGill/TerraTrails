@@ -17,6 +17,11 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuParentObject.SetActive(false);
         creditsParentObject.SetActive(true);
+
+        var _ui = GetComponent<uiManager>();
+        var _as = GetComponent<AudioSource>();
+        _as.pitch = 2f;
+        _as.PlayOneShot(_ui.snClick, .8f);
     }
     public void goToMainMenu()
     {
@@ -37,6 +42,11 @@ public class MainMenu : MonoBehaviour
 
     public void exitButtons()
     {
+        var _ui = GetComponent<uiManager>();
+        var _as = GetComponent<AudioSource>();
+        _as.pitch = 2f;
+        _as.PlayOneShot(_ui.snClick, .8f);
+
         mainMenuParentObject.SetActive(true);
         creditsParentObject.SetActive(false);
 

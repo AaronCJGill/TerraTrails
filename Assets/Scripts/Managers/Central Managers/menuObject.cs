@@ -36,6 +36,12 @@ public class menuObject : MonoBehaviour
     private tabActive activeTab = tabActive.audio;
 
     public static menuObject instance;
+
+    public AudioClip snSave;
+    public AudioClip snDontSave;
+    public AudioClip snClick;
+    AudioSource _as;
+
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -53,6 +59,8 @@ public class menuObject : MonoBehaviour
     void Start()
     {
         initSettings();
+
+        _as = GetComponent<AudioSource>();
     }
     void initSettings()
     {
@@ -188,6 +196,8 @@ public class menuObject : MonoBehaviour
     {
         if (settingsObject)
         {
+            _as.pitch = 1;
+            _as.PlayOneShot(snClick, 1);
             settingsObject.SetActive(false);
         }
     }
@@ -195,6 +205,8 @@ public class menuObject : MonoBehaviour
     {
         if (settingsObject)
         {
+            _as.pitch = 1;
+            _as.PlayOneShot(snClick, 1);
             settingsObject.SetActive(true);
         }
     }
@@ -202,6 +214,9 @@ public class menuObject : MonoBehaviour
     public void cancelSettings()
     {
         //close page
+        _as.pitch = 1;
+        _as.PlayOneShot(snDontSave, .9f);
+
         deactivateSettingsPage();
         initSettings();
     }
@@ -213,27 +228,38 @@ public class menuObject : MonoBehaviour
         //potentialSettings.musicVolume /= 100;
         Debug.Log("Master vol after save: " + potentialSettings.masterVolume + " || Music: " +potentialSettings.musicVolume);
 
+        _as.pitch = 1;
+        _as.PlayOneShot(snSave, .9f);
+
         OptionsManager.Save(potentialSettings);
         deactivateSettingsPage();
         //maybe resume as well
     }
     public void resume()
     {
+        _as.pitch = 3;
+        _as.PlayOneShot(snClick, .8f);
         OptionsManager.instance.resumeGame();
     }
     public void optionsButton()
     {
+        _as.pitch = 3;
+        _as.PlayOneShot(snClick, .8f);
         activateSettingsPage();
     }
 
     public void quitButton()
     {
+        _as.pitch = 3;
+        _as.PlayOneShot(snClick, .8f);
         OptionsManager.instance.exitToLevelSelect();
         SceneManager.LoadScene(2);
     }
 
     public void restartButton()
     {
+        _as.pitch = 1;
+        _as.PlayOneShot(snClick, .8f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -242,12 +268,16 @@ public class menuObject : MonoBehaviour
     public void audioButton()
     {
         //show audio settings
+        _as.pitch = 3;
+        _as.PlayOneShot(snClick, .6f);
         activeTab = tabActive.audio;
         AudioTabParent.SetActive(true);
         gameTabParent.SetActive(false);
     }
     public void gameButton()
     {
+        _as.pitch = 3;
+        _as.PlayOneShot(snClick, .6f);
         activeTab = tabActive.gameSettings;
         gameTabParent.SetActive(true);
         AudioTabParent.SetActive(false);

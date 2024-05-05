@@ -39,4 +39,16 @@ public class tabButtonLogic : MonoBehaviour
         LeanTween.moveY((RectTransform)transform, originalPosition.y, 0.5f).setEase(LeanTweenType.easeOutQuad);
         image.raycastPadding = originalPadding;
     }
+
+    public void clickFx()
+    {
+        Debug.Log("CLIK");
+        var par = transform.parent.transform.parent.transform.parent;
+        var uiMngr = par.GetComponent<uiManager>();
+        AudioClip snClick = uiMngr.snClick;
+        var _as = par.GetComponent<AudioSource>();
+        _as.pitch = 1.5f;
+        _as.PlayOneShot(snClick, .6f);
+    }
+
 }
