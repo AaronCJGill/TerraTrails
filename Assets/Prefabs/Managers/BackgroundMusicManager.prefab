@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5b919ac48eec04dbc353a4d57cd481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mmMusic: {fileID: 8300000, guid: 939403095db31534ba1c8a8c50d292b7, type: 3}
-  introMusic: {fileID: 8300000, guid: 7f2efaa314d5e3648b3d53c1acf1c62b, type: 3}
-  MapMusic: {fileID: 8300000, guid: 2f8e613f66eb79b49b837dbb928848cf, type: 3}
-  industrialMusic: {fileID: 8300000, guid: 524ae59931d737b4b8751520266e7501, type: 3}
-  organicLevel: {fileID: 8300000, guid: e1033433da9829a4ead72931c8809dcb, type: 3}
+  mmMusic: {fileID: 8300000, guid: cf05aa2875df078418b70f05011117c5, type: 3}
+  introMusic: {fileID: 8300000, guid: 95ced4d23b8cd5e4986c880c58f02dee, type: 3}
+  MapMusic: {fileID: 8300000, guid: 508a42f17b8e607498d19e2732635904, type: 3}
+  industrialMusic: {fileID: 8300000, guid: b5d346885a0d46e47ac0817c72e328a4, type: 3}
+  organicLevel: {fileID: 8300000, guid: 7adedf8994b9a5d468038f112d2b7e3c, type: 3}
+  gameoverMus: {fileID: 8300000, guid: 64f15ee68ce627c4e961bfa39d7e2d54, type: 3}
 --- !u!82 &5860717926047738622
 AudioSource:
   m_ObjectHideFlags: 0

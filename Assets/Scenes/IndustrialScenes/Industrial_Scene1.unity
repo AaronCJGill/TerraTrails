@@ -3713,11 +3713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.61
+      value: -15.71
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.55
+      value: 16.2
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3729,15 +3729,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5978052610082531185, guid: 145175a3435800042aa2177d27655275, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -48088,9 +48088,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1143787466929644079, guid: 1968ca3c25587f74d907abeb2d665692, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143787466929644079, guid: 1968ca3c25587f74d907abeb2d665692, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 91686ed229b9f3c46b983d1f1a842f11, type: 3}
+      objectReference: {fileID: 8300000, guid: efdff8b4896402f4480e6f65552ff2a4, type: 3}
+    - target: {fileID: 1143787466929644079, guid: 1968ca3c25587f74d907abeb2d665692, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1670610166591001200, guid: 1968ca3c25587f74d907abeb2d665692, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.031087

@@ -37,6 +37,17 @@ public class uiManager : MonoBehaviour
     public Vector2 detailBloodGoal;
     [Header("Scene Transition")]
     public GameObject transitionElement;
+    [Header("Audio")]
+    public AudioClip snClick;
+    public AudioClip snStart;
+    public AudioClip snOptions;
+    public AudioClip snNoSave;
+    public AudioClip snSave;
+
+    public AudioClip snScene1;
+
+    AudioSource _as;
+    AudioSource _bgS;
 
     public static uiManager instance;
     private void Awake()
@@ -53,6 +64,8 @@ public class uiManager : MonoBehaviour
 
         void Start()
     {
+        _as = GetComponent<AudioSource>();
+
         LeanTween.init(1600);
 
         if (isGameScene)
@@ -142,10 +155,32 @@ public class uiManager : MonoBehaviour
 
     }
 
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        backgroundmusicmanager.instance.changeBackgroundMusic(backgroundmusicmanager.levtype.none);
+        yield break;
+    }
+
     public void CloseScene(int sceneID = 0)
     {
         transitionElement.SetActive(true);
         transitionElement.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, 0f, 0f);
+        _as.pitch = 2f;
+        _as.PlayOneShot(snClick, .8f);
+
+        if (sceneID == 1)
+        {
+            StartCoroutine(StartFade(GameObject.Find("BackgroundMusicManager").GetComponent<AudioSource>(), 2.4f, 0));
+        }
+
         LeanTween.cancel(transitionElement);
         LeanTween.moveX(transitionElement.GetComponent<RectTransform>(), 0f, 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
         {
@@ -155,6 +190,9 @@ public class uiManager : MonoBehaviour
 
     public void RestartScene()
     {
+        _as.pitch = 2f;
+        _as.PlayOneShot(snClick, .8f);
+
         transitionElement.SetActive(true);
         transitionElement.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, 0f, 0f);
         LeanTween.cancel(transitionElement);

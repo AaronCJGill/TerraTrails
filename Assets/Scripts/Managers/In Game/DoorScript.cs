@@ -48,7 +48,9 @@ public class DoorScript : MonoBehaviour
         instance._as.volume = CentralAudioManager.instance.sfxVolume;
         if (!instance.levelDone)
         {
-
+            instance.levelDone = true;
+            instance._as.pitch = 1;
+            instance._as.Play();
         }
         //instance._as.Play();
         instance.bxCol.enabled = true;

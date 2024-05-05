@@ -78,12 +78,28 @@ public class cutsceneManager : MonoBehaviour
     public Vector2 goal5;
     public Vector2 goal6;
 
+    [Header("Audio")]
+    public AudioClip snScene1;
+    public AudioClip snScene2;
+    public AudioClip snScene3;
+    public AudioClip snScene4;
+    public AudioClip snPopup;
+    public AudioClip snNextScene;
+    public AudioClip snLowFuel;
+    public AudioClip snEngineLoop;
+
+    public AudioSource as1;
+    public AudioSource as2;
+    public AudioSource as3;
+
     // Start is called before the first frame update
     void Start()
     {
         //phaseNumber = 0;
         waitTime = setWaitTime;
         loadingTime = setloadingTime;
+
+        as2.PlayOneShot(snScene1, 1);
 
         myCameraShake = GetComponent<CameraShake>();
     }
@@ -130,6 +146,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p2p1 = true;
+                as1.PlayOneShot(snPopup, 1);
             }
             else if (loadingTime <= 0 && !p2p2)
             {
@@ -137,6 +154,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p2p2 = true;
+                as1.PlayOneShot(snPopup, 1);
             }
             else if (loadingTime <= 0 && !p2p3)
             {
@@ -144,6 +162,8 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p2p3 = true;
+                as1.PlayOneShot(snPopup, 1);
+                as2.PlayOneShot(snLowFuel, 1);
             }
             else if (loadingTime <= 0 && !p3p1)
             {
@@ -151,6 +171,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p3p1 = true;
+                as1.PlayOneShot(snPopup, 1);
             }
             else if (loadingTime <= 0 && !instruction)
             {
@@ -158,6 +179,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 instruction = true;
+                as1.PlayOneShot(snPopup, 1);
             }
 
 
@@ -176,6 +198,10 @@ public class cutsceneManager : MonoBehaviour
                     page3P1.SetActive(false);
                     space.SetActive(false);
                     instruction = false;
+
+                    as1.PlayOneShot(snScene2, 1);
+                    as2.PlayOneShot(snNextScene, 1);
+                    as3.Stop();
 
                     phaseNumber = 2;
                 }
@@ -229,6 +255,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p2p5 = true;
+                as2.PlayOneShot(snPopup, 1);
             }
             else if (loadingTime <= 0 && !p2p6)
             {
@@ -236,6 +263,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p2p6 = true;
+                as2.PlayOneShot(snPopup, 1);
             }
             else if (loadingTime <= 0 && !p2p7)
             {
@@ -243,6 +271,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 p2p7 = true;
+                as2.PlayOneShot(snPopup, 1);
             }
             else if (loadingTime <= 0 && !instruction)
             {
@@ -251,6 +280,7 @@ public class cutsceneManager : MonoBehaviour
 
                 loadingTime = setloadingTime;
                 instruction = true;
+                as2.PlayOneShot(snPopup, 1);
             }
 
             if (p2p5 && p2p6 && p2p7 && instruction)
@@ -267,6 +297,9 @@ public class cutsceneManager : MonoBehaviour
                     page2P7.SetActive(false);
                     space.SetActive(false);
                     instruction = false;
+
+                    as1.PlayOneShot(snScene3, 1);
+                    as2.PlayOneShot(snNextScene, 1);
 
                     phaseNumber = 4;
                 }
@@ -313,6 +346,7 @@ public class cutsceneManager : MonoBehaviour
                     LeanTween.move(space.GetComponent<RectTransform>(), goal2, 0).setEase(LeanTweenType.easeOutBack);
                     space.SetActive(true);
                     p3s1 = true;
+                    as2.PlayOneShot(snPopup, 1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -322,6 +356,9 @@ public class cutsceneManager : MonoBehaviour
                     page3P2_1.SetActive(false);
                     page3P2_2.SetActive(false);
                     phaseNumber = 5;
+
+                    as1.PlayOneShot(snScene4, 1);
+                    as2.PlayOneShot(snNextScene, 1);
                 }
             }
 

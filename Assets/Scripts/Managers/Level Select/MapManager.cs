@@ -14,6 +14,10 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     GameObject shopParent, mapParent;
 
+    public AudioClip snClick;
+
+    AudioSource _as;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -26,6 +30,7 @@ public class MapManager : MonoBehaviour
         }
 
         allLevelSelectOptions = GameObject.FindObjectsByType<LevelSelect>(FindObjectsSortMode.None);
+        _as = GetComponent<AudioSource>();
     }
 
     //checks what map is unlocked and provides access to whichever floor the player desires
@@ -40,6 +45,8 @@ public class MapManager : MonoBehaviour
             Debug.Log("tutorial 1 reset ");
             PlayerPrefs.SetInt("Industrial_Scene1TutorialDone", 0);
         }
+
+        _as.PlayOneShot(snClick, .8f);
 
         resetAllLevels();
         AbilityManager.instance.resetAbilities();
@@ -56,6 +63,7 @@ public class MapManager : MonoBehaviour
 
     public void goToMainMenuButton()
     {
+        _as.PlayOneShot(snClick, .8f);
         SceneManager.LoadScene(0);
     }
     public void optionsButton()
@@ -96,11 +104,20 @@ public class MapManager : MonoBehaviour
     {
         shopParent.SetActive(false);
         mapParent.SetActive(true);
+
+        _as.PlayOneShot(snClick, .8f);
     }
     public void showShop()
     {
         mapParent.SetActive(false);
         shopParent.SetActive(true);
         MapShopManager.instance.shopActivated();
+
+        _as.PlayOneShot(snClick, .8f);
+    }
+
+    public void clickFX()
+    {
+        _as.PlayOneShot(snClick, .8f);
     }
 }

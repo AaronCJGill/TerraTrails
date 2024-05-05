@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: 2
   secondSound: 0
+  thirdSound: 0
 --- !u!114 &1307537575209901633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +478,7 @@ AudioSource:
   m_GameObject: {fileID: 6232436823323897514}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5538295746534762346, guid: f7b2b77aaa571d842bf84fa894175eb8, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -576,10 +577,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a6cda9e173a1d47929d22103f50707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kaWalk: {fileID: 0}
+  kaRun: {fileID: 0}
+  kaExplode: {fileID: 0}
   spLazer: {fileID: 0}
   tePopup: {fileID: 0}
+  tePlop: {fileID: 0}
   plStep: {fileID: 0}
-  chrg: {fileID: 8300000, guid: b86e95a7b53e0044aa3be88d6f884179, type: 3}
-  chStep: {fileID: 8300000, guid: 6c2f189923930834b895d26cb2b1eff0, type: 3}
-  chBackStep: {fileID: 0}
+  chrg: {fileID: 8300000, guid: 274eb01f1bc5f2a4ba902640d498714c, type: 3}
+  chStep: {fileID: 8300000, guid: 051ea7ec80fd25d4b8f49a7297eea7db, type: 3}
+  chBackStep: {fileID: 8300000, guid: c5d2cfe6255451f4a98a3764efe64d59, type: 3}
   chStop: {fileID: 8300000, guid: 356c13ba087d17a418e12f0e66ba82b7, type: 3}

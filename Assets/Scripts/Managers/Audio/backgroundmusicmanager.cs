@@ -11,10 +11,11 @@ public class backgroundmusicmanager : MonoBehaviour
         Map,
         MainMenu,
         introcutscene,
-        Level
+        Level,
+        Gameover
     }
 
-    public AudioClip mmMusic, introMusic,MapMusic, industrialMusic, organicLevel;
+    public AudioClip mmMusic, introMusic,MapMusic, industrialMusic, organicLevel, gameoverMus;
 
     public static backgroundmusicmanager instance;
     private void Awake()
@@ -52,7 +53,10 @@ public class backgroundmusicmanager : MonoBehaviour
         intro,
         levelselect,
         industrial,
-        organic
+        organic,
+        gameover,
+        passLevel,
+        none
     }
     public void changeBackgroundMusic(levtype type)
     {
@@ -86,6 +90,17 @@ public class backgroundmusicmanager : MonoBehaviour
                 _as.clip = organicLevel;
                 _as.Play();
                 break;
+            case levtype.gameover:
+                _as.clip = gameoverMus;
+                _as.Play();
+                break;
+            case levtype.passLevel:
+                _as.clip = introMusic;
+                _as.Play();
+                break;
+            case levtype.none:
+                _as.Stop();
+                break;
             default:
                 _as.clip = industrialMusic;
                 _as.Play();
@@ -100,7 +115,6 @@ public class backgroundmusicmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //FIXXX
         _as.volume = CentralAudioManager.instance.bgmVolume;
         //_as.volume = 0;
 
