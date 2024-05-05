@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler
 {
     //individual level
     //has ability to activate next level if completed
@@ -97,9 +97,16 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [Header("Pretty Name")]
     [SerializeField]
     private string UIDisplayName;
+
+    public AudioClip snBuy;
+    public AudioClip snCantBuy;
+    public AudioClip snClick;
+
+    AudioSource _as;
     private void Awake()
     {
         sr = GetComponent<Image>();
+        _as = GetComponent<AudioSource>();
         if (string.IsNullOrEmpty(UIDisplayName))
         {
             UIDisplayName = levelName;
@@ -399,11 +406,20 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             sr.sprite = levelUnlockedSprite;
             //canBuyLockPanel.SetActive(false);
             //cantBuylockedPanel.SetActive(false);
+            _as.PlayOneShot(snBuy, 1);
+
         }
         else
         {
+            _as.PlayOneShot(snCantBuy, 1);
             Debug.Log("Cannot purchase level");
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        _as.pitch = 1;
+        _as.PlayOneShot(snClick, .8f);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -412,6 +428,8 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             //go immediately into the level
             SceneManager.LoadScene(levelName);
+            _as.pitch = 2f;
+            _as.PlayOneShot(snClick, .7f);
         }
         else
         {

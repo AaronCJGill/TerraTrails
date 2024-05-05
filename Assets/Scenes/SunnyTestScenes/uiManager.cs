@@ -190,6 +190,9 @@ public class uiManager : MonoBehaviour
 
     public void RestartScene()
     {
+        _as.pitch = 2f;
+        _as.PlayOneShot(snClick, .8f);
+
         transitionElement.SetActive(true);
         transitionElement.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, 0f, 0f);
         LeanTween.cancel(transitionElement);

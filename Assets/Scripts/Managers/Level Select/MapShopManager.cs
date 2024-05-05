@@ -21,6 +21,12 @@ public class MapShopManager : MonoBehaviour
     public static MapShopManager instance;
     [SerializeField]
     private GameObject parrytutorialobject, dashtutorialobject;
+
+    public AudioClip snClick;
+    public AudioClip snBuy;
+    public AudioClip snCantbuy;
+
+    AudioSource _as;
     private void Awake()
     {
         if (instance != this && instance != null)
@@ -38,6 +44,8 @@ public class MapShopManager : MonoBehaviour
         pA = AbilityManager.instance.savedAbilities;
         parrytutorialobject.SetActive(false);
         dashtutorialobject.SetActive(false);
+
+        _as = GetComponent<AudioSource>();
     }
     public void shopActivated()
     {
@@ -97,6 +105,7 @@ public class MapShopManager : MonoBehaviour
         {
             //allow the player to just equip
             pA.equippedAbility = Abilities.AbilityType.dash;
+            _as.PlayOneShot(snClick, .8f);
         }
         else if(LevelStatsManager.canBuyLevel(dashCost))
         {
@@ -105,6 +114,7 @@ public class MapShopManager : MonoBehaviour
             LevelStatsManager.buyLevel(dashCost);
             Debug.Log("Bought dash");
 
+            _as.PlayOneShot(snBuy, 1f);
             pA.dashUnlocked = true;
             pA.equippedAbility = Abilities.AbilityType.dash;
             AbilityManager.instance.SaveAbilities(pA);
@@ -114,6 +124,7 @@ public class MapShopManager : MonoBehaviour
         {
             //if the player does not have enough money
             Debug.Log("Not enough money");
+            _as.PlayOneShot(snCantbuy, 1f);
         }
         updateText();
     }
@@ -124,6 +135,7 @@ public class MapShopManager : MonoBehaviour
         {
             //allow the player to just equip
             pA.equippedAbility = Abilities.AbilityType.parry;
+            _as.PlayOneShot(snClick, .8f);
         }
         else if (LevelStatsManager.canBuyLevel(parryCost))
         {
@@ -131,6 +143,8 @@ public class MapShopManager : MonoBehaviour
             //then buy parry
             LevelStatsManager.buyLevel(parryCost);
             Debug.Log("Bought parry");
+
+            _as.PlayOneShot(snBuy, 1f);
             pA.parryUnlocked = true;
             pA.equippedAbility = Abilities.AbilityType.parry;
             AbilityManager.instance.SaveAbilities(pA);
@@ -140,6 +154,7 @@ public class MapShopManager : MonoBehaviour
         {
             //if the player does not have enough money
             Debug.Log("Not enough money");
+            _as.PlayOneShot(snCantbuy, 1f);
         }
         updateText();
     }

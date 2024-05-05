@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: 524ae59931d737b4b8751520266e7501, type: 3}
-  chargerSFX: {fileID: 0}
+  chargerSFX: {fileID: 8300000, guid: ab5c6e7bc68f59845888ccd1135c472a, type: 3}
   shootingSFX: {fileID: 0}
-  parrySFX: {fileID: 8300000, guid: cdbaa685f4953b543aa453b0004132c8, type: 3}
+  parrySFX: {fileID: 8300000, guid: ab5c6e7bc68f59845888ccd1135c472a, type: 3}
   dashSFX: {fileID: 8300000, guid: 3718d0c1469e3f944995054a5caaca08, type: 3}
   teleportSFX: {fileID: 8300000, guid: 405d7f34f1141d14093e6d7f13627974, type: 3}
   playerWalkSFX: {fileID: 8300000, guid: b870573fc45302e42b2fd52960a1f92c, type: 3}

@@ -39,4 +39,10 @@ public class gameOverButton : MonoBehaviour
             GetComponent<Image>().sprite = defaultSprite;
         }
     }
+
+    public void clickFx()
+    {
+        var _as = transform.parent.GetComponent<AudioSource>();
+        _as.Play();
+    }
 }
