@@ -1433,7 +1433,9 @@ MonoBehaviour:
   equippedtext: {fileID: 1586332340}
   parrytutorialobject: {fileID: 5114023324011909737}
   dashtutorialobject: {fileID: 5114023324924940918}
-  currencyText: {fileID: 994180625}
+  snClick: {fileID: 0}
+  snBuy: {fileID: 0}
+  snCantbuy: {fileID: 0}
 --- !u!1 &560173582
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,6 +4497,7 @@ GameObject:
   - component: {fileID: 1242987034}
   - component: {fileID: 1242987033}
   - component: {fileID: 1242987032}
+  - component: {fileID: 1242987035}
   m_Layer: 5
   m_Name: Clear Level Data
   m_TagString: Untagged
@@ -4615,6 +4618,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242987030}
   m_CullTransparentMesh: 1
+--- !u!114 &1242987035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242987030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1774613197}
+          m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+          m_MethodName: clickFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1271254438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5168,6 +5200,7 @@ GameObject:
   - component: {fileID: 1360861052}
   - component: {fileID: 1360861051}
   - component: {fileID: 1360861050}
+  - component: {fileID: 1360861053}
   m_Layer: 5
   m_Name: Shop Button
   m_TagString: Untagged
@@ -5288,6 +5321,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360861048}
   m_CullTransparentMesh: 1
+--- !u!114 &1360861053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360861048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1774613197}
+          m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+          m_MethodName: clickFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1367671494
 GameObject:
   m_ObjectHideFlags: 0
@@ -6548,6 +6610,7 @@ GameObject:
   - component: {fileID: 1630307277}
   - component: {fileID: 1630307276}
   - component: {fileID: 1630307275}
+  - component: {fileID: 1630307278}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -6668,6 +6731,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630307273}
   m_CullTransparentMesh: 1
+--- !u!114 &1630307278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630307273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1774613197}
+          m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+          m_MethodName: clickFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1635825268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,6 +7680,7 @@ GameObject:
   - component: {fileID: 1760561050}
   - component: {fileID: 1760561049}
   - component: {fileID: 1760561048}
+  - component: {fileID: 1760561051}
   m_Layer: 0
   m_Name: Parry Button
   m_TagString: Untagged
@@ -7710,6 +7803,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760561046}
   m_CullTransparentMesh: 1
+--- !u!114 &1760561051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760561046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1774613197}
+          m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+          m_MethodName: clickFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1762845757
 GameObject:
   m_ObjectHideFlags: 0
@@ -7842,6 +7964,7 @@ MonoBehaviour:
   deathsText: {fileID: 1044780227}
   shopParent: {fileID: 1173860235}
   mapParent: {fileID: 1271254438}
+  snClick: {fileID: 0}
 --- !u!1 &1785837963
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,6 +7977,7 @@ GameObject:
   - component: {fileID: 1785837967}
   - component: {fileID: 1785837966}
   - component: {fileID: 1785837965}
+  - component: {fileID: 1785837968}
   m_Layer: 0
   m_Name: Dash Button
   m_TagString: Untagged
@@ -7976,6 +8100,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785837963}
   m_CullTransparentMesh: 1
+--- !u!114 &1785837968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785837963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1774613197}
+          m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+          m_MethodName: clickFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1842101553
 GameObject:
   m_ObjectHideFlags: 0
