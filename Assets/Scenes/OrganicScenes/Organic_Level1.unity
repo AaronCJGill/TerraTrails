@@ -1190,6 +1190,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &413393135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029503385949064581, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+  m_PrefabInstance: {fileID: 413393131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &413393136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4001404771166480579, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+  m_PrefabInstance: {fileID: 413393131}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &479460190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16279,6 +16289,14 @@ PrefabInstance:
       propertyPath: goalTimeText
       value: 
       objectReference: {fileID: 413393133}
+    - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: gameOverStatusDied
+      value: 
+      objectReference: {fileID: 413393136}
+    - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: gameOverStatusSurvived
+      value: 
+      objectReference: {fileID: 413393135}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2389537248275716776, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}

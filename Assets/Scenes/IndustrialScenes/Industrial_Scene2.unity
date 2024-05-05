@@ -8032,6 +8032,14 @@ PrefabInstance:
       propertyPath: goalTimeText
       value: 
       objectReference: {fileID: 1361773080}
+    - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: gameOverStatusDied
+      value: 
+      objectReference: {fileID: 880971331}
+    - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: gameOverStatusSurvived
+      value: 
+      objectReference: {fileID: 880971330}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2389537248275716776, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
@@ -8259,6 +8267,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+--- !u!1 &880971330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029503385949064581, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+  m_PrefabInstance: {fileID: 880971329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &880971331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4001404771166480579, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+  m_PrefabInstance: {fileID: 880971329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211062310
 GameObject:
   m_ObjectHideFlags: 0

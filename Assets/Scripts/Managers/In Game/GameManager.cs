@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI timerText;
     [SerializeField]
     private TextMeshProUGUI goalTimeText;
-
-
+    [SerializeField]
+    private GameObject gameOverStatusDied, gameOverStatusSurvived;
     public static GameManager instance;
     private levelType currentLevelType;
 
@@ -116,7 +116,10 @@ public class GameManager : MonoBehaviour
             {
                 //GameEnded.instance.showScreen(playerDied);
                 uiManager.instance.endGame(true);
-
+                
+                gameOverStatusDied.SetActive(true);
+                gameOverStatusSurvived.SetActive(false);
+                
                 //float goalTime, float actualTime, float timeGained
                 //if hte player did not beat the dev time show the lesser time
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
@@ -132,12 +135,14 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                
                 uiManager.instance.endGame(false);
                 //GameEnded.instance.showScreen();
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
                 //if the player has done better than the current time, then send in the difference in time
                 float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
-
+                gameOverStatusDied.SetActive(false);
+                gameOverStatusSurvived.SetActive(true);
                 PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snPass);
                 PlayerMovement.instance._as2.Play();
                 StartCoroutine(StartFade(GameObject.Find("BackgroundMusicManager").GetComponent<AudioSource>(), 2.4f, 0));

@@ -4032,6 +4032,11 @@ Transform:
   - {fileID: 1341468342}
   m_Father: {fileID: 202431407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &292389127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029503385949064581, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+  m_PrefabInstance: {fileID: 737188627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &318549056
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,6 +4574,14 @@ PrefabInstance:
       propertyPath: goalTimeText
       value: 
       objectReference: {fileID: 789642486}
+    - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: gameOverStatusDied
+      value: 
+      objectReference: {fileID: 737188629}
+    - target: {fileID: 9190219696213416351, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
+      propertyPath: gameOverStatusSurvived
+      value: 
+      objectReference: {fileID: 292389127}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2389537248275716776, guid: 49cf416df4dfe39418e7f4392f295106, type: 3}
@@ -5657,10 +5670,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 200681671}
-    - target: {fileID: 4089886614604426435, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4429635780641454230, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
       propertyPath: m_Name
       value: GameCanvas
@@ -5750,6 +5759,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+--- !u!1 &737188629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4001404771166480579, guid: 50f2f09fd0999ad46b11fb58988033a2, type: 3}
+  m_PrefabInstance: {fileID: 737188627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &748023377
 GameObject:
   m_ObjectHideFlags: 0
