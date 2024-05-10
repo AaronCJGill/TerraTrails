@@ -11466,7 +11466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 652910358}
   deathsText: {fileID: 757582372}
-  shopParent: {fileID: 141305068}
+  shopParent: {fileID: 1600394778}
   mapParent: {fileID: 177440342}
   snClick: {fileID: 8300000, guid: a09374c85ec37094dade33ee97bc7dbf, type: 3}
 --- !u!4 &1803017482
