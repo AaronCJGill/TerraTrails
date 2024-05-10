@@ -24,6 +24,10 @@ public class uiManager : MonoBehaviour
     public GameObject bottomShutter;
     public GameObject gameOverPanel;
     public GameObject detailBlood;
+    public GameObject passedPrompt;
+    public GameObject nextButton;
+    public GameObject mapButton;
+    public GameObject retryButton;
     [Header("Transition Times")]
     public float transitionPanelTime;
     public float transitionShutterTime;
@@ -100,7 +104,7 @@ public class uiManager : MonoBehaviour
             //If the player dies
             if (gameOverPanel.activeSelf && !isPlayed)
             {
-                endGame(true);
+                endGame();
                 isPlayed = true;
             }
             else if (!gameOverPanel.activeSelf && isPlayed)
@@ -117,42 +121,66 @@ public class uiManager : MonoBehaviour
     }
 
     //There are additional decorative features if the player has died vs has passed the level, please set the bool accordingly. 
-    public void endGame(bool hasDied = false)
+    public void endGame()
     {
+        //Hide side panels
+        LeanTween.move(leftPanel.GetComponent<RectTransform>(), leftPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
+        LeanTween.move(rightPanel.GetComponent<RectTransform>(), rightPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
+        //Collapse Shutter
+        LeanTween.move(topShutter.GetComponent<RectTransform>(), new Vector3(topShutterGoal.x, topShutterGoal.y, -15f), transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
+        LeanTween.move(bottomShutter.GetComponent<RectTransform>(), bottomShutterGoal, transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
+        Debug.Log("Game Over menu");
+        //Bring in death menu
+        gameOverPanel.SetActive(true);
+        LeanTween.move(gameOverPanel.GetComponent<RectTransform>(), gameOverGoal, transitionGameOverTime).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
+        
         //Player passes the game
-        if (!hasDied)
+        if (passedPrompt.activeSelf)
         {
-            //Hide side panels
-            LeanTween.move(leftPanel.GetComponent<RectTransform>(), leftPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
-            LeanTween.move(rightPanel.GetComponent<RectTransform>(), rightPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
-            //Collapse Shutter
-            LeanTween.move(topShutter.GetComponent<RectTransform>(), new Vector3(topShutterGoal.x, topShutterGoal.y, -15f), transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
-            LeanTween.move(bottomShutter.GetComponent<RectTransform>(), bottomShutterGoal, transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
-
-            //Bring in death menu
-            gameOverPanel.SetActive(true);
-            Debug.Log("Game Over menu");
-            LeanTween.move(gameOverPanel.GetComponent<RectTransform>(), gameOverGoal, transitionGameOverTime).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
-            //LeanTween.move(retryButton.GetComponent<RectTransform>(), retryButtonGoal, transitionGameOverTime).setDelay(1f).setEase(LeanTweenType.easeOutBack);
+            LeanTween.move(detailBlood.GetComponent<RectTransform>(), detailBloodStart, 3.25f).setDelay(1f).setEase(LeanTweenType.easeOutCirc);
+            nextButton.SetActive(true);
+            mapButton.SetActive(false);
+            retryButton.SetActive(false);
         }
         //Player dies
         else
         {
-            //Hide side panels
-            LeanTween.move(leftPanel.GetComponent<RectTransform>(), leftPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
-            LeanTween.move(rightPanel.GetComponent<RectTransform>(), rightPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
-            //Collapse Shutter
-            LeanTween.move(topShutter.GetComponent<RectTransform>(), new Vector3(topShutterGoal.x, topShutterGoal.y, -15f), transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
-            LeanTween.move(bottomShutter.GetComponent<RectTransform>(), bottomShutterGoal, transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
-            Debug.Log("Game Over menu");
-            //Bring in death menu
-            gameOverPanel.SetActive(true);
-            LeanTween.move(gameOverPanel.GetComponent<RectTransform>(), gameOverGoal, transitionGameOverTime).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
-            //LeanTween.move(retryButton.GetComponent<RectTransform>(), retryButtonGoal, transitionGameOverTime).setDelay(1f).setEase(LeanTweenType.easeOutCubic);
+
             //Move in additional effects
             LeanTween.move(detailBlood.GetComponent<RectTransform>(), detailBloodGoal, 3.25f).setDelay(1f).setEase(LeanTweenType.easeOutCirc);
         }
 
+    }
+
+    public IEnumerator delayedEndGame()
+    {
+        yield return new WaitForSeconds(1.75f);
+        //Hide side panels
+        LeanTween.move(leftPanel.GetComponent<RectTransform>(), leftPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
+        LeanTween.move(rightPanel.GetComponent<RectTransform>(), rightPanelGoal, transitionPanelTime).setEase(LeanTweenType.easeOutCubic);
+        //Collapse Shutter
+        LeanTween.move(topShutter.GetComponent<RectTransform>(), new Vector3(topShutterGoal.x, topShutterGoal.y, -15f), transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
+        LeanTween.move(bottomShutter.GetComponent<RectTransform>(), bottomShutterGoal, transitionShutterTime).setDelay(0.15f).setEase(LeanTweenType.easeOutSine);
+        Debug.Log("Game Over menu");
+        //Bring in death menu
+        gameOverPanel.SetActive(true);
+        LeanTween.move(gameOverPanel.GetComponent<RectTransform>(), gameOverGoal, transitionGameOverTime).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
+
+        //Player passes the game
+        if (passedPrompt.activeSelf)
+        {
+            LeanTween.move(detailBlood.GetComponent<RectTransform>(), detailBloodStart, 3.25f).setDelay(1f).setEase(LeanTweenType.easeOutCirc);
+            nextButton.SetActive(true);
+            mapButton.SetActive(false);
+            retryButton.SetActive(false);
+        }
+        //Player dies
+        else
+        {
+
+            //Move in additional effects
+            LeanTween.move(detailBlood.GetComponent<RectTransform>(), detailBloodGoal, 3.25f).setDelay(1f).setEase(LeanTweenType.easeOutCirc);
+        }
     }
 
     public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)

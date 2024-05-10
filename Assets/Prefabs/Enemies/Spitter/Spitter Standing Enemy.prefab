@@ -106,7 +106,7 @@ MonoBehaviour:
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}
   audioinstance: {fileID: -5350741981809948616}
   anim: {fileID: 3747195944382594099}
-  sr: {fileID: 8013810136247724459}
+  sr: {fileID: 3330698981492666451}
 --- !u!61 &818680575229134421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23df037984654bf4d8557dfccfb84b17, type: 3}
+  m_Sprite: {fileID: -1171330556, guid: 2bdfc517a7b3d1442afdb6fbff5c844d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

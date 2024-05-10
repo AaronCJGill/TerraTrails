@@ -131,7 +131,7 @@ public class EnemyMovementTeleport : MonoBehaviour, enemyDestroy
         //dig down
         anim.SetTrigger("digDown");
        // Debug.Log("starting dig down");
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(2.3f);
         //move this character off screen 
         transform.position = new Vector3(100, 100);
         //Debug.Log("starting dig down");

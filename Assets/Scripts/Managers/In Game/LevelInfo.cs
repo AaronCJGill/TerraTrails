@@ -61,10 +61,6 @@ public class LevelInfo : MonoBehaviour
         {
             GameManager.levelStart();
         }
-        if (!TutorialPopup.instance)
-        {
-            Time.timeScale = 1;
-        }
     }
 
 
@@ -74,10 +70,8 @@ public class LevelInfo : MonoBehaviour
         Debug.Log("This has been set active");
         if (LevelStatsManager.checkIfSaveFileExists(levelName))
         {
+            Debug.Log("level loaded");
             thisLevelsStats = LevelStatsManager.instance.load(levelName);
-            thisLevelsStats.devTime = devTime;
-            thisLevelsStats.minTime = minTime;
-            Debug.Log("level loaded " + thisLevelsStats.minTime);
         }
         else
         {
@@ -85,19 +79,15 @@ public class LevelInfo : MonoBehaviour
             //thisLevelsStats = new levelStats(levelName, 0, 0);
             thisLevelsStats.devTime = devTime;
             thisLevelsStats.minTime = minTime;
-            Debug.Log("New level created " + thisLevelsStats.minTime);
+            Debug.Log("New level created");
         }
-
 
         if (thisLevelsStats.maxTimeCounter == 0 || thisLevelsStats.minTime == 0)
         {
             //level has not been played before
             thisLevelsStats = new levelStats(levelName, 0, 0);
-            Debug.Log("LEVLESTATS IS 0 - " + thisLevelsStats.minTime);
             thisLevelsStats.devTime = devTime;
             thisLevelsStats.minTime = minTime;
-            Debug.Log("LEVLESTATS NOW IS " + thisLevelsStats.minTime);
-
         }
         //this either returns a new level or a saves the current level info
     }
@@ -115,14 +105,6 @@ public class LevelInfo : MonoBehaviour
         //I think updating time is handled in the save function
 
         thisLevelsStats.maxTimeCounter = GameManager.instance.Timer;
-        if (thisLevelsStats.devTime == 0)
-        {
-            Debug.Log("TIME IS ))000");
-        }
-        thisLevelsStats.minTime = minTime;
-        thisLevelsStats.devTime = devTime;
-        
-        Debug.Log("LEVEL STATS ARE SAVED");
         LevelStatsManager.instance.save(thisLevelsStats, died);
 
     }

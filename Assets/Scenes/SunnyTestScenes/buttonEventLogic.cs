@@ -37,14 +37,21 @@ public class buttonEventLogic : MonoBehaviour
         LeanTween.scale(gameObject, new Vector3(scaleValue, scaleValue, 1f), 0.5f).setEase(LeanTweenType.easeOutQuad);
         LeanTween.moveX((RectTransform)transform, originalPosition.x + offsetValue, 0.5f).setEase(LeanTweenType.easeOutQuad);
         image.raycastPadding = new Vector4(image.raycastPadding.x - offsetValue, image.raycastPadding.y, image.raycastPadding.z, image.raycastPadding.w);
-        animator.SetTrigger("startHover");
+        if(animator != null)
+        {
+            animator.SetTrigger("startHover");
+        }
     }
     public void leftButton()
     {
         LeanTween.scale(gameObject, originalScale, 0.5f).setEase(LeanTweenType.easeOutQuad);
         LeanTween.moveX((RectTransform)transform, originalPosition.x, 0.5f).setEase(LeanTweenType.easeOutQuad);
         image.raycastPadding = originalPadding;
-        animator.SetTrigger("endHover");
+        if (animator != null)
+        {
+            animator.SetTrigger("endHover");
+        }
+
     }
 
     public void clickFx()

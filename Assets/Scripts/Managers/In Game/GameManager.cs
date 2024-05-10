@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public bool timerActive = false;
     private float timer;
+    private bool hasDisplayedDeath = false;
+    public bool hasWatchedCutscene = false;
     public float Timer
     {
         get { return timer; }
@@ -112,11 +114,10 @@ public class GameManager : MonoBehaviour
                 //this is where the bug was likely occuring and adding in more time for no reason
                 //LevelStatsManager.instance.increaseTotalTime(LevelInfo.instance.thisLevelsStats.maxTimeCounter, Timer);
             }
-            if (playerDied)
+            if (playerDied && !hasDisplayedDeath)
             {
                 //GameEnded.instance.showScreen(playerDied);
-                uiManager.instance.endGame(true);
-                
+                StartCoroutine(uiManager.instance.delayedEndGame());
                 gameOverStatusDied.SetActive(true);
                 gameOverStatusSurvived.SetActive(false);
                 
@@ -132,17 +133,16 @@ public class GameManager : MonoBehaviour
                 LevelStatsManager.instance.sendOverGameOverInfo(goaltime, timer, timegained);
                 LevelInfo.instance.levelEnd(playerDied);
                 PlayerMovement.instance.doKillAnim();
+                hasDisplayedDeath = true;
             }
             else
             {
                 
-                uiManager.instance.endGame(false);
+                uiManager.instance.endGame();
                 //GameEnded.instance.showScreen();
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
                 //if the player has done better than the current time, then send in the difference in time
                 float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
-                Debug.Log("Max timer: " + LevelInfo.instance.thisLevelsStats.maxTimeCounter + " - time gained: " + timegained + " - TT: " + (timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter));
-                Debug.Log("Time Gained");
                 gameOverStatusDied.SetActive(false);
                 gameOverStatusSurvived.SetActive(true);
                 PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snPass);
@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(StartFade(GameObject.Find("BackgroundMusicManager").GetComponent<AudioSource>(), 2.4f, 0));
 
                 LevelStatsManager.instance.sendOverGameOverInfo(goaltime, timer, timegained);
-                uiManager.instance.endGame(playerDied);
+                uiManager.instance.endGame();
                 LevelInfo.instance.levelEnd();
             }
             GameOver = true;

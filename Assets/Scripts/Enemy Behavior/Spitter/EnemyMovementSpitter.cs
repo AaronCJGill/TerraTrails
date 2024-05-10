@@ -19,8 +19,8 @@ public class EnemyMovementSpitter : MonoBehaviour, enemyDestroy
     void Start()
     {
         audioinstance = GetComponent<AudioInstance>();
-        //if(audioinstance)
-            //Debug.Log("Audio not found");
+        if(audioinstance)
+            Debug.Log("Audio not found");
         if (doesSpawnRoutine)
         {
             //animation
@@ -36,12 +36,10 @@ public class EnemyMovementSpitter : MonoBehaviour, enemyDestroy
         if (transform.position.x < PlayerMovement.instance.transform.position.x)
         {
             sr.flipX = true;
-            //Debug.Log("switch");
         }
         else
         {
             sr.flipX = false;
-            //Debug.Log("switch22");
         }
     }
     void spawnSequence()

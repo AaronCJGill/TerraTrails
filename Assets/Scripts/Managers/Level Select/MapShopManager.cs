@@ -99,7 +99,7 @@ public class MapShopManager : MonoBehaviour
             //parryButtonText.text = "Buy Parry";
             equippedtext.text = "Nothing is equipped";
         }
-        currencyText.text = "time: " + string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
+        currencyText.text = string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
     }
     public void buyDashButton()
     {

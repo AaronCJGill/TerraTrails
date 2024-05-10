@@ -64,7 +64,7 @@ public class backgroundmusicmanager : MonoBehaviour
         
         if (CentralAudioManager.instance != null)
         {
-            //Debug.Log("Getting this");
+            Debug.Log("Getting this");
             _as.volume = CentralAudioManager.instance.bgmVolume;
         }
         //change the music to whatever is requested

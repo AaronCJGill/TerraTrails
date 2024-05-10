@@ -83,7 +83,7 @@ public class MapManager : MonoBehaviour
             //LevelStatsManager.instance.increaseTotalTimeCheat();
         }
 
-        timeText.text = "time: " + string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
+        timeText.text = string.Format("{0:0.00}", LevelStatsManager.totalTimeValue);
         deathsText.text = "" + LevelStatsManager.totalDeathCount;
 
         if (Input.GetKeyDown(KeyCode.G))

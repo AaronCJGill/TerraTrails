@@ -156,7 +156,7 @@ MonoBehaviour:
   spitWaitTime: 2
   totalDisappearTime: 2
   teleportPrepTime: 1.1
-  teleportWaitTIme: 0.5
+  teleportWaitTIme: 1
   restartTime: 1
   warningSymbol: {fileID: 4987578705084021693, guid: 3cce4049f7c40674ca4aa8ddc613caa8, type: 3}
   TeleToPlayer: 100
