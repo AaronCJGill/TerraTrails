@@ -141,6 +141,8 @@ public class GameManager : MonoBehaviour
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
                 //if the player has done better than the current time, then send in the difference in time
                 float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+                Debug.Log("Max timer: " + LevelInfo.instance.thisLevelsStats.maxTimeCounter + " - time gained: " + timegained + " - TT: " + (timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter));
+                Debug.Log("Time Gained");
                 gameOverStatusDied.SetActive(false);
                 gameOverStatusSurvived.SetActive(true);
                 PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snPass);

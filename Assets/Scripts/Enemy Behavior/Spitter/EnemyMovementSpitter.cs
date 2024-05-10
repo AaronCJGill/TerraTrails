@@ -36,10 +36,12 @@ public class EnemyMovementSpitter : MonoBehaviour, enemyDestroy
         if (transform.position.x < PlayerMovement.instance.transform.position.x)
         {
             sr.flipX = true;
+            Debug.Log("switch");
         }
         else
         {
             sr.flipX = false;
+            Debug.Log("switch22");
         }
     }
     void spawnSequence()
