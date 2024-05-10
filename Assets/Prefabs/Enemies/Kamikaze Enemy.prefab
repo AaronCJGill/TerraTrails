@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 1583076323040846755}
   - component: {fileID: 4305127687633264342}
   - component: {fileID: 5909854781248853764}
+  - component: {fileID: -8687260264439973225}
   m_Layer: 6
   m_Name: Kamikaze Enemy
   m_TagString: Untagged
@@ -499,6 +500,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &-8687260264439973225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329366662828632870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c823173fb966b47a5070769640e7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5487155382334601204
 GameObject:
   m_ObjectHideFlags: 0

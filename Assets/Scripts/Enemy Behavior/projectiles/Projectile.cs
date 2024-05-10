@@ -6,8 +6,12 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField]
     float speed = 12f;
+    ParticleSystem particleEffect;
     // Start is called before the first frame update
-
+    private void Start()
+    {
+        particleEffect = GetComponent<ParticleSystem>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -15,6 +19,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.left * speed * Time.deltaTime * -1);
         if (Mathf.Abs( transform.position.x )> 40 || Mathf.Abs(transform.position.y) > 40)
         {
+            
             Destroy(gameObject);
         }
 
@@ -24,6 +29,12 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        particleEffect.transform.parent = null;
+        particleEffect.Emit(5);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

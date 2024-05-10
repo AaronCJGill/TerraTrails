@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7314151957717693647}
   - component: {fileID: 3602059321102810875}
   - component: {fileID: 6622610318739026049}
+  - component: {fileID: 7400447747193078626}
   m_Layer: 6
   m_Name: TeleportingEnemy
   m_TagString: Untagged
@@ -365,6 +366,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &7400447747193078626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948761129603276318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c823173fb966b47a5070769640e7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9132564388269394623
 GameObject:
   m_ObjectHideFlags: 0

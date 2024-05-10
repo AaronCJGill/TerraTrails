@@ -42,6 +42,7 @@ public class EnemyMovementCharge : MonoBehaviour, enemyDestroy
     float stopDistance = 0.3f;
     [SerializeField]
     float picknextwaypointdistance = 0.8f;
+    public ParticleSystem PS;
     void Start()
     {
         seeker = GetComponent<Pathfinding.Seeker>();

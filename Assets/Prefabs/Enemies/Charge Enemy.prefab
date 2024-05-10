@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1307537575209901633}
   - component: {fileID: 4051378040281806871}
   - component: {fileID: 8484290646524880644}
+  - component: {fileID: -4281523743645152587}
   m_Layer: 6
   m_Name: Charge Enemy
   m_TagString: Untagged
@@ -69,6 +70,7 @@ MonoBehaviour:
   stunTime: 3
   stopDistance: 0.3
   picknextwaypointdistance: 0.8
+  PS: {fileID: 0}
 --- !u!212 &5167955590218165961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -361,6 +363,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &-4281523743645152587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956250014916208435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c823173fb966b47a5070769640e7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6232436823323897514
 GameObject:
   m_ObjectHideFlags: 0
