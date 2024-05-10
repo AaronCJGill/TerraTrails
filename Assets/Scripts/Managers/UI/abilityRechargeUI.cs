@@ -57,13 +57,13 @@ public class abilityRechargeUI : MonoBehaviour
         }
         else if(type == abilitytype.dash)
         {
-            dashSprite.SetActive(false);
-            parrySprite.SetActive(true);
+            dashSprite.SetActive(true);
+            parrySprite.SetActive(false);
             abilityprompt.text = "Dash";
         }
         else
         {
-            parrySprite.SetActive(true);
+            parrySprite.SetActive(false);
             dashSprite.SetActive(false);
             abilityprompt.text = "Nothing";
         }

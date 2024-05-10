@@ -125,8 +125,9 @@ public class GameManager : MonoBehaviour
                 //if hte player did not beat the dev time show the lesser time
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
                 //if the player has done better than the current time, then send in the difference in time
-                float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
-
+                //float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+                float timegained = Mathf.Max(timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter, 0);
+                Debug.Log("time gained: " + timegained);
                 PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snDie);
                 backgroundmusicmanager.instance.changeBackgroundMusic(backgroundmusicmanager.levtype.gameover);
 
@@ -142,7 +143,9 @@ public class GameManager : MonoBehaviour
                 //GameEnded.instance.showScreen();
                 float goaltime = (LevelInfo.instance.minTime < timer) ? LevelInfo.instance.devTime : LevelInfo.instance.minTime;
                 //if the player has done better than the current time, then send in the difference in time
-                float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+                //float timegained = (LevelInfo.instance.thisLevelsStats.maxTimeCounter < timer) ? timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter : 0;
+                float timegained = Mathf.Max(timer - LevelInfo.instance.thisLevelsStats.maxTimeCounter,0);
+                Debug.Log("time gained: " + timegained);
                 gameOverStatusDied.SetActive(false);
                 gameOverStatusSurvived.SetActive(true);
                 PlayerMovement.instance._as.PlayOneShot(PlayerMovement.instance.snPass);

@@ -72,6 +72,8 @@ public class LevelInfo : MonoBehaviour
         {
             Debug.Log("level loaded");
             thisLevelsStats = LevelStatsManager.instance.load(levelName);
+            thisLevelsStats.devTime = devTime;
+            thisLevelsStats.minTime = minTime;
         }
         else
         {
@@ -103,7 +105,8 @@ public class LevelInfo : MonoBehaviour
             thisLevelsStats.maxTimeCounter = GameManager.instance.Timer;
         }*/
         //I think updating time is handled in the save function
-
+        thisLevelsStats.devTime = devTime;
+        thisLevelsStats.minTime = minTime;
         thisLevelsStats.maxTimeCounter = GameManager.instance.Timer;
         LevelStatsManager.instance.save(thisLevelsStats, died);
 

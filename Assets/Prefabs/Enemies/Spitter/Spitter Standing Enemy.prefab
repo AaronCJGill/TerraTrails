@@ -106,7 +106,7 @@ MonoBehaviour:
   projectile: {fileID: 1086601612787459939, guid: c6dfd9322c55a35438caf4701f94cc29, type: 3}
   audioinstance: {fileID: -5350741981809948616}
   anim: {fileID: 3747195944382594099}
-  sr: {fileID: 3330698981492666451}
+  sr: {fileID: 8013810136247724459}
 --- !u!61 &818680575229134421
 BoxCollider2D:
   m_ObjectHideFlags: 0
