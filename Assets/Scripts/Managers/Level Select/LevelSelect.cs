@@ -323,6 +323,7 @@ public class LevelSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else if (levelComplete || levelPlayed)
         {
             instantiatedPopUp.init(mapLevelUIPopup.levelInfoKnown.played, _levelstats, UIDisplayName);
+            Debug.Log("Level stats: " + _levelstats.minTime + " " + _levelstats.devTime + " " + _levelstats.levelName);
         }
         else if (levelLocked && !levelPlayed)
         {

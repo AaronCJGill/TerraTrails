@@ -21,6 +21,7 @@ public class mapLevelUIPopup : MonoBehaviour
     TextMeshProUGUI unplayedPanelPlayerTime, unplayedPanelGoalTime;
     public void init(levelInfoKnown lik, levelStats ls, string levelName, float cost = 0)
     {
+        Debug.Log(ls.devTime +  " " + ls.minTime);
         switch (lik)
         {
             case levelInfoKnown.locked:
